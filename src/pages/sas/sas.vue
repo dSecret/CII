@@ -1,9 +1,6 @@
 <template>
   <div>
       <channelnav v-bind:channelprofile="channelprofile" :navElem="navElem"></channelnav>
-      <div class="router-css">
-          <router-view ></router-view>
-      </div>
   </div>
 </template>
 
@@ -22,7 +19,9 @@ export default {
        },
        {title:'Services',type:'two',icon:'bubble_chart',linki:'/sas/services',
         expand:[
-          {title:'',linki:''},
+          {title:'RequestEquip',linki:'/sas/services'},
+          {title:'PendingReq',linki:'/sas/services/PendingReq'},
+          {title:'YourDues',linki:'/sas/services/YourDues'}
         ]
       },
       {title:'Clubs',type:'one',icon:'polymer',linki:'/sas/clubs',
@@ -35,6 +34,17 @@ export default {
             {title:'',linki:''},
           ],
         },
+        {title:'Admin-Block',type:'two',icon:'person',linki:'/sas/admin',
+           expand:[
+             {title:'NewPost',linki:'/sas/admin'},
+             {title:'Drafts',linki:'/sas/admin/drafts'},
+             {title:'Submissions',linki:'/sas/admin/submissions '},
+             {title:'NewAlbum',linki:'/sas/admin/newalbum'},
+             {title:'AdminPanel',linki:'/sas/admin/adminpanel'},
+             {title:'SiteSettings',linki:'/sas/admin/settings'},
+           ],
+         },
+
       ]
 }
 }
@@ -42,21 +52,4 @@ export default {
 </script>
 
 <style scoped>
-.router-css{
-  padding-top:70px;
-  width:60%;
-  margin-left:20%;
-}
-@media only screen and (max-width:10in) and (min-width:5.5in) {
-  .routercss{
-    width:80%;
-    margin-left:10%;
-  }
-}
-@media only screen and (max-width:12in) and (min-width:10in) {
-  .routercss{
-    width:70%;
-    margin-left:15%;
-  }
-}
 </style>

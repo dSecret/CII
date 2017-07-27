@@ -12,6 +12,12 @@ import ciiuser from './pages/cii/user/user.vue'
 
 import sas from './pages/sas/sas.vue'
 import sashome from './pages/sas/home/home.vue'
+import sasservices from './pages/sas/services/services.vue'
+    import reqequip from './pages/sas/services/reqequip/reqequip.vue'
+    import sasreqpend from './pages/sas/services/pendingreq/pendingreq.vue'
+    import sasdues from './pages/sas/services/yourdues/yourdues.vue'
+import sasgal from './pages/sas/gallery/gal.vue'
+import sasclubs from './pages/sas/clubs/clubs.vue'
 
 export default [
   {path:'/',component:cii,
@@ -32,7 +38,16 @@ export default [
   },
   {path:'/sas',component:sas,
     children:[
-      {path:'',component:sashome}
+      {path:'',component:sashome},
+      {path:'services',component:sasservices,
+        children:[
+          {path:'PendingReq',component:sasreqpend},
+          {path:'YourDues',component:sasdues},
+          {path:'',component:reqequip},
+        ]
+      },
+      {path:'gallery',component:sasgal},
+      {path:'clubs',component:sasclubs}
 
     ]
   }

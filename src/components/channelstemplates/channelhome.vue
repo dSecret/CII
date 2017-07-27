@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-      <div><!--this option will be only shown to admin user-->
-          <md-button class="md-raised md-accent">
-            CreateNew<md-icon>create</md-icon>
-          </md-button>
+      <div>
+
       </div>
       <md-divider></md-divider>
       <div>

@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="wrap-container">
+      <div class="homecontainer">
         <channelhome></channelhome>
+      </div>
   </div>
 </template>
 
@@ -11,7 +13,11 @@ export default {
 </script>
 
 <style scoped>
-div{
-  width:100%;
+.wrap-container{
+  width:100vw;
+}
+.homecontainer{
+  width:60vw;margin-left:20vw;
+  margin-top:20px;
 }
 </style>
