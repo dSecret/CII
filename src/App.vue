@@ -14,7 +14,7 @@ export default {
   }
 }
 </script>
-
+<style src="vue-material/dist/vue-material.css"></style>
 <style lang="scss">
 #app{
   width:100vw;

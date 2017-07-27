@@ -1,41 +1,47 @@
 <template>
-  <div class="container">
-      <md-button class="md-raised">Default</md-button>
-      <md-icon>image</md-icon>
-      People
-Title goes here
-Subtitle here
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-Title goes here
-Subtitle here
-People
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-People
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea nostrum.
-People
-Title goes here
-Subtitle here
-
-<md-card>
-  <md-card-media>
-    <img src="assets/card-image-1.jpg" alt="People">
-  </md-card-media>
-
-  <md-card-header>
-    <div class="md-title">Title goes here</div>
-    <div class="md-subhead">Subtitle here</div>
-  </md-card-header>
-
-  <md-card-actions>
-    <md-button>Action</md-button>
-    <md-button>Action</md-button>
-  </md-card-actions>
-
-  <md-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-  </md-card-content>
-</md-card>
-
+  <div class="sascontainer">
+      <div class="phone-viewport topnav">
+        <md-toolbar class="md-medium">
+            <div class="md-toolbar-container">
+                <md-button class="md-icon-button" style="background:none;padding:30px;"
+                 v-on:click="toggleLeftSidenav">
+                  <md-icon style="font-size:40px;margin-right: 25px ;margin-bottom:25px ;">menu</md-icon>
+                </md-button>
+                <h2 class="md-display-2 channel-title">{{channelprofile.title}}</h2>
+            </div>
+        </md-toolbar>
+            <md-sidenav class="md-left" ref="leftSidenav"
+                onmouseover="document.getElementById('bood').style.overflowY='hidden';"
+                onmouseout="document.getElementById('bood').style.overflowY='scroll';"
+            >
+              <md-toolbar class="md-large">
+                <div class="md-toolbar-container">
+                  <h3 class="md-title">CII</h3>
+                </div>
+              </md-toolbar>
+              <md-list style="margin-bottom:100px;">
+                  <template v-for="elem in navElem">
+                  <md-list-item v-if="elem.type=='one'" >
+                      <router-link :to="elem.linki" exact>
+                        <md-icon>{{elem.icon}}</md-icon>
+                        <span>{{elem.title}}</span>
+                      </router-link>
+                  </md-list-item>
+                  <md-list-item v-if="elem.type=='two'">
+                      <md-icon>{{elem.icon}}</md-icon>
+                      <span>{{elem.title}}</span>
+                          <md-list-expand>
+                            <md-list>
+                              <md-list-item v-for="tit in elem.expand"class="md-inset">
+                                  <router-link :to="tit.linki" exact>{{tit.title}}</router-link>
+                              </md-list-item>
+                            </md-list>
+                          </md-list-expand>
+                  </md-list-item>
+                </template>
+              </md-list>
+            </md-sidenav>
+      </div>
       <div class="routercss">
           <router-view ></router-view>
       </div>
@@ -74,8 +80,8 @@ export default {
 </script>
 
 <style scoped>
-.container{
-  width:100vw;
+.sascontainer{
+  width:100%;
   margin: 0;
 }
 .topnav{
