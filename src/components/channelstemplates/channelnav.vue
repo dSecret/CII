@@ -1,5 +1,4 @@
 <template>
-  <div class="sascontainer">
       <div class="phone-viewport topnav">
         <md-toolbar class="md-medium">
             <div class="md-toolbar-container">
@@ -10,9 +9,9 @@
                 <h2 class="md-display-2 channel-title">{{channelprofile.title}}</h2>
             </div>
         </md-toolbar>
-            <md-sidenav class="md-left" ref="leftSidenav"
-                onmouseover="document.getElementById('bood').style.overflowY='hidden';"
-                onmouseout="document.getElementById('bood').style.overflowY='scroll';"
+            <md-sidenav class="md-left sidenav" ref="leftSidenav"
+                onmouseover="document.getElementById('entryroute').style.overflowY='hidden';"
+                onmouseout="document.getElementById('entryroute').style.overflowY='scroll';"
             >
               <md-toolbar class="md-large">
                 <div class="md-toolbar-container">
@@ -41,11 +40,11 @@
                 </template>
               </md-list>
             </md-sidenav>
+          <div id="entryroute"class="router-css">
+              <router-view></router-view>
+          </div>
+          <svgg></svgg>
       </div>
-      <div class="routercss">
-          <router-view ></router-view>
-      </div>
-  </div>
 </template>
 
 <script>
@@ -80,6 +79,18 @@ export default {
 </script>
 
 <style scoped>
+.sidenav{
+  z-index:1000 !important;
+}
+#entryroute{
+  width:100vw;
+  height:100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  z-index:500;
+}
 .sascontainer{
   width:100%;
   margin: 0;
@@ -88,9 +99,9 @@ export default {
   position: fixed;
   top:0;
   left:0;
-  height:100vh;
   width:100vw;
-  z-index: 700;
+  height: 100vh;
+  z-index:1000;
 }
 .channel-title{
   flex: 1 !important;color:white !important;
@@ -104,8 +115,7 @@ a{
   color:blue;
 }
 .routercss{
-width:50%;
-margin-left:25%;
+
 }
 @media only screen and (max-width:5.5in) {
   .routercss{
