@@ -19,6 +19,11 @@ import sasservices from './pages/sas/services/services.vue'
 import sasgal from './pages/sas/gallery/gal.vue'
 import sasclubs from './pages/sas/clubs/clubs.vue'
 
+
+import admin from './components/channelstemplates/admin/admin.vue'
+import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
+
+
 export default [
   {path:'/',component:cii,
     children:[
@@ -47,7 +52,12 @@ export default [
         ]
       },
       {path:'gallery',component:sasgal},
-      {path:'clubs',component:sasclubs}
+      {path:'clubs',component:sasclubs},
+      {path:'admin',component:admin,
+        children:[
+          {path:'addpost',component:addpost}
+        ]
+      }
 
     ]
   }

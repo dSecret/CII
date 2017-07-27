@@ -36,7 +36,7 @@ export default {
         },
         {title:'Admin-Block',type:'two',icon:'person',linki:'/sas/admin',
            expand:[
-             {title:'NewPost',linki:'/sas/admin'},
+             {title:'NewPost',linki:'/sas/admin/addpost'},
              {title:'Drafts',linki:'/sas/admin/drafts'},
              {title:'Submissions',linki:'/sas/admin/submissions '},
              {title:'NewAlbum',linki:'/sas/admin/newalbum'},

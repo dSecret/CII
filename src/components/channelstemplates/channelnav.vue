@@ -1,6 +1,6 @@
 <template>
       <div class="phone-viewport topnav">
-        <md-toolbar class="md-medium">
+        <md-toolbar class="md-medium md-accent" >
             <div class="md-toolbar-container">
                 <md-button class="md-icon-button" style="background:none;padding:30px;"
                  v-on:click="toggleLeftSidenav">

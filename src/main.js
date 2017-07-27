@@ -11,9 +11,12 @@ import VueMaterial from 'vue-material'
 import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
 
+import forms from './components/ciiservices/forms/forms.vue'
+
 Vue.component('svgg',svgg)
 Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
+Vue.component('forms',forms)
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
