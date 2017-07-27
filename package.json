@@ -9,7 +9,6 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.3.3",
     "js-cookie": "^2.1.4",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
