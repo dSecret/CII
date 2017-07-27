@@ -7,9 +7,10 @@ import Routes from './route.js'
 import VueCookie from "vue-cookie"
 import GSignInButton from 'vue-google-signin-button'
 import VueMaterial from 'vue-material'
-
-import channeltemp from './components/channelstemplates/channeltemp.vue'
-Vue.component('channeltemp',channeltemp);
+import channelnav from './components/channelstemplates/channelnav.vue'
+import channelhome from './components/channelstemplates/channelhome.vue'
+Vue.component('channelnav',channelnav);
+Vue.component('channelhome',channelhome);
 
 Vue.use(VueResource);
 Vue.use(VueRouter);

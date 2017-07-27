@@ -1,6 +1,6 @@
 <template>
   <div>
-      <channeltemp v-bind:channelprofile="channelprofile" :navElem="navElem"></channeltemp>
+      <channelnav v-bind:channelprofile="channelprofile" :navElem="navElem"></channelnav>
   </div>
 </template>
 
@@ -13,24 +13,22 @@ export default {
       },
 
       navElem:[
-        {title:'Home',type:'one',icon:'home',linki:'/sas',
+        {title:'AboutCII',type:'one',icon:'info',linki:'/cii/about',
          expand:[
            {title:'',linki:''},
          ],
        },
-       {title:'Services',type:'two',icon:'home',linki:'',
+       {title:'UserGuide',type:'two',icon:'assignment_ind',linki:'/cii/userguide',
         expand:[
-          {title:'ReqEquip',linki:'/SAS/Services'},
-          {title:'PendReq',linki:'/SAS/Services/PendingReq'},
-          {title:'Issued',linki:'/SAS/Services/Issued'},
+          {title:'',linki:''},
         ]
       },
-      {title:'Clubs',type:'one',icon:'home',linki:'/sas/Clubs',
+      {title:'AdminGuide',type:'two',icon:'developer_mode',linki:'/cii/adminguide',
          expand:[
            {title:'',linki:''},
          ],
        },
-       {title:'Gallery',type:'one',icon:'image',linki:'/sas/Gallery',
+       {title:'Developer',type:'one',icon:'build',linki:'/cii/developer',
           expand:[
             {title:'',linki:''},
           ],
