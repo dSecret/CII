@@ -1,5 +1,5 @@
 <template>
-  <div class="cii-cont" align="center">
+  <div class="cii-cont" >
     <router-view></router-view>
   </div>
 </template>
@@ -17,10 +17,11 @@ export default {
 
 <style>
 .cii-cont{
-    width:50%;
-    margin-left:25%;
-    padding-top:15vh;
-    padding-bottom:1%;
+    width:60%;
+    margin-left:20%;
+    margin-top:5vh;
+    margin-bottom:20vh;
+    box-shadow:0 0 4px 1px lightgrey;
 }
 @media only screen and (max-width:5.5in) {
   .cii-cont{

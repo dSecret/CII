@@ -205,7 +205,7 @@ export default {
 				}
   	},
   	uploadForm () {
-			
+
 			console.log(this.$route.path)
 
   		/*var form = new FormData()
@@ -242,5 +242,15 @@ export default {
 .create-button {
 	margin:4px 0 ;
 
+}
+.startbutton{
+  display: inline-block;
+  padding:0.5%;
+  border:1px dotted black;
+  border-radius:3px;
+  cursor: pointer;
+  vertical-align:bottom;
+  margin-top:60px;
+  box-sizing: border-box;
 }
 </style>

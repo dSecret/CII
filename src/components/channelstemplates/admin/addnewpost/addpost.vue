@@ -112,7 +112,6 @@ export default {
   width:100%;
   margin-left:0;
   padding:10px 0 20px 0;margin-top:2%;
-  box-shadow:0 1px 3px 1px grey;
   min-height:450px;
 }
 .rec-msg{

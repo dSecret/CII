@@ -17,11 +17,12 @@ export default {
          expand:[
          ],
        },
-       {title:'Services',type:'two',icon:'bubble_chart',linki:'/sas/services',
+       {title:'Services',type:'two',icon:'cloud_circle',linki:'/sas/services',
         expand:[
           {title:'RequestEquip',linki:'/sas/services'},
           {title:'PendingReq',linki:'/sas/services/PendingReq'},
-          {title:'YourDues',linki:'/sas/services/YourDues'}
+          {title:'YourDues',linki:'/sas/services/YourDues'},
+          {title:'IssuedItems',linki:'/sas/services/issueditems'}
         ]
       },
       {title:'Clubs',type:'one',icon:'polymer',linki:'/sas/clubs',
@@ -38,7 +39,10 @@ export default {
            expand:[
              {title:'NewPost',linki:'/sas/admin/addpost'},
              {title:'Drafts',linki:'/sas/admin/drafts'},
-             {title:'Submissions',linki:'/sas/admin/submissions '},
+             {title:'Submissions',linki:'/sas/admin/submissions'},
+             {title:'EquipRequests',linki:'/sas/admin/sasreqtab'},
+             {title:'IssuedEquip',linki:'/sas/admin/issuedList'},
+             {title:'UpdateEquipList',linki:'/sas/admin/updateequiplist'},
              {title:'NewAlbum',linki:'/sas/admin/newalbum'},
              {title:'AdminPanel',linki:'/sas/admin/adminpanel'},
              {title:'SiteSettings',linki:'/sas/admin/settings'},

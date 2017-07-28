@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import svgg from './svg.vue'
-import VueResource from 'vue-resource'
 import moment from 'moment'
 import VueRouter from 'vue-router'
 import Routes from './route.js'
@@ -18,7 +17,6 @@ Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
 Vue.component('forms',forms)
 
-Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(VueCookie);
 Vue.use(VueMaterial);

@@ -19,8 +19,9 @@ export default {
 .cii-cont{
     width:60%;
     margin-left:20%;
-    padding-top:5vh;
-    padding-bottom:30vh;
+    margin-top:5vh;
+    margin-bottom:30vh;
+    box-shadow:0 1px 3px 1px grey;
 }
 @media only screen and (max-width:5.5in) {
   .cii-cont{
