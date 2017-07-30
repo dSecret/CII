@@ -1,22 +1,28 @@
 <template>
       <div class="phone-viewport topnav">
-        <md-toolbar class="md-medium md-accent" >
+        <md-toolbar  v-bind:md-theme="channelprofile.theme">
             <div class="md-toolbar-container">
+                <h2 class="md-display-2 channel-title">{{channelprofile.title}}</h2>
+                <h2 class="md-display-2 fullform">{{channelprofile.fullform}}</h2>
                 <md-button class="md-icon-button" style="background:none;padding:30px;"
                  v-on:click="toggleLeftSidenav">
                   <md-icon style="font-size:40px;margin-right: 25px ;margin-bottom:25px ;">menu</md-icon>
                 </md-button>
-                <h2 class="md-display-2 channel-title">{{channelprofile.title}}</h2>
             </div>
         </md-toolbar>
-            <md-sidenav class="md-left sidenav" ref="leftSidenav"
-                onmouseover="document.getElementById('entryroute').style.overflowY='hidden';"
-                onmouseout="document.getElementById('entryroute').style.overflowY='scroll';"
-            >
+        <md-sidenav
+            class="md-left sidenav"
+            ref="leftSidenav"
+            onmouseover="document.getElementById('entryroute').style.overflowY='hidden';"
+            onmouseout="document.getElementById('entryroute').style.overflowY='scroll';"
+        >
               <md-toolbar class="md-large">
-                <div class="md-toolbar-container">
-                  <h3 class="md-title">CII</h3>
-                </div>
+                  <div class="md-title logo">
+                    <md-icon class="md-size-5x warn" style="color:white;">bubble_chart</md-icon>
+                  </div>
+                  <div style="text-align:right;color:pink;position:absolute;right:10px;bottom:0;">
+                      <md-icon>flash_on</md-icon> by CII
+                  </div>
               </md-toolbar>
               <md-list style="margin-bottom:100px;">
                   <template v-for="elem in navElem">
@@ -26,12 +32,12 @@
                         <span>{{elem.title}}</span>
                       </router-link>
                   </md-list-item>
-                  <md-list-item v-if="elem.type=='two'">
+                  <md-list-item v-if="elem.type=='two'" >
                       <md-icon>{{elem.icon}}</md-icon>
                       <span>{{elem.title}}</span>
                           <md-list-expand>
-                            <md-list>
-                              <md-list-item v-for="tit in elem.expand"class="md-inset">
+                            <md-list >
+                              <md-list-item v-for="tit in elem.expand"class="md-inset" >
                                   <router-link :to="tit.linki" exact>{{tit.title}}</router-link>
                               </md-list-item>
                             </md-list>
@@ -39,11 +45,11 @@
                   </md-list-item>
                 </template>
               </md-list>
-            </md-sidenav>
-          <div id="entryroute"class="router-css">
+        </md-sidenav>
+        <div id="entryroute"class="router-css">
               <router-view></router-view>
-          </div>
-          <svgg></svgg>
+        </div>
+        <svgg></svgg>
       </div>
 </template>
 
@@ -68,11 +74,8 @@ export default {
     toggleLeftSidenav() {
       this.$refs.leftSidenav.toggle();
     },
-    toggleRightSidenav() {
-      this.$refs.rightSidenav.toggle();
-    },
-    closeRightSidenav() {
-      this.$refs.rightSidenav.close();
+    closeLeftSidenav() {
+      this.$refs.leftSidenav.close();
     },
   }
 }
@@ -103,9 +106,23 @@ export default {
   height: 100vh;
   z-index:1000;
 }
+.logo{
+  font-size:20px;
+  width:100%;text-align:center;
+  margin:0;padding:0;
+  position:relative;
+}
 .channel-title{
-  flex: 1 !important;color:white !important;
+  flex:1 !important;
+  color:white !important;
   font-family: 'Abril Fatface', cursive !important;
+  margin-left: 0;display: none;
+}
+.fullform{
+  flex:1 !important;
+  color:white !important;
+  font-family: 'Abril Fatface', cursive !important;
+  margin-left: 0;
 }
 a{
   text-shadow: none!important;
@@ -133,6 +150,15 @@ a{
   .routercss{
     width:70%;
     margin-left:15%;
+  }
+
+}
+@media only screen and (max-width:12in) {
+  .channel-title{
+    display:inline-block;
+  }
+  .fullform{
+    display:none;
   }
 }
 </style>

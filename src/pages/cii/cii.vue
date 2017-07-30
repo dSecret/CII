@@ -9,7 +9,7 @@ export default {
   data () {
     return {
       channelprofile:{
-        title:'CII',fullform:'Campus Interaction Interface'
+        title:'CII',fullform:'Campus Interaction Interface',theme:'default'
       },
 
       navElem:[
