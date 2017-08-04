@@ -13,11 +13,13 @@ import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
 
 import forms from './components/ciiservices/forms/forms.vue'
+import postss from './components/ciiservices/postcomments/postfeed.vue'
 
 Vue.component('svgg',svgg)
 Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
-Vue.component('forms',forms)
+Vue.component('forms',forms);
+Vue.component('postss',postss);
 
 Vue.use(VueRouter);
 Vue.use(VueCookie);
@@ -37,8 +39,8 @@ Vue.prototype.moment = moment
 Vue.material.registerTheme({
   teal: {
     primary: {
-        color: 'teal',
-        hue: 900
+        color: 'lightgreen',
+        hue: 500
     },
     accent: {
     color: 'grey',

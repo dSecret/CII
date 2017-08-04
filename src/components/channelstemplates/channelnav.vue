@@ -1,12 +1,16 @@
 <template>
       <div class="phone-viewport topnav">
         <md-toolbar  v-bind:md-theme="channelprofile.theme">
-            <div class="md-toolbar-container">
+            <div class="md-toolbar-container" >
+                <!--<img src="/src/assets/nitdlogo.gif" class="nitlogo"/>-->
                 <h2 class="md-display-2 channel-title">{{channelprofile.title}}</h2>
                 <h2 class="md-display-2 fullform">{{channelprofile.fullform}}</h2>
                 <md-button class="md-icon-button" style="background:none;padding:30px;"
                  v-on:click="toggleLeftSidenav">
-                  <md-icon style="font-size:40px;margin-right: 25px ;margin-bottom:25px ;">menu</md-icon>
+                  <md-icon class="myicon" id="sportsicon"
+                    onmouseover="document.getElementById('sportsicon').style.color='white';"
+                    >menu
+                  </md-icon>
                 </md-button>
             </div>
         </md-toolbar>
@@ -105,6 +109,14 @@ export default {
   width:100vw;
   height: 100vh;
   z-index:1000;
+  background-color:black;
+  background:url(~/src/assets/sportsclubbackground.jpg) 0 0/ 100vw 100vh no-repeat;
+}
+.nitlogo{
+  border-radius:50%;
+  height:80px;
+  width:80px;
+  margin-right:40px;
 }
 .logo{
   font-size:20px;
@@ -133,6 +145,10 @@ a{
 }
 .routercss{
 
+}
+.myicon{
+  color:red;font-size:40px;margin-right: 25px ;margin-bottom:25px ;
+  display:block;
 }
 @media only screen and (max-width:5.5in) {
   .routercss{

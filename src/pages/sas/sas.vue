@@ -9,7 +9,7 @@ export default {
   data () {
     return {
       channelprofile:{
-        title:'SAS',fullform:'Student Activity and Sports',theme:'teal'
+        title:'SportsClub',fullform:'SportsClub',theme:'transparent'
       },
 
       navElem:[

@@ -1,7 +1,8 @@
 <template>
   <div class="wrap-container">
       <div class="homecontainer">
-        <channelhome></channelhome>
+        <!--<channelhome></channelhome>-->
+        <postss></postss>
       </div>
   </div>
 </template>
@@ -19,5 +20,12 @@ export default {
 .homecontainer{
   width:60vw;margin-left:20vw;
   margin-top:20px;
+  padding-bottom:18vh;
+}
+@media only screen and  (max-width:7.5in){
+  .homecontainer{
+    width:100vw;
+    margin-left: 0;
+  }
 }
 </style>
