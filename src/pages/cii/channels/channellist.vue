@@ -19,16 +19,29 @@
         </div>
       </div>
     </div>
-      <div class="channel-box" v-for="channel in filtered">
-        <div class="channel-box-wrap">
-          <img id="channel-banner" class="pure-img" v-bind:src="channel.background_img"></img>
-          <div class="channel-box-textholder" align="center">
-            <div id="channel-box-title">
-              <router-link :to="channel.homelink"id="channel-box-title-span">{{ channel.title }}</router-link>
-            </div>
-          </div>
-        </div>
-      </div>
+    <md-card v-for="channel in filtered"class="channel-box">
+        <md-card-media-cover  md-solid>
+            <md-card-media >
+                <img v-bind:src="channel.background_img" alt="Skyscraper">
+            </md-card-media>
+            <md-card-area>
+                <md-card-header>
+                  <div class="md-title">
+                      <router-link class="route-link":to="channel.homelink">
+                        {{ channel.title }}
+                      </router-link>
+                  </div>
+                  <div class="md-subhead">
+                      Subtitle here
+                  </div>
+                </md-card-header>
+                <md-card-actions>
+                    <md-button>Action</md-button>
+                    <md-button>Action</md-button>
+                </md-card-actions>
+            </md-card-area>
+        </md-card-media-cover>
+    </md-card>
   </div>
 </template>
 <script>
@@ -48,20 +61,26 @@ export default {
           {
             "title": "Sports Club",
             "background_img": "/src/assets/sportswomen1.jpg",
-            "category": "Official",
+            "category": "Public",
             "homelink":"/sac/sportsclub"
           },
 
           {
             "title": "Cultural Club",
             "background_img": "/src/assets/cricket1.jpg",
-            "category": "Official",
+            "category": "Public",
             "homelink":"/sac/culturalclub"
           },
           {
-            "title": "Department of CSE",
+            "title": "Department of CS",
             "background_img": "/src/assets/cshod.jpg",
-            "category": "Public",
+            "category": "Official",
+            "homelink":"/"
+          },
+          {
+            "title": "Department of ECE",
+            "background_img": "/src/assets/ece.png",
+            "category": "Official",
             "homelink":"/"
           },
           {
@@ -149,30 +168,10 @@ div{
 .channel-box {
   /*margin: 0 auto;*/
   padding: 0 auto;
-  height:34vh;
-  opacity:1;
   margin:3% 1%  3% 1%;
   width:98%;
-  border:2px solid white;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-.channel-box-wrap {
-
-  height:34vh;
 }
 
-#channel-banner {
-
-  margin:0;
-  width: 100%;
-  height:100%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-/*  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 100;*/
-
-}
 .channelList-tabholder {
   text-align: center;
   margin:1% 1%  -1% 1%;
@@ -225,5 +224,9 @@ div{
   background-color: black;
   font-weight:bold;
 }
-
+.route-link{
+  text-decoration: none !important;
+  outline:none !important;
+  color:white !important;
+}
 </style>
