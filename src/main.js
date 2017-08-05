@@ -26,6 +26,9 @@ Vue.use(VueCookie);
 Vue.use(VueMaterial);
 Vue.use(GSignInButton);
 Vue.use(VueResource);
+
+
+
 const router =new VueRouter({
   routes:Routes,
   /*mode:'history'*/

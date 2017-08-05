@@ -54,7 +54,7 @@ export default {
 
   data () {
     return {
-    	avatar: require("file-loader?emitFile=false&name=[name].[ext]!../assets/boyavatar1.png"),
+    	avatar: '/src/assets/logo.png',
  	    bg_img: '/src/assets/Cricket1.jpg',
 
     	// postAttr: {}

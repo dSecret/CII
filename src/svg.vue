@@ -76,7 +76,7 @@ export default {
   bottom:0;
   margin:0;
   padding:0;
-  z-index:100;
+  z-index:600;
 }
 @media only screen and (max-width:5.5in){
   .svg-container{

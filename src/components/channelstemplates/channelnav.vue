@@ -17,8 +17,6 @@
         <md-sidenav
             class="md-left sidenav"
             ref="leftSidenav"
-            onmouseover="document.getElementById('entryroute').style.overflowY='hidden';"
-            onmouseout="document.getElementById('entryroute').style.overflowY='scroll';"
         >
               <md-toolbar class="md-large">
                   <div class="md-title logo">
@@ -50,8 +48,10 @@
                 </template>
               </md-list>
         </md-sidenav>
-        <div id="entryroute"class="router-css">
-              <router-view></router-view>
+        <div class="hide-scrollbar">
+            <div id="entryroute"class="router-css">
+                <router-view></router-view>
+            </div>
         </div>
         <svgg></svgg>
       </div>
@@ -86,20 +86,24 @@ export default {
 </script>
 
 <style scoped>
+.hide-scrollbar{
+  overflow-x: hidden;
+  overflow-y: auto;
+  height:100%;
+  width:150vw;
+}
 .sidenav{
   z-index:1000 !important;
 }
 #entryroute{
   width:100vw;
-  height:100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   z-index:500;
 }
 .sascontainer{
-  width:100%;
+  width:100vw;
   margin: 0;
 }
 .topnav{
@@ -111,6 +115,7 @@ export default {
   z-index:1000;
   background-color:black;
   background:url(~/src/assets/sportsclubbackground.jpg) 0 0/ 100vw 100vh no-repeat;
+  overflow:hidden;
 }
 .nitlogo{
   border-radius:50%;
@@ -120,7 +125,7 @@ export default {
 }
 .logo{
   font-size:20px;
-  width:100%;text-align:center;
+  width:100vw;text-align:center;
   margin:0;padding:0;
   position:relative;
 }
@@ -146,26 +151,38 @@ a{
 .routercss{
 
 }
+#entryroute::-webkit-scrollbar {
+    width: 0px;
+    background-color:red;
+    color:red;
+}
+#entryroute::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+#entryroute::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
 .myicon{
   color:red;font-size:40px;margin-right: 25px ;margin-bottom:25px ;
   display:block;
 }
 @media only screen and (max-width:5.5in) {
   .routercss{
-    width:98%;
-    margin-left:1%;
+    width:98vw;
+    margin-left:1vw;
   }
 }
 @media only screen and (max-width:10in) and (min-width:5.5in) {
   .routercss{
-    width:80%;
-    margin-left:10%;
+    width:80vw;
+    margin-left:10vw;
   }
 }
 @media only screen and (max-width:12in) and (min-width:10in) {
   .routercss{
-    width:70%;
-    margin-left:15%;
+    width:70vw;
+    margin-left:15vw;
   }
 
 }

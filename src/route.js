@@ -10,18 +10,24 @@ import ciiuser from './pages/cii/user/user.vue'
   import useredit from './pages/cii/user/useredit/useredit.vue'
 
 
-import sas from './pages/sas/sas.vue'
-import sashome from './pages/sas/home/home.vue'
-import sasservices from './pages/sas/services/services.vue'
-    import reqequip from './pages/sas/services/reqequip/reqequip.vue'
-    import sasreqpend from './pages/sas/services/pendingreq/pendingreq.vue'
-    import sasdues from './pages/sas/services/yourdues/yourdues.vue'
-    import sasissued from './pages/sas/services/issued/issued.vue'
-import sasgal from './pages/sas/gallery/gal.vue'
-import sasclubs from './pages/sas/clubs/clubs.vue'
-import issuedList from './pages/sas/admin/services/IssuedListtab.vue'
-import sasreqtab from './pages/sas/admin/services/sasreqtabcont.vue'
-import updateequiplist from './pages/sas/admin/services/UpdateEquipListtabcont.vue'
+import sac from './pages/sac/sac.vue'
+import sachome from './pages/sac/home/home.vue'
+import sacclubs from './pages/sac/clubs/clubs.vue'
+import sacabout from './pages/sac/about/about.vue'
+
+
+
+import sportsclub from './pages/sportsclub/sportsclub.vue'
+import sportsclubhome from './pages/sportsclub/home/home.vue'
+import sportsclubservices from './pages/sportsclub/services/services.vue'
+    import reqequip from './pages/sportsclub/services/reqequip/reqequip.vue'
+    import sportsclubreqpend from './pages/sportsclub/services/pendingreq/pendingreq.vue'
+    import sportsclubdues from './pages/sportsclub/services/yourdues/yourdues.vue'
+    import sportsclubissued from './pages/sportsclub/services/issued/issued.vue'
+import sportsclubgal from './pages/sportsclub/gallery/gal.vue'
+import issuedList from './pages/sportsclub/admin/services/IssuedListtab.vue'
+import sportsclubreqtab from './pages/sportsclub/admin/services/sportsclubreqtabcont.vue'
+import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListtabcont.vue'
 
 import admin from './components/channelstemplates/admin/admin.vue'
 import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
@@ -48,15 +54,15 @@ export default [
       {path:'search',component:ciisearch}
     ]
   },
-  {path:'/sas',component:sas,
+  {path:'/sac/sportsclub',component:sportsclub,
     children:[
-      {path:'',component:sashome},
-      {path:'services',component:sasservices,
+      {path:'',component:sportsclubhome},
+      {path:'services',component:sportsclubservices,
         children:[
-          {path:'PendingReq',component:sasreqpend},
-          {path:'YourDues',component:sasdues},
+          {path:'PendingReq',component:sportsclubreqpend},
+          {path:'YourDues',component:sportsclubdues},
           {path:'',component:reqequip},
-          {path:'issueditems',component:sasissued}
+          {path:'issueditems',component:sportsclubissued}
         ]
       },
       {path:'gallery',component:gal,
@@ -65,16 +71,31 @@ export default [
           {path:':id',component:album}
         ]
       },
-      {path:'clubs',component:sasclubs},
       {path:'admin',component:admin,
         children:[
           {path:'addpost',component:addpost},
           {path:'issuedList',component:issuedList},
-          {path:'sasreqtab',component:sasreqtab},
+          {path:'sportsclubreqtab',component:sportsclubreqtab},
           {path:'updateequiplist',component:updateequiplist}
         ]
       }
 
     ]
-  }
+  },
+  {
+    path:'/sac',component:sac,
+    children:[
+      {path:'',component:sachome},
+      {path:'clubs',component:sacclubs},
+      {path:'about',component:sacabout},
+      {path:'admin',component:admin,
+        children:[
+          {path:'addpost',component:addpost},
+          {path:'issuedList',component:issuedList},
+          {path:'sportsclubreqtab',component:sportsclubreqtab},
+          {path:'updateequiplist',component:updateequiplist}
+        ]
+      }
+    ]
+  },
 ]

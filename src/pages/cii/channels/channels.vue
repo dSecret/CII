@@ -22,7 +22,6 @@ export default {
   padding-bottom: 4%;
   margin-left:25%;
   width: 50%;
-  background-color: white;
   overflow: auto;
 }
 @media only screen and (max-width:5.5in){
