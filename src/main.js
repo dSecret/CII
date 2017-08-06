@@ -50,9 +50,15 @@ Vue.material.registerTheme({
     hue: 300
     }
   },
-  purple: {
-    primary: 'purple',
-    accent: 'orange'
+  blue: {
+    primary: {
+        color: 'blue',
+        hue: 500
+    },
+    accent: {
+    color: 'grey',
+    hue: 300
+    }
   }
 })
 new Vue({

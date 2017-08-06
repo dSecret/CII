@@ -1,17 +1,16 @@
 <template>
-<div style="width:100%;">
-  <div>ss</div>
-  <div class="listcontent" v-for="clublist in clubs"align="center">
-      <div :style="{ backgroundImage: 'url(' + clublist.backgroundii + ')' }"class="background">
-      </div>
-      <table style="width:30%;height:100%;vertical-align:middle;" >
-          <tr>
-              <th class="topicalign">
-                <span class="topic" v-bind:id="clublist.id">{{clublist.title}}</span>
-              </th>
-          </tr>
-      </table>
-  </div>
+<div class="wrap">
+    <md-card md-with-hover style="cursor:default">
+      <md-card-header>
+          <div class="md-title">Student Activity Center (SAC)</div>
+          <div class="md-subhead">maintained by NITD</div>
+      </md-card-header>
+      <md-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+      </md-card-content>
+    <md-card-actions>
+    </md-card-actions>
+  </md-card>
 </div>
 </template>
 
@@ -20,60 +19,35 @@ export default {
 
   data () {
     return {
-      clubs:[
-        {title:'SportsClub',id:'clubcard2',backgroundii:'/src/assets/sportsclub.jpg'},
-      ],
+
     }
   }
 }
 </script>
 
-<style>
-.listcontent{
-  width:60%;
-  height:180px;
-  margin: 2% 20% 0 20%;
-  position: relative;
-  z-index:1;
-  border:1px solid grey;
-  box-sizing: border-box;
-  box-shadow:0 0 4px 1px grey;
+<style scoped>
+.wrap{
+  width:70vw;
+  margin-left:15vw;
+  margin-top:15vh;
 }
-.background{
-  position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-  opacity:0.7;
-}
-.background:hover{
-  opacity: 1;
-}
-.topicalign{
-  width:100%;height:100%;color:red;vertical-align:middle;
-}
-.topic{
-  background-color:#CD3700;
-  padding:2%;
-  color:white;
-  cursor: pointer;
-  display: block;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-@media only screen and (max-width:5.5in){
-  .listcontent{
-    height:100px;
+@media only screen and (max-width:12in) and (min-width:10in){
+  .wrap{
+    width:80vw;
+    margin-left:10vw;
   }
-  .topicalign{
-    width:100%;height:100%;color:red;vertical-align:middle;
+}
+@media only screen and (max-width:10in) and (min-width:7in){
+  .wrap{
+    width:90vw;
+    margin-left:5vw;
   }
-  .topic{
-    background-color:#CD3700;
-    padding:5%;
-    color:white;
-    cursor: pointer;
-    display: block;
-    vertical-align: middle;
+}
+@media only screen and (max-width:7in){
+  .wrap{
+    width:98vw;
+    margin-left:1vw;
+    margin-top:8vh;
   }
 }
 </style>

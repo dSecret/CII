@@ -31,7 +31,7 @@ export default {
   "_rev": "1-22fc2b0b0b17d57fd71368390472534a",
   "content": {
    "title": "Chess Tournament",
-   "description": "A chess tournament to be held on 2nd June. Interested Participants register",
+   "description": "A chess tournament to be held on 2nd June. Interested Participants register.",
    "banner": "",
    "widgets": [
     {

@@ -2,27 +2,27 @@
 <div class="bar-container">
 <md-bottom-bar>
   <a href="/#/user">
-    <md-bottom-bar-item md-icon="person" class="hello" >
+    <md-bottom-bar-item md-icon="person" >
         <span class="tab-title" >User</span>
     </md-bottom-bar-item>
   </a>
   <a href="/#/search">
-    <md-bottom-bar-item md-icon="search" class="hello" >
+    <md-bottom-bar-item md-icon="search" >
         <span class="tab-title" >Search</span>
     </md-bottom-bar-item>
   </a>
   <a href="/#/">
-    <md-bottom-bar-item md-icon="home" md-active class="hello" >
+    <md-bottom-bar-item md-icon="home" md-active>
         <span class="tab-title" >Home</span>
     </md-bottom-bar-item>
   </a>
   <a href="/#/channels">
-    <md-bottom-bar-item md-icon="near_me" class="hello" >
+    <md-bottom-bar-item md-icon="near_me" >
         <span class="tab-title" >Channels</span>
     </md-bottom-bar-item>
   </a>
   <a href="/#/notifications">
-    <md-bottom-bar-item md-icon="notifications" class="hello" >
+    <md-bottom-bar-item md-icon="notifications">
         <span class="tab-title">Notifications</span>
     </md-bottom-bar-item>
   </a>
@@ -41,10 +41,6 @@ export default {
 
 </script>
 <style scoped>
-.hello{
-  width:20% !important;
-  display: inline-block !important;
-}
 .bar-container{
   position:fixed;
   width:100%;
@@ -59,11 +55,10 @@ a{
   outline: none !important;
 }
 .tab-title{
-  display:none;
 }
 @media only screen and (max-width:8in){
   .tab-title{
-    display:none;
+    font-size:10px!important;
   }
 }
 

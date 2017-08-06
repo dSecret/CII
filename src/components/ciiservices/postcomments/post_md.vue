@@ -1,7 +1,7 @@
 <template>
 	<div id="post-wrap">
     <md-card class="card-ripple" md-with-hover>
-  <md-card-header style="padding:0;margin-left:4px;">
+  <md-card-header >
     <md-card-header-text>
       <div class="md-title">{{postAttr.content.title}}</div>
       <div class="md-subhead">{{postAttr.created}}</div>
@@ -29,9 +29,11 @@
     <img src="/src/assets/Cricket1.jpg" v-if="postAttr.content.banner!=undefined" alt="Banner">
   </md-card-media>
 
-  <md-card-content style="padding:0;">
+  <md-card-content >
 				<md-card-actions >
-								<span style="flex:1;margin-left:4px;">{{ postAttr.content.description.slice(0,9) }}</span>
+								<span style="flex:1;margin-left:4px;">
+									{{ postAttr.content.description }}
+								</span>
 								<md-button class="md-icon-button">
 									<md-icon>favorite</md-icon>
 								</md-button>

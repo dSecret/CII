@@ -8,7 +8,6 @@
                 <md-button class="md-icon-button" style="background:none;padding:30px;"
                  v-on:click="toggleLeftSidenav">
                   <md-icon class="myicon" id="sportsicon"
-                    onmouseover="document.getElementById('sportsicon').style.color='white';"
                     >menu
                   </md-icon>
                 </md-button>
@@ -26,6 +25,11 @@
                       <md-icon>flash_on</md-icon> by CII
                   </div>
               </md-toolbar>
+              <div style="width:100%;text-align:right;">
+                <md-button class="md-icon-button" @click="closeLeftSidenav">
+                    <md-icon>close</md-icon>
+                </md-button>
+              </div>
               <md-list style="margin-bottom:100px;">
                   <template v-for="elem in navElem">
                   <md-list-item v-if="elem.type=='one'" >

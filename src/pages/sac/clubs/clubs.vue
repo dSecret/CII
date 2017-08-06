@@ -1,17 +1,30 @@
 <template>
-<div style="width:100%;">
-  <div>ss</div>
-  <div class="listcontent" v-for="clublist in clubs"align="center">
-      <div :style="{ backgroundImage: 'url(' + clublist.backgroundii + ')' }"class="background">
-      </div>
-      <table style="width:30%;height:100%;vertical-align:middle;" >
-          <tr>
-              <th class="topicalign">
-                <span class="topic" v-bind:id="clublist.id">{{clublist.title}}</span>
-              </th>
-          </tr>
-      </table>
-  </div>
+<div style="width:100%;text-align:center;padding-bottom:30vh;">
+    <div class="card-wrap" v-for="club in clubs">
+      <md-card>
+        <md-card-header>
+          <md-card-header-text>
+            <div class="md-title">{{club.title}}<br>Club</div>
+            <div class="md-subhead">Subtitle here</div>
+          </md-card-header-text>
+
+          <md-card-media>
+            <img src="/src/assets/nitdlogo.gif" alt="People">
+          </md-card-media>
+        </md-card-header>
+
+        <md-card-actions >
+          <md-theme md-name="blue">
+            <router-link  tag="md-button"
+                        :to="club.linki"
+                        class="md-primary md-raised md-icon-button"
+            >
+                <md-icon>directions_bike</md-icon>
+            </router-link>
+          </md-theme>
+        </md-card-actions>
+      </md-card>
+    </div>
 </div>
 </template>
 
@@ -20,60 +33,31 @@ export default {
 
   data () {
     return {
-      clubs:[
-        {title:'SportsClub',id:'clubcard2',backgroundii:'/src/assets/sportsclub.jpg'},
-      ],
+        clubs:[
+          {title:'Sports',linki:'/sac/sportsclub'},
+          {title:'Coding',linki:'/sac/sportsclub'},
+          {title:'Cultural',linki:'/sac/sportsclub'},
+          {title:'Literature',linki:'/sac/sportsclub'},
+          {title:'Photography',linki:'/sac/sportsclub'},
+          {title:'Robotics',linki:'/sac/sportsclub'},
+        ]
     }
   }
 }
 </script>
 
 <style>
-.listcontent{
-  width:60%;
-  height:180px;
-  margin: 2% 20% 0 20%;
-  position: relative;
-  z-index:1;
-  border:1px solid grey;
-  box-sizing: border-box;
-  box-shadow:0 0 4px 1px grey;
+.card-wrap{
+  width:280px;
+  margin:3% 2.5%;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
 }
-.background{
-  position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-  opacity:0.7;
-}
-.background:hover{
-  opacity: 1;
-}
-.topicalign{
-  width:100%;height:100%;color:red;vertical-align:middle;
-}
-.topic{
-  background-color:#CD3700;
-  padding:2%;
-  color:white;
-  cursor: pointer;
-  display: block;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-@media only screen and (max-width:5.5in){
-  .listcontent{
-    height:100px;
-  }
-  .topicalign{
-    width:100%;height:100%;color:red;vertical-align:middle;
-  }
-  .topic{
-    background-color:#CD3700;
-    padding:5%;
-    color:white;
-    cursor: pointer;
-    display: block;
-    vertical-align: middle;
+@media only screen and (max-width:6in){
+  .card-wrap{
+    width:96vw;
+    margin:3% 2vw;
   }
 }
 </style>
