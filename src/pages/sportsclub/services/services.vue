@@ -21,7 +21,6 @@ export default {
     margin-left:20%;
     margin-top:5vh;
     margin-bottom:20vh;
-    box-shadow:0 0 4px 1px lightgrey;
 }
 @media only screen and (max-width:5.5in) {
   .cii-cont{

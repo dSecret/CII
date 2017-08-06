@@ -36,8 +36,14 @@
                   </div>
                 </md-card-header>
                 <md-card-actions>
-                    <md-button>Action</md-button>
-                    <md-button>Action</md-button>
+                    <md-theme md-name="blue">
+                      <router-link  tag="md-button"
+                                  :to="channel.homelink"
+                                  class="md-primary md-raised "
+                      >
+                          Explore <md-icon>near_me</md-icon>
+                      </router-link>
+                    </md-theme>
                 </md-card-actions>
             </md-card-area>
         </md-card-media-cover>

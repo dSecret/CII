@@ -23,10 +23,10 @@
         <a href="#">Terms&Conditions .</a>
     </div>
   </div>
-  <div style="text-align:center;font-size:20px;">OR
+  <div style="text-align:center;font-size:20px;color:white">OR
   </div>
   <div >
-        <router-link class="router-linki toggle-sign"to="/user/" >SignIn</router-link>
+        <router-link class="router-linki toggle-sign"to="/user/login" >SignIn</router-link>
   </div>
 </div>
 </template>
@@ -75,14 +75,13 @@ export default {
 <style>
 .con_signin{
     width:60%;
-    background-color: white;
 }
 .login-wrap{
   padding-bottom:2%;
-  box-shadow:0px 0px 4px 1px  grey;
   overflow: hidden;
   border-radius: 3px;
   margin-bottom: 3%;
+  background-color: white;
 
 }
 .rec-msg{
@@ -152,7 +151,6 @@ a:hover{
   overflow: hidden;
   border-radius:3px;
   margin:2% 0;
-  box-shadow:0px 0px 4px 1px  grey;
   font-size:18px;
   display: block;
 }

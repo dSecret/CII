@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .cii-cont{
     width:50%;
     margin-left:25%;

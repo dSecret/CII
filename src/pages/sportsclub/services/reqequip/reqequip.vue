@@ -3,7 +3,6 @@
         <!--the container is divided two half one sidebar and other showbar-->
       <div class="sidebar common">
   <!--This inner-div will be replaced by <sidebar></sidebar>-->
-          <div class="maincontainer">
                     <div class="container-select">
                           <select v-model="selected">
                             <option disabled value="">All</option>
@@ -20,7 +19,6 @@
                           </div>
                     </div>
 
-          </div>
       </div>
       <div class="showbar common">
             <div class="showbar-msg">
@@ -28,7 +26,7 @@
             </div>
             <div class="showbar-selected">
   <!--This inner-div will be replaced by <showbar_selected></showbar_selected>-->
-                <div style="width:100%;padding:4%;">
+                <div style="width:100%;padding:02% 02%;">
                   <transition name="fade" mode="out-in">
                     <div v-if="show" key="save">
                         <span class="error-msg-span">
@@ -38,6 +36,7 @@
                     <div v-else key="edit">
                     </div>
                   </transition><br>
+                  <div>Selected Cart</div>
                   <div class="sel-box" v-for="til in selectedcart">{{til}}
                       <div :title="removemsg" class="removebut" @click="removeitem(index)">
                         <i class="material-icons moreicon">cancel</i>
@@ -46,7 +45,7 @@
                   <div>
                         <textarea class="addtext"></textarea>
                   </div>
-                  <div style="text-align:right;width:90%;">
+                  <div style="text-align:right;width:98%;">
                         <button class="reqbut">Request</button>
                   </div>
                 </div>
@@ -57,6 +56,7 @@
         your request has been submitted successfully.
       </div>
   </div>
+
 </template>
 
 <script>
@@ -121,6 +121,12 @@ components:{
 </script>
 
 <style scoped>
+@media only screen and (max-width:7in){
+  .common{
+    width:97%!important;
+    margin-left:1.5%;
+  }
+}
 .wrap{
   width:100%;
   font-family: 'Roboto', sans-serif;
@@ -128,6 +134,7 @@ components:{
 .container-select{
    border-bottom:2px solid grey;
    padding-bottom:2%;padding-top:10px;
+   padding-left:2%;
 }
 .common{
   display: inline-block;
@@ -158,7 +165,7 @@ components:{
   background-color:#d5dbdb;overflow: none;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;-moz-box-sizing: border-box;
-  padding:0% 0% 0 2%;min-height:20px;margin-top:1.5%;
+  padding:0% 0% 0 0%;min-height:20px;margin-top:1.5%;
 }
 /*this is css for innner sidebar*/
 .maincontainer{
