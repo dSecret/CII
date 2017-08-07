@@ -8,6 +8,8 @@ import VueCookie from "vue-cookie"
 import GSignInButton from 'vue-google-signin-button'
 import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
+import VueMasonryPlugin from "vue-masonry"
+
 
 import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
@@ -26,6 +28,7 @@ Vue.use(VueCookie);
 Vue.use(VueMaterial);
 Vue.use(GSignInButton);
 Vue.use(VueResource);
+Vue.use(VueMasonryPlugin);
 
 
 

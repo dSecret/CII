@@ -19,12 +19,13 @@ export default {
 
 <style scoped>
 .channelcontainer{
-  padding-bottom: 4%;
-  margin-left:25%;
-  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 7%;
+/*  margin-left:25%;*/
+  width: 70%;
   overflow: auto;
 }
-@media only screen and (max-width:5.5in){
+@media only screen and (max-width:11in){
   .channelcontainer{
     width:100%;
     margin-left:0;
