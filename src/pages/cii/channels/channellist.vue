@@ -147,4 +147,10 @@ export default {
   margin: 0 auto;
 }
 
+@media only screen and (max-width:7in) {
+ #item {
+  width: 100% !important;
+ }
+}
+
 </style>
