@@ -122,6 +122,8 @@ export default {
 */  overflow:hidden;
 background-color: #0f628b;
 background-image: linear-gradient(180deg, hsl(200, 81%, 30%) 0%, #2AF598 100%);
+padding-bottom:20vh !important;
+
 }
 
 .nitlogo{

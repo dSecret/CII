@@ -1,13 +1,13 @@
 <template>
 <div class="bar-container">
   <div class="pure-g">
-    <div class="pure-u-1-5" v-for="tab in tabs">
+    <div class="pure-u-1-5 wrap" v-for="tab in tabs">
       <router-link tag="md-button"
                   :to="tab.linki"
                     class=" but"
                     exact
       >
-        <md-icon style="padding:0;margin:0;vertical-align:bottom;">{{tab.iconi}}</md-icon><br>
+        <md-icon class="iconi">{{tab.iconi}}</md-icon><br>
         <span class="title">{{tab.title}}</span>
       </router-link>
     </div>
@@ -45,17 +45,23 @@ export default {
 .but{
   width:100% !important;
   margin: 0 !important;
-  border:0 1px 0 1px solid grey;
   padding:0!important;
   min-width: 0!important;
   min-height: 0!important;
 
+}
+.wrap{
+  border-left:1px solid lightgrey;
+  border-right:1px solid lightgrey;
 }
 .router-link-active{
   color:blue!important;
 }
 .title{
   margin-top:0 !important;
+}
+.iconi{
+  padding:0;margin:0;vertical-align:bottom;
 }
 @media only screen and (max-width:7in){
   .title{
@@ -64,6 +70,9 @@ export default {
   .but{
     padding:0;
     margin:0;
+  }
+  .iconi{
+    margin:20px 0 !important;
   }
 }
 </style>
