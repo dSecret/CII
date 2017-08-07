@@ -28,7 +28,7 @@ Vue.use(VueCookie);
 Vue.use(VueMaterial);
 Vue.use(GSignInButton);
 Vue.use(VueResource);
-Vue.use(VueMasonryPlugin)
+Vue.use(VueMasonryPlugin);
 
 
 

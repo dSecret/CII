@@ -113,10 +113,13 @@ export default {
   width:100vw;
   height: 100vh;
   z-index:1000;
-  background-color:black;
+/*  background-color:black;
   background:url(~/src/assets/sportsclubbackground.jpg) 0 0/ 100vw 100vh no-repeat;
-  overflow:hidden;
+*/  overflow:hidden;
+background-color: #0f628b;
+background-image: linear-gradient(180deg, hsl(200, 81%, 30%) 0%, #2AF598 100%);
 }
+
 .nitlogo{
   border-radius:50%;
   height:80px;

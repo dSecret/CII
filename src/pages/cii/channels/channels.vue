@@ -25,7 +25,7 @@ export default {
   width: 70%;
   overflow: auto;
 }
-@media only screen and (max-width:5.5in){
+@media only screen and (max-width:11in){
   .channelcontainer{
     width:100%;
     margin-left:0;
