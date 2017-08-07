@@ -1,32 +1,17 @@
 <template>
 <div class="bar-container">
-<md-bottom-bar>
-  <a href="/#/user">
-    <md-bottom-bar-item md-icon="person" >
-        <span class="tab-title" >User</span>
-    </md-bottom-bar-item>
-  </a>
-  <a href="/#/search">
-    <md-bottom-bar-item md-icon="search" >
-        <span class="tab-title" >Search</span>
-    </md-bottom-bar-item>
-  </a>
-  <a href="/#/">
-    <md-bottom-bar-item md-icon="home" md-active>
-        <span class="tab-title" >Home</span>
-    </md-bottom-bar-item>
-  </a>
-  <a href="/#/channels">
-    <md-bottom-bar-item md-icon="near_me" >
-        <span class="tab-title" >Channels</span>
-    </md-bottom-bar-item>
-  </a>
-  <a href="/#/notifications">
-    <md-bottom-bar-item md-icon="notifications">
-        <span class="tab-title">Notifications</span>
-    </md-bottom-bar-item>
-  </a>
-</md-bottom-bar>
+  <div class="pure-g">
+    <div class="pure-u-1-5" v-for="tab in tabs">
+      <router-link tag="md-button"
+                  :to="tab.linki"
+                    class=" but"
+                    exact
+      >
+        <md-icon style="padding:0;margin:0;vertical-align:bottom;">{{tab.iconi}}</md-icon><br>
+        <span class="title">{{tab.title}}</span>
+      </router-link>
+    </div>
+  </div>
 </div>
 </template>
 <script>
@@ -34,7 +19,13 @@ export default {
 
   data () {
     return {
-
+        tabs:[
+            {iconi:'person',linki:'/user',title:'User'},
+            {iconi:'search',linki:'/search',title:'Search'},
+            {iconi:'home',linki:'/',title:'Home'},
+            {iconi:'near_me',linki:'/channels',title:'Channels'},
+            {iconi:'notifications',linki:'/notifications',title:'Notifications'},
+        ]
     }
   }
 }
@@ -49,17 +40,30 @@ export default {
   margin:0;
   padding:0;
   z-index:600;
+  background-color: white;
 }
-a{
-  text-decoration: none !important;
-  outline: none !important;
+.but{
+  width:100% !important;
+  margin: 0 !important;
+  border:0 1px 0 1px solid grey;
+  padding:0!important;
+  min-width: 0!important;
+  min-height: 0!important;
+
 }
-.tab-title{
+.router-link-active{
+  color:blue!important;
 }
-@media only screen and (max-width:8in){
-  .tab-title{
-    font-size:10px!important;
+.title{
+  margin-top:0 !important;
+}
+@media only screen and (max-width:7in){
+  .title{
+    display:none;
+  }
+  .but{
+    padding:0;
+    margin:0;
   }
 }
-
 </style>
