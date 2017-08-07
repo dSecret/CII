@@ -51,7 +51,6 @@ export default {
 
 }
 .wrap{
-  border-left:1px solid lightgrey;
   border-right:1px solid lightgrey;
 }
 .router-link-active{
@@ -72,7 +71,7 @@ export default {
     margin:0;
   }
   .iconi{
-    margin:20px 0 !important;
+    margin:15px 0 !important;
   }
 }
 </style>

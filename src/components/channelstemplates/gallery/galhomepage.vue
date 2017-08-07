@@ -12,8 +12,8 @@
           v-for="album in albums"
         >
               <md-card-media>
-                <router-link :to="'/sas/gallery/'+album.id">
-                  <img style="width:300px;max-height:300px;" :src="album.imgsrc[0]" alt="People">
+                <router-link :to="'/sac/sportsclub/gallery/'+album.id">
+                  <img style="width:300px;max-height:300px;" :src="'/src/assets/'+album.imgsrc[0]" alt="People">
                 </router-link>
                 <md-ink-ripple></md-ink-ripple>
               </md-card-media>

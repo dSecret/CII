@@ -1,5 +1,5 @@
 <template>
-<div >
+<div>
   <div class="create-div">
     <router-link to="/sas/gallery">
       <md-button class="md-raised md-primary" style="font-size:15px;">
@@ -12,7 +12,7 @@
     <div class="fucku">
       <div class="topimg-cont">
           <div class="top-img-cont">
-            <img style="height:1px;" src="/src/assets/1.jpg"/>
+            <img style="height:1px;" src="/src/assets/front.jpg"/>
             <div class="title">{{gal.title}}</div>
             <div class="courtesy"><span style="font-size:16px;color:black;">{{gal.courtesy}}</span></div>
             <div class="date">{{gal.ondate | formatDate}}</div>
@@ -25,13 +25,13 @@
     <div class="card">
                 <img class="image" v-on:click="zoom(key)"
                       onclick="document.getElementById('bood').style.overflowY='hidden';"
-                      v-for="imgo, key  in gal.imgsrc" v-bind:src="'/src/assets/'+imgo"
+                      v-for="imgo, key  in gal.imgsrc" v-bind:src="imgo"
                  />
     </div>
 
   </div>
 <!--Overlay starts from here-->
-      <div v-bind:class="{showimgg : i}" class="show">
+  <div v-bind:class="{showimgg : i}" class="show">
       <div class="closebtn-cont">
           <span class="closebtn" v-on:click="zoom"
                   onclick="document.getElementById('bood').style.overflowY='auto';"
@@ -48,7 +48,7 @@
                 GoTo</md-button>
             </div>
             <div v-if="error"style="text-align:center;color:red">invalid input</div>
-            <img  v-bind:src="'/src/assets/'+gal.imgsrc[ind]" class="overlay-image"/>
+            <img  v-bind:src="gal.imgsrc[ind]" class="overlay-image"/>
             <div style="text-align:center;color:white;font-size:20px;margin-top:20px;">
                   <div class="next" :class="{hide : previ }"style="left:1%;" v-on:click="prev">
                         <md-icon class="md-size-2x ">navigate_before</md-icon>

@@ -33,12 +33,12 @@
           column-width=".channelcontainer">
          <!-- block item markup -->
         <div v-masonry-tile id="item" class="chan-item" v-for="channel in channels" v-bind:style="{width: (channel.rank*33.3)+'%'}">
-        <router-link class="route-link":to="channel.homelink">
         <md-card id="card">
             <md-card-media-cover md-solid>
                 <md-card-media md-ratio="16:9">
                     <img id="background-img" v-bind:src="channel.background_img" alt="Skyscraper">
                 </md-card-media>
+                <router-link class="route-link":to="channel.homelink">
                 <md-card-area>
                     <md-card-header>
                       <div class="md-title">
@@ -49,9 +49,10 @@
                       </div>
                     </md-card-header>
                 </md-card-area>
+                </router-link>
             </md-card-media-cover>
         </md-card>
-        </router-link>
+
         </div>
     </div>
   </div>
@@ -174,7 +175,11 @@ export default {
   height: 100%;
   margin: 0 auto;
 }
-
+a{
+  text-decoration: none;
+  outline:none;
+  color:inherit!important;
+}
 @media only screen and (max-width:7in) {
  #item {
   width: 100% !important;

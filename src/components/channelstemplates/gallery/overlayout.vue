@@ -11,7 +11,7 @@
                   Your album has been added !!
             </div>
             <div v-if="!wait">
-                <md-title>Add your album</md-title>
+                <h3>Add your album</h3>
                 <md-input-container >
                     <md-icon>create</md-icon>
                     <label>AlbumName</label>
@@ -82,7 +82,7 @@ export default {
       })
     }
   },
-  
+
 
 }
 </script>

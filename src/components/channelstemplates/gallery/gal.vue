@@ -33,9 +33,7 @@ export default {
 <style scoped>
 .gallery-wrap{
   width:100%;
-  position:absolute;
-  left:0;
-  top:15vh;
+  top:0vh;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   min-height:85vh;
