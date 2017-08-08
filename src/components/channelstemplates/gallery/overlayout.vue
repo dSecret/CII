@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import loda from "lodash"
 export default {
 
   data () {
@@ -64,7 +65,7 @@ export default {
       split:[],
       wait:false,
       confirmed:false,
-      album:{title:'',courtesy:'',description:'',imgsrc:[],ondate:new Date()},
+      album:{title:'',courtesy:'',description:'',imgsrc:[],ondate:new Date(),rank:0},
     }
   },
   methods:{
@@ -73,6 +74,7 @@ export default {
     },
     postalbum:function(){
       this.album.imgsrc=this.multiple.split(',');
+      this.album.rank=loda.random(1,3);
       this.create=false;
       this.wait=true;
       this.$http.post('https://sas-gallery.firebaseio.com/gallery.json',this.album).then(function(data){

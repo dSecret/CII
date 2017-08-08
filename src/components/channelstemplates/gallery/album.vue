@@ -1,20 +1,18 @@
 <template>
 <div >
   <div class="create-div">
-    <router-link to="/sas/gallery">
-      <md-button class="md-raised md-primary" style="font-size:15px;">
+    <router-link tag="md-button" class="md-raised md-accent"to="/sac/sportsclub/gallery">
         Albums
           <md-icon >image</md-icon>
-      </md-button>
     </router-link>
   </div>
   <div class="wrap-gal">
-    <div class="fucku">
+    <div class="left">
       <div class="topimg-cont">
           <div class="top-img-cont">
             <img style="height:1px;" src="/src/assets/1.jpg"/>
             <div class="title">{{gal.title}}</div>
-            <div class="courtesy"><span style="font-size:16px;color:black;">{{gal.courtesy}}</span></div>
+            <div class="courtesy"><span style="font-size:16px;">{{gal.courtesy}}</span></div>
             <div class="date">{{gal.ondate | formatDate}}</div>
             <div class="description">
                 {{gal.description}}
@@ -22,11 +20,33 @@
           </div>
       </div>
     </div>
-    <div class="card">
-                <img class="image" v-on:click="zoom(key)"
-                      onclick="document.getElementById('bood').style.overflowY='hidden';"
+    <div class="right">
+                <!--<img class="image" v-on:click="zoom(key)"
                       v-for="imgo, key  in gal.imgsrc" v-bind:src="'/src/assets/'+imgo"
                  />
+                 -->
+                 <div class="masonary-container"
+                       v-masonry transition-duration="0.3s"
+                       item-selector=".channelGrid"
+                       fit-width="true"
+                       column-width=".channelcontainer">
+                      <!-- block item markup -->
+                     <div v-masonry-tile  id="item1" class="chan-item"
+                                          v-for="imgo, key  in gal.imgsrc"
+                                          v-bind:style="{width: (gal.rank*33.3)+'%'}">
+                     <md-card id="card">
+                         <md-card-media-cover md-solid>
+                             <md-card-media md-ratio="16:9">
+                                 <img id="background-img1"
+                                         v-bind:src="'/src/assets/'+imgo"
+                                        v-on:click="zoom(key)"
+                                        alt="Skyscraper">
+                             </md-card-media>
+                         </md-card-media-cover>
+                     </md-card>
+
+                     </div>
+                 </div>
     </div>
 
   </div>
@@ -48,15 +68,25 @@
                 GoTo</md-button>
             </div>
             <div v-if="error"style="text-align:center;color:red">invalid input</div>
-            <img  v-bind:src="'/src/assets/'+gal.imgsrc[ind]" class="overlay-image"/>
-            <div style="text-align:center;color:white;font-size:20px;margin-top:20px;">
-                  <div class="next" :class="{hide : previ }"style="left:1%;" v-on:click="prev">
-                        <md-icon class="md-size-2x ">navigate_before</md-icon>
-                  </div>
+            <div style="height:60vh;width:100vw;">
+              <table><tr><th>
+                <img  v-bind:src="'/src/assets/'+gal.imgsrc[ind]" class="overlay-image"/>
+              </th></tr></table>
+            </div>
+            <div class="cont-next">
+                  <md-button class="md-icon-button"
+                            :class="{hide : previ }"
+                            style="left:1%;vertical-align:middle"
+                            v-on:click="prev">
+                        <md-icon >navigate_before</md-icon>
+                  </md-button>
                   {{ind+1}} of {{gal.imgsrc.length}}
-                  <div class="next" :class="{hide : nexti}"style="right:1%;" v-on:click="next">
-                        <md-icon class="md-size-2x ">navigate_next</md-icon>
-                  </div>
+                  <md-button class="md-icon-button"
+                              :class="{hide : nexti}"
+                              style="right:1%;vertical-align:middle"
+                              v-on:click="next">
+                        <md-icon >navigate_next</md-icon>
+                  </md-button>
             </div>
           </th></tr>
         </table>
@@ -68,6 +98,7 @@
 </template>
 
 <script>
+import loda from "lodash"
 export default {
 
   data () {
@@ -81,6 +112,65 @@ export default {
       previ:false,
       goind:0,
       error:false,
+      channels: [
+        {
+          "title": "SAC",
+          "id": 1,
+          "rank": 2,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Official",
+          "homelink":"/sac"
+        },
+        {
+          "title": "Sports Club",
+          "id": 2,
+          "rank": 1,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Public",
+          "homelink":"/sac/sportsclub"
+        },
+
+        {
+          "title": "Cultural Club",
+          "id": 3,
+          "rank": 1,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Public",
+          "homelink":"/sac/culturalclub"
+        },
+        {
+          "title": "Department of CS",
+          "id": 4,
+          "rank": 3,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Official",
+          "homelink":"/"
+        },
+        {
+          "title": "Department of ECE",
+          "id": 5,
+          "rank": 1,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Official",
+          "homelink":"/"
+        },
+        {
+          "title": "WebDev Community",
+          "id": 6,
+          "rank": 1,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Public",
+          "homelink":"/webdevcommunity"
+        },
+        {
+          "title": "Robot Making Community",
+          "id": 7,
+          "rank": 1,
+          "background_img": "/src/assets/shuttle.jpg",
+          "category": "Public",
+          "homelink":"/webdevcommunity"
+        }
+      ]
     }
   },
   created(){
@@ -147,8 +237,25 @@ export default {
 </script>
 
 <style scoped>
+#item1 {
+  float: left;
+  padding: 2px;
+  /*width: 70%;*/
+  /*height: 200px;*/
+}
+
+#background-img1 {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+a{
+  text-decoration: none;
+  outline:none;
+  color:inherit!important;
+}
 .overlay-image{
-  max-width:100vw;height:60vh;
+  max-width:100vw;max-height: 60vh;
   background-color:grey;
   padding:3px;
   border:2px solid white;
@@ -162,18 +269,6 @@ export default {
 }
 .hide{
   display: none!important;
-}
-.next{
-  color:grey;
-  border-radius: 5px;
-  cursor:pointer;
-  padding: 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-.next:hover{
-  color:black;
-  background-color:white;
 }
 table,tr{
   width:100%;
@@ -223,6 +318,13 @@ th{
 .closebtn:hover{
   color:white;
 }
+.cont-next{
+  text-align:center;
+  color:white;
+  font-size:20px;
+  margin-top:20px;
+  user-select:none;
+}
 /*css for overlay ends here*/
 .title{
   font-size:24px;
@@ -258,6 +360,9 @@ th{
   display: inline;
   height:200px !important;
   cursor:pointer;
+  min-width:300px;
+  min-height:200px!important;
+  background-color: #FAACA8;
 }
 .image:hover{
   box-shadow:3px 3px 3px 1px grey;
@@ -275,16 +380,21 @@ th{
   min-height:50vh;
 }
 
-.fucku{
-  width:300px;display:inline-block;
-  margin-left: 1%;width:20%;margin-top:1%;float:left;
+.right {
+    width:auto;
+    overflow:hidden;
+}
+.left{
+    width:300px;
+    float:left;
 }
 .topimg-cont{
   width:300px;
   -webkit-transform: skewY(-30deg);
   -moz-transform:skewY(-30deg);
   -o-transform: skewY(-30deg);
-  background-color:black;
+  background-color: #1f2022;
+  background-image: linear-gradient(180deg, #1f2022 0%, #160c15 46%, #FFCC70 100%);
   -moz-transform-origin:left center ;
   overflow: hidden;
 }
@@ -292,20 +402,10 @@ th{
   -webkit-transform: skewY(30deg);
   -moz-transform: skewY(30deg);
   -o-transform: skewY(30deg);
-  width:300px;background-color:black;min-height:400px;
+  width:300px;min-height:400px;
   padding:2px;
 }
-.skew-cont{
-  width:300px;
-  height:300px;
-  -webkit-transform: skewY(-30deg);
-  -moz-transform:skewY(-30deg);
-  -o-transform: skewY(-30deg);
-  display: inline-block;
-  overflow: hidden;
-  background-color:grey;
-  margin:10px ;
-}
+
 .img-cont{
   width:300px;
   height:500px;
@@ -319,11 +419,8 @@ th{
 
 .card{
   margin:0% 1% 2% 1%;
-  display: inline-block;
-  clear:none;
   vertical-align:top;
-  width:77%;
-  float:left;
+  flex:0.5;
   padding-top:-10px;
   padding-bottom:86px;
   text-align: center;
@@ -348,38 +445,17 @@ th{
     width:98%;
     margin-left:1%;
   }
-  .card{
-    width:100%;
-  }
-  .fucku{
-    width:100% ;display: block;
-  }
   .topimg-cont{
     width:100%;
-    -webkit-transform: skewY(-30deg);
-    -moz-transform:skewY(-30deg);
-    -o-transform: skewY(-30deg);
     -webkit-transform-origin:left center ;
     -o-transform-origin:left center ;
     -moz-transform-origin:left center ;
     overflow: hidden;
+
   }
   .top-img-cont{
-    -webkit-transform: skewY(30deg);
-    -moz-transform: skewY(30deg);
-    -o-transform: skewY(30deg);
-    width:100%;min-height:400px;
-  }
-  .skew-cont{
-    width:100%;
-    height:100%;
-    -webkit-transform: skewY(-30deg);
-    -moz-transform:skewY(-30deg);
-    -o-transform: skewY(-30deg);
-    display: inline-block;
-    overflow: hidden;
-    background-color:red;
-    margin-left: 0;margin-right: 0;
+    width:100%;min-height:450px;
+
   }
   .img-cont{
     width:100%;
@@ -391,21 +467,19 @@ th{
 
 
   }
-}
-@media only screen and (min-width:5.5in)and (max-width:13in){
-  .title{
-    margin-top:120px;
-  }
-  .top-img-cont{
-    min-height:400px;
-  }
-  .card{
-    width:100%;
+
+  #item1 {
+   width: 100% !important;
   }
 }
-/*@media only screen and (min-width:10in)and (max-width:11in){
-  .card{
-    width:40%;
-  }
-}*/
+@media only screen and (max-width:9in){
+.left{
+  width:98%;
+  float:none;
+  margin-left:1%;
+}
+.right{
+  margin-left: 1%;
+}
+}
 </style>
