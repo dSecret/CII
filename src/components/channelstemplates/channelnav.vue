@@ -103,10 +103,9 @@ export default {
 }
 #entryroute{
   width:100vw;
-
+  z-index:1000;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  z-index:500;
 }
 .sascontainer{
   width:100vw;
@@ -118,7 +117,6 @@ export default {
   left:0;
   width:100vw;
   height: 100vh;
-  z-index:1000;
 /*  background-color:black;
   background:url(~/src/assets/sportsclubbackground.jpg) 0 0/ 100vw 100vh no-repeat;
 */  overflow:hidden;
