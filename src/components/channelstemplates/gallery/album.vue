@@ -33,7 +33,7 @@
                       <!-- block item markup -->
                      <div v-masonry-tile  id="item1" class="chan-item"
                                           v-for="imgo, key  in gal.imgsrc"
-                                          v-bind:style="{width: (gal.rank*33.3)+'%'}">
+                                          v-bind:style="{width: (randomizeSize()*33.3)+'%'}">
                      <md-card id="card">
                          <md-card-media-cover md-solid>
                              <md-card-media md-ratio="16:9">
@@ -192,6 +192,9 @@ export default {
           this.i=false;
         }
 
+    },
+    randomizeSize: () => {
+      return loda.random(1, 3)
     },
     next:function(){
         if(this.ind==this.gal.imgsrc.length-2){

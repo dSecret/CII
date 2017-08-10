@@ -44,7 +44,8 @@
                           <md-list-expand>
                             <md-list >
                               <md-list-item v-for="tit in elem.expand"class="md-inset" >
-                                  <router-link :to="tit.linki" exact>{{tit.title}}</router-link>
+                                  <router-link  v-if="tit.linki!='userguidedd'":to="tit.linki" exact>{{tit.title}}</router-link>
+                                  <router-link v-if="tit.linki=='userguidedd'" :to="tit.linki" exact>{{tit.title}}</router-link>
                               </md-list-item>
                             </md-list>
                           </md-list-expand>
@@ -52,7 +53,7 @@
                 </template>
               </md-list>
         </md-sidenav>
-        <div class="hide-scrollbar">
+        <div id="scrolldiv" class="hide-scrollbar">
             <div id="entryroute"class="router-css">
                 <router-view></router-view>
             </div>
@@ -79,6 +80,7 @@ export default {
     }
   },
   methods: {
+
     toggleLeftSidenav() {
       this.$refs.leftSidenav.toggle();
     },
@@ -89,7 +91,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .hide-scrollbar{
   overflow-x: hidden;
   overflow-y: auto;

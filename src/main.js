@@ -23,6 +23,17 @@ Vue.component('channelhome',channelhome);
 Vue.component('forms',forms);
 Vue.component('postss',postss);
 
+var VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo, {
+     container: "#scrolldiv",
+     duration: 500,
+     easing: "ease",
+     offset: 0,
+     cancelable: true,
+     onDone: false,
+     onCancel: false
+ })
+
 Vue.use(VueRouter);
 Vue.use(VueCookie);
 Vue.use(VueMaterial);

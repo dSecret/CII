@@ -4,6 +4,11 @@
       <div class="homecontainer">
         <channelhome></channelhome>
       </div>
+      <button v-scroll-to="'#element'">Scroll to #element</button>
+
+<div id="element" class="divv">
+    Hi. I'm #element.
+</div>
   </div>
 </template>
 
@@ -16,6 +21,9 @@ methods:{
 </script>
 
 <style scoped>
+.divv{
+  margin-top:200vh;
+}
 .wrap-container{
   width:100vw;
 }

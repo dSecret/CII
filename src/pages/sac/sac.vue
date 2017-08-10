@@ -19,20 +19,20 @@ export default {
        },
       {title:'Clubs',type:'one',icon:'polymer',linki:'/sac/clubs',
          expand:[
-           {title:'',linki:''},
+           {title:'',linki:'',},
          ],
        },
        {title:'About',type:'one',icon:'image',linki:'/sac/about',
           expand:[
-            {title:'',linki:''},
+            {title:'',linki:'',},
           ],
         },
         {title:'Admin-Block',type:'two',icon:'person',linki:'/sac/admin',
            expand:[
-             {title:'NewPost',linki:'/sac/admin/addpost'},
-             {title:'Drafts',linki:'/sac/admin/drafts'},
-             {title:'AdminPanel',linki:'/sac/admin/adminpanel'},
-             {title:'SiteSettings',linki:'/sac/admin/settings'},
+             {title:'NewPost',linki:'/sac/admin/addpost',},
+             {title:'Drafts',linki:'/sac/admin/drafts',},
+             {title:'AdminPanel',linki:'/sac/admin/adminpanel',},
+             {title:'SiteSettings',linki:'/sac/admin/settings',},
            ],
          },
 

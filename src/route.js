@@ -3,6 +3,7 @@ import ciihome from './pages/cii/home/home.vue'
 import ciichannel from './pages/cii/channels/channels.vue'
 import ciinotify from './pages/cii/notifications/notifications.vue'
 import ciisearch from './pages/cii/searchbox/searchbox.vue'
+import userguide from './pages/cii/guide/userguide.vue'
 import ciiuser from './pages/cii/user/user.vue'
   import userprofile from './pages/cii/user/userprofile/userprofile.vue'
   import userlogin from './pages/cii/user/userlogin/userlogin.vue'
@@ -51,7 +52,8 @@ export default [
         ]
       },
       {path:'notifications',component:ciinotify},
-      {path:'search',component:ciisearch}
+      {path:'search',component:ciisearch},
+      {path:'userguide',component:userguide}
     ]
   },
   {path:'/sac/sportsclub',component:sportsclub,
