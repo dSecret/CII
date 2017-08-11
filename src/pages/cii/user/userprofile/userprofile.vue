@@ -8,16 +8,16 @@
             </div>
         </div>
         <div class="button-cont" align="right">
-         <!--  <md-menu md-direction="bottom left" >
+            <md-menu md-direction="bottom left" >
               <md-button class="md-icon-button" md-menu-trigger>
-                  <md-icon class="md-size-2x">more_vert</md-icon>
+                  <md-icon class="md-size-1x">more_vert</md-icon>
               </md-button>
               <md-menu-content>
                   <md-menu-item>EditProfile</md-menu-item>
                   <md-menu-item>LastActivities</md-menu-item>
                   <md-menu-item>LogOut</md-menu-item>
-                  </md-menu-content>
-              </md-menu> -->
+              </md-menu-content>
+            </md-menu>
         </div>
         <div class="user-details">Ankit Katakwar</div>
         <div class="user-details">161210009</div>

@@ -44,8 +44,7 @@
                           <md-list-expand>
                             <md-list >
                               <md-list-item v-for="tit in elem.expand"class="md-inset" >
-                                  <router-link  v-if="tit.linki!='userguidedd'":to="tit.linki" exact>{{tit.title}}</router-link>
-                                  <router-link v-if="tit.linki=='userguidedd'" :to="tit.linki" exact>{{tit.title}}</router-link>
+                                  <router-link  :to="tit.linki" exact>{{tit.title}}</router-link>
                               </md-list-item>
                             </md-list>
                           </md-list-expand>

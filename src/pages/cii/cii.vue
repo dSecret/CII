@@ -18,15 +18,12 @@ export default {
            {title:'',linki:'',},
          ],
        },
-       {title:'UserGuide',type:'two',icon:'assignment_ind',linki:'',
+       {title:'UserGuide',type:'one',icon:'assignment_ind',linki:'/userguide',
         expand:[
-          {title:'Introduction',linki:'userguidedd',},
-          {title:'Login/Signup',linki:'userguidedd',},
-          {title:'AccessType',linki:'userguidedd',},
-          {title:'Policies',linki:'userguidedd',},
+          {title:'',linki:'',},
         ]
       },
-      {title:'AdminGuide',type:'two',icon:'developer_mode',linki:'/cii/adminguide',
+      {title:'AdminGuide',type:'one',icon:'developer_mode',linki:'/adminguide',
          expand:[
            {title:'',linki:'',},
          ],

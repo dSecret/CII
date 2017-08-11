@@ -32,7 +32,7 @@ import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListta
 
 import admin from './components/channelstemplates/admin/admin.vue'
 import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
-
+import adminpanel from './components/channelstemplates/admin/adminpanel/adminpanel.vue'
 
 import gal from './components/channelstemplates/gallery/gal.vue'
 import galhomepage from './components/channelstemplates/gallery/galhomepage.vue'
@@ -78,7 +78,8 @@ export default [
           {path:'addpost',component:addpost},
           {path:'issuedList',component:issuedList},
           {path:'sportsclubreqtab',component:sportsclubreqtab},
-          {path:'updateequiplist',component:updateequiplist}
+          {path:'updateequiplist',component:updateequiplist},
+          {path:'adminpanel',component:adminpanel}
         ]
       }
 
@@ -93,9 +94,7 @@ export default [
       {path:'admin',component:admin,
         children:[
           {path:'addpost',component:addpost},
-          {path:'issuedList',component:issuedList},
-          {path:'sportsclubreqtab',component:sportsclubreqtab},
-          {path:'updateequiplist',component:updateequiplist}
+          {path:'adminpanel',component:adminpanel}
         ]
       }
     ]
