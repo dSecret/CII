@@ -4,7 +4,7 @@
                   <md-card>
                       <md-card-header>
                           <md-card-header-text>
-                              <div class="md-title">Karan Jha</div>
+                              <div class="md-title">{{name}}</div>
                               <div class="md-subhead">Admin</div>
                           </md-card-header-text>
                           <md-menu md-size="3" md-direction="bottom left" md-align-trigger>
@@ -38,6 +38,11 @@ export default {
     return {
 
     }
+  },
+  computed:{
+        name(){
+          return this.$store.state.adminpanel.name
+        }
   }
 }
 </script>

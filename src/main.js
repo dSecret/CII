@@ -10,6 +10,7 @@ import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
 import VueMasonryPlugin from "vue-masonry"
 
+import {store} from './store/store.js'
 
 import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
@@ -79,4 +80,5 @@ new Vue({
   el: '#app',
   render: h => h(App),
   router:router,
+  store:store
 })
