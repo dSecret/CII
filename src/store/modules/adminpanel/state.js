@@ -1,5 +1,10 @@
 const state ={
-  name:'karan Jha'
+  privileges:[
+    'AddPost','Reply','Blocker','Editor','AddModerator',
+  ],
+  privileged:[
+    'Addpost','Reply'
+  ],
 }
 
 export default state
