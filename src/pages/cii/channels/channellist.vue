@@ -5,9 +5,17 @@
       <md-button class="md-icon-button">
         <md-icon>search</md-icon>
       </md-button>
-      <md-button class="md-icon-button">
-        <md-icon>filter_list</md-icon>
-      </md-button>
+      <md-menu md-direction="bottom left">
+        <md-button class="md-icon-button" md-menu-trigger>
+          <md-icon>filter_list</md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item @click="fillAll()">ALL</md-menu-item>
+          <md-menu-item @click="filterByCategory('OFFICIAL')">OFFICIAL</md-menu-item>
+          <md-menu-item @click="filterByCategory('PUBLIC')">PUBLIC</md-menu-item>
+          <md-menu-item disabled>PRIVATE</md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </md-toolbar>
     <div class="masonary-container" 
           v-masonry transition-duration="0.3s" 
@@ -15,7 +23,7 @@
           fit-width="true" 
           column-width=".channelcontainer">
          <!-- block item markup -->
-        <div v-masonry-tile id="item" class="chan-item" v-for="channel in channels" v-bind:style="{width: (channel.rank*33.3)+'%'}">
+        <div v-masonry-tile id="item" class="chan-item" v-for="channel in filtered.content" v-bind:style="{width: (channel.rank*33.3)+'%'}">
         <router-link class="route-link":to="channel.homelink">
         <md-card id="card">
             <md-card-media-cover md-solid>
@@ -28,7 +36,7 @@
                             {{ channel.title }}
                       </div>
                       <div class="md-subhead">
-                          Subtitle here
+                          {{channel.category}}
                       </div>
                     </md-card-header>
                 </md-card-area>
@@ -57,7 +65,7 @@ export default {
             "id": 1,
             "rank": 2,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Official",
+            "category": "OFFICIAL",
             "homelink":"/sac"
           },
           {
@@ -65,7 +73,7 @@ export default {
             "id": 2,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Public",
+            "category": "PUBLIC",
             "homelink":"/sac/sportsclub"
           },
 
@@ -74,7 +82,7 @@ export default {
             "id": 3,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Public",
+            "category": "PUBLIC",
             "homelink":"/sac/culturalclub"
           },
           {
@@ -82,7 +90,7 @@ export default {
             "id": 4,
             "rank": 3,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Official",
+            "category": "OFFICIAL",
             "homelink":"/"
           },
           {
@@ -90,7 +98,7 @@ export default {
             "id": 5,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Official",
+            "category": "OFFICIAL",
             "homelink":"/"
           },
           {
@@ -98,7 +106,7 @@ export default {
             "id": 6,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Public",
+            "category": "PUBLIC",
             "homelink":"/webdevcommunity"
           },
           {
@@ -106,16 +114,28 @@ export default {
             "id": 7,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
-            "category": "Public",
+            "category": "PUBLIC",
             "homelink":"/webdevcommunity"
           }
         ]
     }
   },
   created () {
-    this.resolveGrid()
+    // this.resolveGrid()
+    this.filtered.type = 'ALL'
+    this.fillAll()
+    // this.channels.forEach(c => this.filtered.content.push(c))
   },
   methods: {
+    filterByCategory (category) {
+      this.filtered.category = category
+      this.filtered.content = loda.filter(this.channels, c => c.category === category)
+    },
+    fillAll () {
+      this.filtered.content = []
+      this.filtered.type = 'ALL'
+      this.channels.forEach(c => this.filtered.content.push(c))
+    },
     resolveGrid () {
       var ranks = loda.map(this.channels, c => c.rank)
       var rankCollection = loda.countBy(ranks)
@@ -123,7 +143,7 @@ export default {
     }
   },
   mounted: function(){
-    Vue.redrawVueMasonry();
+    // Vue.redrawVueMasonry();
   }
 }
 </script>
