@@ -15,22 +15,22 @@ export default {
       navElem:[
         {title:'AboutCII',type:'one',icon:'info',linki:'/cii/about',
          expand:[
-           {title:'',linki:''},
+           {title:'',linki:'',},
          ],
        },
-       {title:'UserGuide',type:'two',icon:'assignment_ind',linki:'/cii/userguide',
+       {title:'UserGuide',type:'one',icon:'assignment_ind',linki:'/userguide',
         expand:[
-          {title:'',linki:''},
+          {title:'',linki:'',},
         ]
       },
-      {title:'AdminGuide',type:'two',icon:'developer_mode',linki:'/cii/adminguide',
+      {title:'AdminGuide',type:'one',icon:'developer_mode',linki:'/adminguide',
          expand:[
-           {title:'',linki:''},
+           {title:'',linki:'',},
          ],
        },
        {title:'Developer',type:'one',icon:'build',linki:'/cii/developer',
           expand:[
-            {title:'',linki:''},
+            {title:'',linki:'',},
           ],
         },
       ]

@@ -3,6 +3,7 @@ import ciihome from './pages/cii/home/home.vue'
 import ciichannel from './pages/cii/channels/channels.vue'
 import ciinotify from './pages/cii/notifications/notifications.vue'
 import ciisearch from './pages/cii/searchbox/searchbox.vue'
+import userguide from './pages/cii/guide/userguide.vue'
 import ciiuser from './pages/cii/user/user.vue'
   import userprofile from './pages/cii/user/userprofile/userprofile.vue'
   import userlogin from './pages/cii/user/userlogin/userlogin.vue'
@@ -31,7 +32,7 @@ import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListta
 
 import admin from './components/channelstemplates/admin/admin.vue'
 import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
-
+import adminpanel from './components/channelstemplates/admin/adminpanel/adminpanel.vue'
 
 import gal from './components/channelstemplates/gallery/gal.vue'
 import galhomepage from './components/channelstemplates/gallery/galhomepage.vue'
@@ -51,7 +52,8 @@ export default [
         ]
       },
       {path:'notifications',component:ciinotify},
-      {path:'search',component:ciisearch}
+      {path:'search',component:ciisearch},
+      {path:'userguide',component:userguide}
     ]
   },
   {path:'/sac/sportsclub',component:sportsclub,
@@ -76,7 +78,8 @@ export default [
           {path:'addpost',component:addpost},
           {path:'issuedList',component:issuedList},
           {path:'sportsclubreqtab',component:sportsclubreqtab},
-          {path:'updateequiplist',component:updateequiplist}
+          {path:'updateequiplist',component:updateequiplist},
+          {path:'adminpanel',component:adminpanel}
         ]
       }
 
@@ -91,9 +94,7 @@ export default [
       {path:'admin',component:admin,
         children:[
           {path:'addpost',component:addpost},
-          {path:'issuedList',component:issuedList},
-          {path:'sportsclubreqtab',component:sportsclubreqtab},
-          {path:'updateequiplist',component:updateequiplist}
+          {path:'adminpanel',component:adminpanel}
         ]
       }
     ]

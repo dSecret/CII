@@ -2,7 +2,6 @@
   <div class="wrap-container">
       <div class="homecontainer">
         <!--<channelhome></channelhome>-->
-
           <postss></postss>
       </div>
   </div>

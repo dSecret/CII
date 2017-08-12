@@ -10,6 +10,7 @@ import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
 import VueMasonryPlugin from "vue-masonry"
 
+import {store} from './store/store.js'
 
 import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
@@ -22,6 +23,17 @@ Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
 Vue.component('forms',forms);
 Vue.component('postss',postss);
+
+var VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo, {
+     container: "#scrolldiv",
+     duration: 500,
+     easing: "ease",
+     offset: 0,
+     cancelable: true,
+     onDone: false,
+     onCancel: false
+ })
 
 Vue.use(VueRouter);
 Vue.use(VueCookie);
@@ -68,4 +80,5 @@ new Vue({
   el: '#app',
   render: h => h(App),
   router:router,
+  store:store
 })

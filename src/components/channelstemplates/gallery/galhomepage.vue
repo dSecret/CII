@@ -1,19 +1,21 @@
 <template>
   <div>
       <div class="create-div">
-        <md-button class="md-raised md-primary" style="font-size:15px;ma"
+        <md-button class="md-raised md-accent" style="font-size:15px;ma"
         onclick="overlayout('sasaddgal')">
         Create
         <md-icon >create</md-icon>
         </md-button>
       </div>
       <div>
-        <md-card md-with-hover style="display:inline-block;margin-left:20px;width:300px;max-height:300px;overflow:hidden;"
-          v-for="album in albums"
+        <div style="height:100px;background-color:white;display:inline-block;margin-left:20px;"v-for="album in albums">
+        <md-card md-with-hover
+                style="width:300px;max-height:300px;overflow:hidden;"
+
         >
               <md-card-media>
-                <router-link :to="'/sas/gallery/'+album.id">
-                  <img style="width:300px;max-height:300px;" :src="album.imgsrc[0]" alt="People">
+                <router-link :to="'/sac/sportsclub/gallery/'+album.id">
+                  <img style="width:300px;max-height:300px;" :src="'/src/assets/'+album.imgsrc[0]" alt="People">
                 </router-link>
                 <md-ink-ripple></md-ink-ripple>
               </md-card-media>
@@ -48,6 +50,7 @@
                 </md-menu>
               </md-card-actions>
         </md-card>
+      </div>
       </div>
   </div>
 </template>

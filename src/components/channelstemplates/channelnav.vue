@@ -44,7 +44,7 @@
                           <md-list-expand>
                             <md-list >
                               <md-list-item v-for="tit in elem.expand"class="md-inset" >
-                                  <router-link :to="tit.linki" exact>{{tit.title}}</router-link>
+                                  <router-link  :to="tit.linki" exact>{{tit.title}}</router-link>
                               </md-list-item>
                             </md-list>
                           </md-list-expand>
@@ -52,7 +52,7 @@
                 </template>
               </md-list>
         </md-sidenav>
-        <div class="hide-scrollbar">
+        <div id="scrolldiv" class="hide-scrollbar">
             <div id="entryroute"class="router-css">
                 <router-view></router-view>
             </div>
@@ -79,6 +79,7 @@ export default {
     }
   },
   methods: {
+
     toggleLeftSidenav() {
       this.$refs.leftSidenav.toggle();
     },
@@ -89,7 +90,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .hide-scrollbar{
   overflow-x: hidden;
   overflow-y: auto;
@@ -101,10 +102,9 @@ export default {
 }
 #entryroute{
   width:100vw;
-
+  z-index:1000;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  z-index:500;
 }
 .sascontainer{
   width:100vw;
@@ -116,12 +116,13 @@ export default {
   left:0;
   width:100vw;
   height: 100vh;
-  z-index:1000;
 /*  background-color:black;
   background:url(~/src/assets/sportsclubbackground.jpg) 0 0/ 100vw 100vh no-repeat;
 */  overflow:hidden;
 background-color: #0f628b;
 background-image: linear-gradient(180deg, hsl(200, 81%, 30%) 0%, #2AF598 100%);
+padding-bottom:20vh !important;
+
 }
 
 .nitlogo{
