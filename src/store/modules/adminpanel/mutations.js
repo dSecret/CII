@@ -1,9 +1,14 @@
+import loda from 'lodash'
 const mutations ={
   addpriv:(state,option)=>{
-  state.privileged.push(option)
+      state.profile[option.index].privileged.push(option.title)
   },
-  removepriv:(state,index)=>{
-    state.privileged.splice(index,1)
+  removepriv:(state,option)=>{
+      var evens = _.remove(state.profile[option.index].privileged,
+                            function(p) {
+                              return p!=option.title;
+                            });
+      state.profile[option.index].privileged=evens
   }
 }
 export default mutations

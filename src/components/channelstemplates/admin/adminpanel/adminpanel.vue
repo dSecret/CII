@@ -1,19 +1,21 @@
 <template>
   <div style="text-align:center;">
-      <div class="container">
+      <div class="container" v-for="(profile,index) in profile">
                   <md-card>
-                      <md-card-header>
+                      <md-card-header style="margin-bottom:0;padding-bottom:0;">
                           <md-card-header-text>
-                              <div class="md-title">{{editmode}}</div>
-                              <div class="md-subhead">Admin</div>
+                              <div class="md-title">{{profile.name}}</div>
+                              <div class="md-subhead">{{profile.post}}</div>
                           </md-card-header-text>
-                          <md-menu md-size="3" md-direction="bottom left" md-align-trigger>
+                          <md-menu md-size="2" md-direction="bottom left"
+                                    style="margin:0;"
+                                    md-align-trigger>
                             <md-button class="md-icon-button" md-menu-trigger>
                               <md-icon>more_vert</md-icon>
                             </md-button>
                             <md-menu-content>
-                                <md-menu-item v-if="editmode"
-                                @click="editmode=!editmode">
+                                <md-menu-item v-if="!profile.editmode"
+                                @click="profile.editmode=!profile.editmode">
                                   <span>Edit</span>
                                   <md-icon>create</md-icon>
                                 </md-menu-item>
@@ -24,15 +26,15 @@
                             </md-menu-content>
                           </md-menu>
                     </md-card-header>
-                    <md-card-content>
-                      <div v-if="!editmode" style="overflow:hidden">
+                    <md-card-content style="min-height:110px;margin-top:0;padding-top:0;">
+                      <div v-if="profile.editmode" style="overflow:hidden">
                         <md-input-container style="width:50%;min-width:0;">
-                            <label for="movie">Movie</label>
+                            <label for="movie">AddPrivileges</label>
                             <md-select name="movie" id="movie"
-                            v-on:selected="selectoptions(option)"
+                            v-on:selected="selectoptions(option,index)"
                             v-model="option">
                               <md-option :value="priv"
-                              v-for="priv in $store.state.adminpanel.privileges">
+                              v-for="priv in profile.privileges">
                                 {{priv}}
                               </md-option>
                             </md-select>
@@ -40,24 +42,24 @@
                       </div>
                       <div>
                         <md-chip md-deletable
-                                 v-if="!editmode"
-                                 @delete="removepriv(index)"
-                                 v-for="(tag, index) in $store.state.adminpanel.privileged"
+                                  class="chipsi"
+                                 v-if="profile.editmode"
+                                 @delete="removepriv(tag,index)"
+                                 v-for="tag in profile.privileged"
                                  v-bind:key="tag">
                                  {{tag}}
                         </md-chip>
                         <md-chip md-static
-                                 class="md-accent"
-                                 v-if="editmode"
-                                 v-for="tik in $store.state.adminpanel.privileged">
+                                 class="md-accent chipsi"
+                                 v-if="!profile.editmode"
+                                 v-for="tik in profile.privileged">
                                  {{tik}}
                         </md-chip>
                       </div>
-                      <div>
-                        <span style="flex:1"></span>
-                        <md-button class="md-raised"
-                                  @click="editmode=!editmode"
-                                  v-if="!editmode">
+                      <div style="text-align:right;">
+                        <md-button class="md-primary"
+                                  @click="profile.editmode=!profile.editmode"
+                                  v-if="profile.editmode">
                                   Save
                         </md-button>
                       </div>
@@ -81,15 +83,19 @@ export default {
 
   },
   computed:{
-
+      profile(){
+        return this.$store.state.adminpanel.profile
+      }
   },
   methods:{
-    selectoptions:function(option){
-      return this.$store.dispatch('adminpanel/addpriv',option)
+    selectoptions:function(option,inde){
+       var options={title:option,index:inde}
+      return this.$store.dispatch('adminpanel/addpriv',options)
       console.log('yes')
     },
-    removepriv:function(index){
-          return this.$store.dispatch('adminpanel/removepriv',index)
+    removepriv:function(tag,inde){
+          var option={title:tag,index:inde}
+          return this.$store.dispatch('adminpanel/removepriv',option)
     }
   }
 }
@@ -102,6 +108,10 @@ export default {
   border-radius:4px;
   overflow: hidden;
   display: inline-block;
+  margin:20px;
+}
+.chipsi{
+  margin:2.5px!important;
 }
 @media only screen and (max-width:7in){
   .container{

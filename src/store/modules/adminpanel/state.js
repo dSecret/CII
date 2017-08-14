@@ -1,10 +1,23 @@
 const state ={
-  privileges:[
-    'AddPost','Reply','Blocker','Editor','AddModerator',
+  profile:[
+    {name:'SAS Officer',post:'Admin',editmode:false,
+      privileged:[
+        'AddPost','Reply','Blocker','Editor','AddModerator',
+      ],
+      privileges:[
+        'AddPost','Reply','Blocker','Editor','AddModerator',
+      ],
+    },
+    {name:'Karan Jha',post:'Moderator',editmode:false,
+      privileged:[
+        'Reply','Blocker','Editor'
+      ],
+      privileges:[
+        'AddPost','Reply','Blocker','Editor','AddModerator',
+      ],
+    },
   ],
-  privileged:[
-    'Addpost','Reply'
-  ],
+
 }
 
 export default state
