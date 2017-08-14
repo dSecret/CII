@@ -7,7 +7,7 @@
       <div class="md-subhead">{{postAttr.created}}</div>
     </md-card-header-text>
 
-    <!-- <md-menu md-size="4" md-direction="bottom left">
+    <md-menu md-size="4" md-direction="bottom left">
       <md-button class="md-icon-button" md-menu-trigger>
         <md-icon>more_vert</md-icon>
       </md-button>
@@ -23,7 +23,7 @@
           <md-icon>message</md-icon>
         </md-menu-item>
       </md-menu-content>
-    </md-menu> -->
+    </md-menu>
   </md-card-header>
   <md-card-media>
     <img src="/src/assets/Cricket1.jpg" v-if="postAttr.content.banner!=undefined" alt="Banner">
