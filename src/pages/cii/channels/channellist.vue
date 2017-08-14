@@ -32,12 +32,7 @@
           fit-width="true"
           column-width=".channelcontainer">
          <!-- block item markup -->
-<<<<<<< HEAD
         <div v-masonry-tile id="item" class="chan-item" v-for="channel in filtered.content" v-bind:style="{width: (channel.rank*33.3)+'%'}">
-        <router-link class="route-link":to="channel.homelink">
-=======
-        <div v-masonry-tile id="item" class="chan-item" v-for="channel in channels" v-bind:style="{width: (channel.rank*33.3)+'%'}">
->>>>>>> ee998da5f1f8474225c726664f80546a5571f51b
         <md-card id="card">
             <md-card-media-cover md-solid>
                 <md-card-media md-ratio="16:9">
