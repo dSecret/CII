@@ -14,14 +14,17 @@
 
       <md-menu-content>
         <md-menu-item>
-          <span>Call</span>
-          <md-icon>phone</md-icon>
+          <span>Edit</span>
+          <md-icon>create</md-icon>
         </md-menu-item>
-
         <md-menu-item>
-          <span>Send a message</span>
+          <span>Copy Url</span>
           <md-icon>message</md-icon>
         </md-menu-item>
+				<md-menu-item>
+					<span>Turn on Notifications</span>
+					<md-icon>notifications</md-icon>
+				</md-menu-item>
       </md-menu-content>
     </md-menu>
   </md-card-header>
@@ -30,18 +33,37 @@
   </md-card-media>
 
   <md-card-content >
-				<md-card-actions >
-								<span style="flex:1;margin-left:4px;">
-									{{ postAttr.content.description }}
-								</span>
-								<md-button class="md-icon-button">
-									<md-icon>favorite</md-icon>
-								</md-button>
-								<md-button class="md-icon-button">
-									<md-icon>share</md-icon>
-								</md-button>
-							</md-card-actions>
-  			</md-card-content>
+			{{ postAttr.content.description }}
+
+	</md-card-content>
+	<md-card-actions >
+						<md-button class="md-icon-button">
+							<md-icon>favorite</md-icon>
+						</md-button>
+						<md-button class="md-icon-button">
+								<md-icon>note</md-icon>
+						</md-button>
+						<md-button class="md-icon-button">
+								<md-icon>poll</md-icon>
+						</md-button>
+						<md-button class="md-icon-button"
+						>
+								<md-icon>comment</md-icon>
+						</md-button>
+						<md-menu md-direction="bottom left">
+						  <md-button md-menu-trigger
+													class="md-icon-button">
+								<md-icon>share</md-icon>
+							</md-button>
+						  <md-menu-content>
+								<md-input-container>
+										<md-icon>phone</md-icon>
+										<label>Phone</label>
+										<md-input type="text" id="copylink"  value="hello"></md-input>
+								</md-input-container>
+						  </md-menu-content>
+						</md-menu>
+	</md-card-actions>
 
 </md-card>
 <!-- </md-ink-ripple> -->
