@@ -9,9 +9,7 @@ const state ={
       ],
     },
     {name:'Karan Jha',post:'Moderator',editmode:false,
-      privileged:[
-        'Reply','Blocker','Editor'
-      ],
+      privileged:["Editor"],
       privileges:[
         'AddPost','Reply','Blocker','Editor','AddModerator',
       ],
