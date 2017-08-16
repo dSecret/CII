@@ -1,14 +1,6 @@
 <template>
   <div class="wrap-container">
-
-      <div class="homecontainer">
-        <channelhome></channelhome>
-      </div>
-      <button v-scroll-to="'#element'">Scroll to #element</button>
-
-<div id="element" class="divv">
-    Hi. I'm #element.
-</div>
+      <router-view></router-view>
   </div>
 </template>
 

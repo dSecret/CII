@@ -1,9 +1,9 @@
 const actions ={
-  addpriv:(context,option)=>{
-    context.commit('addpriv',option)
+  addbody:(context,body)=>{
+    context.commit('addpriv',body)
   },
-  removepriv:(context,option)=>{
-    context.commit('removepriv',option)
-  }
+  //removepriv:(context,option)=>{
+  //  context.commit('removepriv',option)
+  //}
 }
 export default actions

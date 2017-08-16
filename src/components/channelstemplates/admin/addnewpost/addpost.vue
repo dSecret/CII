@@ -3,17 +3,17 @@
           <div v-if="formfill"class="cardcontainer" >
             <md-input-container class="input-container">
                 <label>Title</label>
-                <md-input required ></md-input>
+                <md-input required v-model="post.title"></md-input>
                 <md-icon>create</md-icon>
             </md-input-container>
             <md-input-container class="input-container" >
-              <label>About Prior Qualifications</label>
-              <md-textarea required ></md-textarea>
+              <label>Description</label>
+              <md-textarea required v-model="post.body"></md-textarea>
               <md-icon>create</md-icon>
             </md-input-container>
             <md-input-container class="input-container">
                 <label>Post-Banner</label>
-                <md-file  accept="image/*"></md-file>
+                <md-file  accept="image/*" v-model="post.banner"></md-file>
             </md-input-container>
             <div class="rec-msg">
               You can attach multiple files like pdfs, poster in attachment/s field.
@@ -27,7 +27,7 @@
                 <md-tabs md-right class="md-transparent" >
                   <md-tab md-icon="description"><forms></forms>
                   </md-tab>
-                  <md-tab md-icon="people">
+                  <md-tab md-icon="poll">
                   </md-tab>
                 </md-tabs>
             </div>
@@ -59,6 +59,9 @@ export default {
       postmesg:false,
       savedraft:false,
       formfill:true,
+      post:{
+        title:'',body:'',banner:'',attach:''
+      }
     }
   },
   methods:{

@@ -50,17 +50,13 @@
 						>
 								<md-icon>comment</md-icon>
 						</md-button>
-						<md-menu md-direction="bottom left">
+						<md-menu md-direction="bottom left" md-align-trigger md-size="2">
 						  <md-button md-menu-trigger
 													class="md-icon-button">
 								<md-icon>share</md-icon>
 							</md-button>
-						  <md-menu-content>
-								<md-input-container>
-										<md-icon>phone</md-icon>
-										<label>Phone</label>
-										<md-input type="text" id="copylink"  value="hello"></md-input>
-								</md-input-container>
+						  <md-menu-content >
+									<md-menu-item>CopyLink</md-menu-item>
 						  </md-menu-content>
 						</md-menu>
 	</md-card-actions>

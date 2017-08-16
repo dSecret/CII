@@ -38,10 +38,18 @@ import gal from './components/channelstemplates/gallery/gal.vue'
 import galhomepage from './components/channelstemplates/gallery/galhomepage.vue'
 import album from './components/channelstemplates/gallery/album.vue'
 
+import post from './components/ciiservices/postcomments/postfeed.vue'
+import openpost from './components/ciiservices/postcomments/openpost.vue'
+
 export default [
   {path:'/',component:cii,
     children:[
-      {path:'',component:ciihome},
+      {path:'',component:ciihome,
+        children:[
+          {path:'',component:post},
+          //{path:'/post/:id',component:openpost}
+        ]
+      },
       {path:'/channels',component:ciichannel},
       {path:'/user',component:ciiuser,
         children:[
@@ -56,6 +64,7 @@ export default [
       {path:'userguide',component:userguide}
     ]
   },
+
   {path:'/sac/sportsclub',component:sportsclub,
     children:[
       {path:'',component:sportsclubhome},
