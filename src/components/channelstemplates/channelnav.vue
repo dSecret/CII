@@ -140,13 +140,13 @@ padding-bottom:20vh !important;
 .channel-title{
   flex:1 !important;
   color:white !important;
-  font-family: 'Abril Fatface', cursive !important;
+  font-family: 'Ubuntu', sans-serif !important;
   margin-left: 0;display: none;
 }
 .fullform{
   flex:1 !important;
   color:white !important;
-  font-family: 'Abril Fatface', cursive !important;
+  font-family: 'Ubuntu', sans-serif !important;
   margin-left: 0;
 }
 a{

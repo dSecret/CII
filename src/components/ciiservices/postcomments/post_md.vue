@@ -37,8 +37,9 @@
 
 	</md-card-content>
 	<md-card-actions >
-						<md-button class="md-icon-button">
-							<md-icon>favorite</md-icon>
+						<md-button class="md-icon-button" @click="react=!react">
+							<md-icon  v-if="!react">favorite</md-icon>
+							<md-icon style="color:maroon;" v-if="react" >favorite</md-icon>
 						</md-button>
 						<md-button class="md-icon-button">
 								<md-icon>note</md-icon>
@@ -50,13 +51,40 @@
 						>
 								<md-icon>comment</md-icon>
 						</md-button>
-						<md-menu md-direction="bottom left" md-align-trigger md-size="2">
+						<md-menu md-direction="bottom left" md-size="4">
 						  <md-button md-menu-trigger
 													class="md-icon-button">
 								<md-icon>share</md-icon>
 							</md-button>
 						  <md-menu-content >
-									<md-menu-item>CopyLink</md-menu-item>
+								<div style=" padding: 4px 0;
+															width:100%;
+														  text-align: center;" align="center">
+								<social-sharing url="https://vuejs.org/" inline-template>
+								  <div>
+								      <network network="facebook"  >
+														 <md-button class="md-icon-button">
+															 	<md-icon>email</md-icon>
+														 </md-button>
+								      </network>
+											<network network="facebook"  >
+														 <md-button class="md-icon-button">
+																<md-icon>email</md-icon>
+														 </md-button>
+											</network>
+											<network network="facebook"  >
+														 <md-button class="md-icon-button">
+																<md-icon>email</md-icon>
+														 </md-button>
+											</network>
+											<network network="facebook"  >
+														 <md-button class="md-icon-button">
+																<md-icon>email</md-icon>
+														 </md-button>
+											</network>
+									</div>
+								</social-sharing>
+							</div>
 						  </md-menu-content>
 						</md-menu>
 	</md-card-actions>
@@ -74,9 +102,13 @@ export default {
 
   data () {
     return {
+			react:false,
     	avatar: '/src/assets/logo.png',
  	    bg_img: '/src/assets/Cricket1.jpg',
-
+			nets:[
+				{network:'facebook',icon:'email'},{network:'whatsapp',icon:'email'},
+				{network:'reddit',icon:'email'},{network:'gmail',icon:'email'},
+			]
     	// postAttr: {}
     };
   }

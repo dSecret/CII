@@ -18,11 +18,18 @@ import channelhome from './components/channelstemplates/channelhome.vue'
 import forms from './components/ciiservices/forms/forms.vue'
 import postss from './components/ciiservices/postcomments/postfeed.vue'
 
+
+
 Vue.component('svgg',svgg)
 Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
 Vue.component('forms',forms);
 Vue.component('postss',postss);
+
+
+
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
 
 var VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo, {

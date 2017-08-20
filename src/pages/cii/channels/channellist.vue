@@ -10,18 +10,22 @@
         <span style="flex:1;" v-if="open">
           <input type="text" class="searchbox" v-model="hello" v-on:keyup.enter="open=!open"></input>
         </span>
-      <md-menu md-direction="bottom left" md-size="4">
+      <md-menu md-direction="bottom left" md-size="3">
           <md-button class="md-icon-button" md-menu-trigger>
               <md-icon>filter_list</md-icon>
           </md-button>
           <md-menu-content>
               <md-menu-item>
-                <span>Find on map</span>
-                <md-icon>near_me</md-icon>
+                <span>Official</span>
+                <md-icon>security</md-icon>
               </md-menu-item>
               <md-menu-item>
-                <span>Call</span>
-                <md-icon>phone</md-icon>
+                <span>Public</span>
+                <md-icon>visibility</md-icon>
+              </md-menu-item>
+              <md-menu-item>
+                <span>Private</span>
+                <md-icon>visibility_off</md-icon>
               </md-menu-item>
           </md-menu-content>
       </md-menu>

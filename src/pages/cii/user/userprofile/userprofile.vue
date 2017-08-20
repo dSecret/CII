@@ -13,7 +13,7 @@
                   <md-icon class="md-size-1x">more_vert</md-icon>
               </md-button>
               <md-menu-content>
-                  <md-menu-item>EditProfile</md-menu-item>
+                  <md-menu-item v-on:click="check()">EditProfile</md-menu-item>
                   <md-menu-item>LastActivities</md-menu-item>
                   <md-menu-item>LogOut</md-menu-item>
               </md-menu-content>
@@ -80,12 +80,19 @@ export default {
   data () {
     return {
         gg:'wha',
+        options:'helllo'
   }},
+  created(){
+  },
   methods:{
     show:function(event){
 
         this.gg=event.target.innerText;
         this.gg=this.gg.slice(0,3);
+    },
+    check:function(){
+      var options='hello'
+      return this.$store.dispatch('user/addpriv',options)
     }
   },
   computed:{
