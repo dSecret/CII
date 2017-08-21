@@ -1,5 +1,5 @@
 const state ={
-  post:{linked:'',meta:{title:'',body:'',banner:'',attach:''},formfield:[],
+  post:{linked:'',meta:{title:'',body:'',banner:'',attach:'',linked:''},formfield:[],
             poll:[],comments:[]
         }
 }

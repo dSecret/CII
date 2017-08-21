@@ -70,7 +70,7 @@ export default {
       savedraft:false,
       formfill:true,
       post:{
-        title:'',body:'',banner:'',attach:''
+        title:'',body:'',banner:'',attach:'',linked:''
       }
     }
   },
@@ -95,6 +95,7 @@ export default {
     //this.formfill=false;
   //   this.savedraft=false;
     //this.postmesg=true;
+    this.post.linked=this.$route.path
     return this.$store.dispatch('post/addnewpost',this.post)
      console.log('hellos')
    },

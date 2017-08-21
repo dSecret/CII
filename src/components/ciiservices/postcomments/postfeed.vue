@@ -1,7 +1,7 @@
 <template>
 	<div id="post-feed">
 		<div class="post-feed-posts">
-			<div v-for="p in posts" id="post-wrap">
+			<div v-for="p in newposts" id="post-wrap">
 				<post :post-attr="p"></post>
 			</div>
 		</div>
@@ -25,182 +25,32 @@ export default {
     return {
     	auth_token: "",
     	user_uuid: "",
+			newposts:[{id:'',content:[]}],
+			posts : [{
+			  "_id": "853688b50f94a17d54f5283502006d9e",
+			  "_rev": "1-22fc2b0b0b17d57fd71368390472534a",
+			  "content": {
+			   "title": "Chess Tournament",
+			   "description": "A chess tournament to be held on 2nd June. Interested Participants register.",
+			   "banner": "",
+			   "widgets": [
+			    {
+			      "type": "form",
+			      "params": {
 
-    	posts : [{
-  "_id": "853688b50f94a17d54f5283502006d9e",
-  "_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-  "content": {
-   "title": "Chess Tournament",
-   "description": "A chess tournament to be held on 2nd June. Interested Participants register.",
-   "banner": "",
-   "widgets": [
-    {
-      "type": "form",
-      "params": {
+			      }
+			    },
+			   ]
+			  },
+			  "created": "12 Jul 17 05:34 +0530",
+			  "OP": {
+			   "username": "viggyvig",
+			   "flair": "MODERATOR"
+			  },
+			  "favorites": {
 
-      }
-    },
-   ]
-  },
-  "created": "12 Jul 17 05:34 +0530",
-  "OP": {
-   "username": "viggyvig",
-   "flair": "MODERATOR"
-  },
-  "favorites": {
-
-  }
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-},
-{
-"_id": "853688b50f94a17d54f5283502006d9e",
-"_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-"content": {
-"title": "Chess Tournament",
-"description": "A chess tournament to be held on 2nd June. Interested Participants register",
-"banner": "",
-"widgets": [
-{
-"type": "form",
-"params": {
-
-}
-},
-]
-},
-"created": "12 Jul 17 05:34 +0530",
-"OP": {
-"username": "viggyvig",
-"flair": "MODERATOR"
-},
-"favorites": {
-
-}
-}]
+			  }
+			},]
     };
   },
 

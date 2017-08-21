@@ -10,6 +10,14 @@ const mutations ={
 
       state.post.meta=body
       console.log(state.post.meta)
+      axios({
+        method:'post',
+        url:'https://post-fcda4.firebaseio.com/post.json',
+        data:state.post
+      })
+        .then(function(response) {
+              console.log(response)
+      });
   },
 
 }
