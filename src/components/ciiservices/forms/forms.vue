@@ -9,69 +9,59 @@
                   <md-tabs class="md-transparent">
                     <md-tab id="form-make" md-label="Source">
                       <div id="form-make-container">
-                        <p>Enter the title for the form, this will displayed as title in previews</p>
-                        <md-input-container>
-                          <label>Form Title</label>
-                          <md-input v-model="form.title" ></md-input>
-                        </md-input-container>
-                        <p>A short description related to the form, explaining the use of this data collected</p>
-                        <md-input-container>
-                          <label>Form Description</label>
-                          <md-textarea v-model="form.description"></md-textarea>
-                        </md-input-container>
                         <div id="form-fields">
-                      <md-toolbar class="md-transparent">
-                        <h2 class="md-title" style="flex: 1">Form Fields</h2>
-                        <md-button class="md-icon-button" @click="addNewField()">
-                          <md-icon>add</md-icon>
-                        </md-button>
-                      </md-toolbar>
-                      <md-list>
-                        <md-list-item v-for="field in form['fields']" :key="field.id">
-                          <div id="form-field-wrap">
-                            <!-- <md-subheader>{{ field.id }}</md-subheader> -->
-                            <md-toolbar class="md-transparent">
-                              <h2 class="md-title" style="flex: 1">{{field.id}}</h2>
-                              <md-button v-if="field.id!=1"class="md-icon-button" @click="moveField(field.id, 'up')">
-                                <md-icon>keyboard_arrow_up</md-icon>
-                              </md-button>
-                              <md-button v-if="field.id!=form['fields'].length"class="md-icon-button" @click="moveField(field.id, 'down')">
-                                <md-icon>keyboard_arrow_down</md-icon>
-                              </md-button>
-                              <md-button class="md-icon-button" @click="removeField(field.id)">
-                                <md-icon class="md-warn">close</md-icon>
-                              </md-button>
-                            </md-toolbar>
-                            <md-divider></md-divider>
-                            <md-input-container>
-                                <label>Field Head</label>
-                                <md-input v-model="field.subhead" placeholder="field subhead"></md-input>
-                              </md-input-container>
-                            <md-input-container>
-                                <label>field description</label>
-                                <md-textarea v-model="field.description"></md-textarea>
-                              </md-input-container>
-                            <div>
-                              <md-radio v-model="field.type"
-                                  id="form-field-type-text"
-                                  name="form-field-radio"
-                                  md-value="text">Text
-                              </md-radio>
-                              <md-radio v-model="field.type"
-                                  id="form-field-type-longtext"
-                                  name="form-field-radio"
-                                  md-value="longtext">Long Text
-                              </md-radio>
-                              <md-radio v-model="field.type"
-                                  id="form-field-type-attachment"
-                                  name="form-field-radio"
-                                  md-value="attach">Attachment
-                              </md-radio>
-                            </div>
-                          </div>
-                          <!-- <md-divider></md-divider> -->
-                        </md-list-item>
-                      </md-list>
+                              <md-toolbar class="md-transparent">
+                                <h2 class="md-title" style="flex: 1">Form Fields</h2>
+                                <md-button class="md-icon-button" @click="addNewField()">
+                                  <md-icon>add</md-icon>
+                                </md-button>
+                              </md-toolbar>
+                              <md-list>
+                                <md-list-item v-for="field in form['fields']" :key="field.id">
+                                  <div id="form-field-wrap">
+                                    <!-- <md-subheader>{{ field.id }}</md-subheader> -->
+                                    <md-toolbar class="md-transparent">
+                                      <h2 class="md-title" style="flex: 1">{{field.id}}</h2>
+                                      <md-button v-if="field.id!=1"class="md-icon-button" @click="moveField(field.id, 'up')">
+                                        <md-icon>keyboard_arrow_up</md-icon>
+                                      </md-button>
+                                      <md-button v-if="field.id!=form['fields'].length"class="md-icon-button" @click="moveField(field.id, 'down')">
+                                        <md-icon>keyboard_arrow_down</md-icon>
+                                      </md-button>
+                                      <md-button class="md-icon-button" @click="removeField(field.id)">
+                                        <md-icon class="md-warn">close</md-icon>
+                                      </md-button>
+                                    </md-toolbar>
+                                    <md-divider></md-divider>
+                                    <md-input-container>
+                                        <label>Field Head</label>
+                                        <md-input v-model="field.subhead" placeholder="field subhead"></md-input>
+                                      </md-input-container>
+                                    <md-input-container>
+                                        <label>field description</label>
+                                        <md-textarea v-model="field.description"></md-textarea>
+                                      </md-input-container>
+                                    <div>
+                                      <md-radio v-model="field.type"
+                                          id="form-field-type-text"
+                                          name="form-field-radio"
+                                          md-value="text">Text
+                                      </md-radio>
+                                      <md-radio v-model="field.type"
+                                          id="form-field-type-longtext"
+                                          name="form-field-radio"
+                                          md-value="longtext">Long Text
+                                      </md-radio>
+                                      <md-radio v-model="field.type"
+                                          id="form-field-type-attachment"
+                                          name="form-field-radio"
+                                          md-value="attach">Attachment
+                                      </md-radio>
+                                    </div>
+                                  </div>
+                                  <!-- <md-divider></md-divider> -->
+                                </md-list-item>
+                              </md-list>
                         </div>
                       </div>
                     </md-tab>
@@ -205,17 +195,7 @@ export default {
 				}
   	},
   	uploadForm () {
-
-			console.log(this.$route.path)
-
-  		/*var form = new FormData()
-  		form.append('form', JSON.stringify(this.form))
-
-    	this.$http.post("http://localhost:8000/service/form_service/newform", form).then(response => {
-    		return response.json()
-    	}).then(data => {
-    		console.log(data);
-    	})*/
+      return this.$store.dispatch('post/formfield',this.form.fields)
   	}
   }
 };

@@ -105,10 +105,6 @@ export default {
 			react:false,
     	avatar: '/src/assets/logo.png',
  	    bg_img: '/src/assets/Cricket1.jpg',
-			nets:[
-				{network:'facebook',icon:'email'},{network:'whatsapp',icon:'email'},
-				{network:'reddit',icon:'email'},{network:'gmail',icon:'email'},
-			]
     	// postAttr: {}
     };
   }
