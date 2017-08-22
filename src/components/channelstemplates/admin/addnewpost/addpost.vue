@@ -70,7 +70,8 @@ export default {
       savedraft:false,
       formfill:true,
       post:{
-        title:'',body:'',banner:'',attach:'',linked:''
+        title:'',body:'',banner:'',attach:'',
+        linked:'',createdon:new Date()
       }
     }
   },
@@ -95,7 +96,15 @@ export default {
     //this.formfill=false;
   //   this.savedraft=false;
     //this.postmesg=true;
-    this.post.linked=this.$route.path
+    var channels=[{linked:'/sac/admin/addpost',channel:'SAC'},
+                  {linked:'/sac/sportsclub/admin/addpost ',channel:'sportsClub'},
+                ]
+      channels.forEach(c => {
+        if (c.linked === this.$route.path) {
+          this.post.linked=c.channel
+        }
+      })
+
     return this.$store.dispatch('post/addnewpost',this.post)
      console.log('hellos')
    },

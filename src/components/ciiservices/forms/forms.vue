@@ -67,10 +67,6 @@
                     </md-tab>
                     <md-tab id="form-preview" md-label="Preview" style="padding:0 0 20px 0;">
                       <div id="form-preview-wrap" >
-                        <p style="padding-left:10px;"><span class="md-headline">{{form.title}}</span></p>
-                        <p style="padding-left:10px;word-break:break-all"><span class="md-body-1">
-                          <vue-markdown :watches="['source']" :source="form.description"></vue-markdown>
-                        </span></p>
                         <md-subheader>Form Fields</md-subheader>
                         <md-list style="padding:0;">
                           <md-list-item v-for="field in form.fields" :key="field.id" style="padding:0;margin:0;">

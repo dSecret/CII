@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 import adminpanel from './modules/adminpanel/store.js'
 import post from './modules/post/store.js'

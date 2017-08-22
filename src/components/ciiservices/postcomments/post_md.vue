@@ -1,10 +1,13 @@
 <template>
 	<div id="post-wrap">
-    <md-card class="card-ripple" md-with-hover>
+    <md-card class="card-ripple" md-with-hover style="cursor:inherit;">
   <md-card-header >
     <md-card-header-text>
-      <div class="md-title">{{postAttr.content.title}}</div>
-      <div class="md-subhead">{{postAttr.created}}</div>
+      <div >
+					<span class="md-title">{{postAttr.meta.title}} </span>
+					<span class="md-subhead">{{postAttr.meta.linked}} </span>
+			</div>
+      <div class="md-subhead">{{postAttr.meta.createdon |formatDate}}</div>
     </md-card-header-text>
 
     <md-menu md-size="4" md-direction="bottom left">
@@ -29,29 +32,40 @@
     </md-menu>
   </md-card-header>
   <md-card-media>
-    <img src="/src/assets/Cricket1.jpg" v-if="postAttr.content.banner!=undefined" alt="Banner">
-  </md-card-media>
+		<router-link :to="'/post/'+ postAttr.id">
+    	<img :src="'/src/assets/'+postAttr.meta.banner"
+						v-if="postAttr.meta.banner!=''"alt="Banner">
+		</router-link>
+
+	</md-card-media>
 
   <md-card-content >
-			{{ postAttr.content.description }}
-
+			{{ postAttr.meta.body.slice(1,270) }}
+			<span style="flex:1;margin-left:4px;">.....
+					<router-link :to="'/post/'+ postAttr.id">[SeeMore]</router-link>
+			</span>
 	</md-card-content>
 	<md-card-actions >
 						<md-button class="md-icon-button" @click="react=!react">
 							<md-icon  v-if="!react">favorite</md-icon>
 							<md-icon style="color:maroon;" v-if="react" >favorite</md-icon>
 						</md-button>
-						<md-button class="md-icon-button">
-								<md-icon>note</md-icon>
-						</md-button>
-						<md-button class="md-icon-button">
-								<md-icon>poll</md-icon>
-						</md-button>
-						<md-button class="md-icon-button"
-						>
-								<md-icon>comment</md-icon>
-						</md-button>
-						<md-menu md-direction="bottom left" md-size="4">
+						<router-link tag="md-button"
+												:to="'/post/'+postAttr.id+'/form'"
+												class="md-icon-button">
+												<md-icon>note</md-icon>
+						</router-link>
+						<router-link tag="md-button"
+												:to="'/post/'+postAttr.id+'/poll'"
+												class="md-icon-button">
+												<md-icon>poll</md-icon>
+						</router-link>
+						<router-link tag="md-button"
+												:to="'/post/'+postAttr.id"
+												class="md-icon-button">
+												<md-icon>comment</md-icon>
+						</router-link>
+						<!--	<md-menu md-direction="bottom left" md-size="4">
 						  <md-button md-menu-trigger
 													class="md-icon-button">
 								<md-icon>share</md-icon>
@@ -86,7 +100,7 @@
 								</social-sharing>
 							</div>
 						  </md-menu-content>
-						</md-menu>
+						</md-menu>-->
 	</md-card-actions>
 
 </md-card>

@@ -94,7 +94,8 @@ components:{
         if (c.category === category) {
           this.filtered.push(c)
         }
-      })},
+      })
+    },
     additem:function(event){
       //  this.selectedcart.push(event.target.innerHTML);
         var add=true

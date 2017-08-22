@@ -8,7 +8,8 @@
         </md-button>
       </div>
       <div>
-        <div style="height:100px;background-color:white;display:inline-block;margin-left:20px;"v-for="album in albums">
+        <div style="height:100px;background-color:white;display:inline-block;margin-left:20px;"
+              v-for="album in albums">
         <md-card md-with-hover
                 style="width:300px;max-height:300px;overflow:hidden;"
 

@@ -1,7 +1,7 @@
 <template>
 	<div id="post-feed">
 		<div class="post-feed-posts">
-			<div v-for="p in newposts" id="post-wrap">
+			<div v-for="p in showpost" id="post-wrap">
 				<post :post-attr="p"></post>
 			</div>
 		</div>
@@ -25,7 +25,7 @@ export default {
     return {
     	auth_token: "",
     	user_uuid: "",
-			newposts:[{id:'',content:[]}],
+			newposts:[],
 			posts : [{
 			  "_id": "853688b50f94a17d54f5283502006d9e",
 			  "_rev": "1-22fc2b0b0b17d57fd71368390472534a",
@@ -56,13 +56,13 @@ export default {
 
   created () {
 
-  	this.auth_token = this.$cookie.get("auth_token")
-  	this.user_uuid = this.$cookie.get("user_uuid")
+  	//this.auth_token = this.$cookie.get("auth_token")
+  	//this.user_uuid = this.$cookie.get("user_uuid")
 
-  	var UrlParams = {
-  		"chan_id": 2,
-  		"auth_token": this.auth_token
-  	}
+  	//var UrlParams = {
+  		//"chan_id": 2,
+  		//"auth_token": this.auth_token
+  	//}
 
   	// this.$http.get("http://192.168.43.216:8081/posts?chan_id=2;auth_token="+this.auth_token).then(response => {
 
@@ -72,8 +72,14 @@ export default {
 
   	// 		this.posts = resp["result"]
   	// })
-
-  }
+		var option='hello'
+		return this.$store.dispatch('post/showpost',option)
+  },
+	computed:{
+		showpost(){
+			return this.$store.state.post.showpost
+		}
+	}
 };
 </script>
 

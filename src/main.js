@@ -57,7 +57,7 @@ const router =new VueRouter({
 });
 Vue.filter('formatDate', function(value) {
   if (value) {
-    return moment(String(value)).format('MM/DD/YYYY ')
+    return moment(String(value)).format('hh:mm | MM/DD/YYYY ')
 }
 });
 Vue.prototype.moment = moment
