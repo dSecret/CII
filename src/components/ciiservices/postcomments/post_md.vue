@@ -42,7 +42,7 @@
   <md-card-content >
 			{{ postAttr.meta.body.slice(1,270) }}
 			<span style="flex:1;margin-left:4px;">.....
-					<router-link :to="'/post/'+ postAttr.id">[SeeMore]</router-link>
+					<router-link :to="'/post/'+ postAttr.id">[ContinueReading]</router-link>
 			</span>
 	</md-card-content>
 	<md-card-actions >

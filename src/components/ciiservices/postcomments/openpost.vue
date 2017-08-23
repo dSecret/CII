@@ -45,11 +45,13 @@
         						</md-button>
         						<router-link tag="md-button"
         												:to="'/post/'+id+'/form'"
+                                 v-if="!checkform"
         												class="md-icon-button">
         												<md-icon>note</md-icon>
         						</router-link>
         						<router-link tag="md-button"
         												:to="'/post/'+id+'/poll'"
+                                v-if="!checkpoll"
         												class="md-icon-button">
         												<md-icon>poll</md-icon>
         						</router-link>
@@ -110,13 +112,16 @@
 </template>
 
 <script>
+import loda from 'lodash'
 export default {
 
   data () {
     return {
       id:this.$store.state.post.routeid,
       react:false,
-      post:this.$store.state.post.openpost
+      post:this.$store.state.post.openpost,
+      checkform:false,
+      checkpoll:false,
     }
   },
   created(){
@@ -139,14 +144,12 @@ export default {
 
 <style scoped>
   .wrap-all{
-    width:60% !important;
     margin: 0 auto;
     padding-bottom:10vw;
   }
 
 @media only screen and (max-width:8in){
   .wrap-all{
-    width:98% !important;
   }
 }
 </style>

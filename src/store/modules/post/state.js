@@ -6,9 +6,9 @@ const state ={
         },
   showpost:[],
   openpost:{  meta:{title:'',body:'',banner:'',attach:'',linked:'',createdon:''},
-          formfield:[],
-          poll:[],
-          comments:[{body:'',replies:[]}]
+              formfield:[],
+              poll:[],
+              comments:[{body:'',replies:[]}]
         },
   routeid:''
 }

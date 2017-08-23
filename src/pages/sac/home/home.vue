@@ -14,11 +14,6 @@ export default {
 </script>
 
 <style scoped>
-.my-srollbar{
-  width: 35%;
-  min-width: 300px;
-  max-height: 450px;
-}
 .wrap-container{
   width:100vw;
 }
@@ -29,8 +24,8 @@ export default {
 }
 @media only screen and  (max-width:7.5in){
   .homecontainer{
-    width:100vw;
-    margin-left: 0;
+    width:98vw;
+    margin-left:1vw;
   }
 }
 </style>

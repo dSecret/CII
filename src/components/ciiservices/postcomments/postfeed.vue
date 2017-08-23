@@ -86,9 +86,8 @@ export default {
 <style lang="css" scoped>
 
 #post-feed {
-	max-width: 700px;
+	width: 100% !important;
 	margin: 0 auto;
-
 }
 
 #post-feed-posts {

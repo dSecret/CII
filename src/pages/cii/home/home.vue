@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap-container">
+  <div class="router-css">
       <router-view></router-view>
   </div>
 </template>
@@ -13,14 +13,24 @@ methods:{
 </script>
 
 <style scoped>
-.divv{
-  margin-top:200vh;
+.router-css{
+  padding-top:0;
+  width:60vw;
+  margin:0 auto;
 }
-.wrap-container{
-  width:100vw;
+@media only screen and (max-width:6in){
+  .router-css{
+    width:98vw!important;
+  }
 }
-.homecontainer{
-  width:60vw;margin-left:20vw;
-  margin-top:20px;
+@media only screen and (max-width:8in) and (min-width:6in) {
+  .router-css{
+    width:96vw;
+  }
+}
+@media only screen and (max-width:11in) and (min-width:8in){
+  .router-css{
+    width:80vw;
+  }
 }
 </style>
