@@ -17,6 +17,7 @@ import {store} from './store/store.js'
 import channelnav from './components/channelstemplates/channelnav.vue'
 import channelhome from './components/channelstemplates/channelhome.vue'
 
+import polls from './components/ciiservices/poll/polls.vue'
 import forms from './components/ciiservices/forms/forms.vue'
 import postss from './components/ciiservices/postcomments/postfeed.vue'
 
@@ -27,6 +28,7 @@ Vue.component('channelnav',channelnav);
 Vue.component('channelhome',channelhome);
 Vue.component('forms',forms);
 Vue.component('postss',postss);
+Vue.component('polls',polls);
 
 
 

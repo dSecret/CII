@@ -28,6 +28,7 @@
                   <md-tab md-icon="description"><forms></forms>
                   </md-tab>
                   <md-tab md-icon="poll">
+                        <polls></polls>
                   </md-tab>
                 </md-tabs>
             </div>
