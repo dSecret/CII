@@ -4,30 +4,23 @@
                 <span v-on:click="shownext"class="startbutton">AttachPoll</span>
           </div>
           <div  v-if="second">
-            <div id="form-wrap">
-                <div id="form-tabs">
+            <div id="poll-wrap">
+                <div id="poll-tabs">
                   <md-tabs class="md-transparent">
-                    <md-tab id="form-make" md-label="Source">
-                      <div id="form-make-container">
-                        <div id="form-fields">
+                    <md-tab id="poll-make" md-label="Source">
+                      <div id="poll-make-container">
+                        <div id="poll-fields">
                               <md-toolbar class="md-transparent">
-                                <h2 class="md-title" style="flex: 1">Form Fields</h2>
+                                <h2 class="md-title" style="flex: 1">Poll Fields</h2>
                                 <md-button class="md-icon-button" @click="addNewField()">
                                   <md-icon>add</md-icon>
                                 </md-button>
                               </md-toolbar>
                               <md-list>
-                                <md-list-item v-for="field in form['fields']" :key="field.id">
-                                  <div id="form-field-wrap">
-                                    <!-- <md-subheader>{{ field.id }}</md-subheader> -->
+                                <md-list-item v-for="field in poll['fields']" :key="field.id">
+                                  <div id="poll-field-wrap">
                                     <md-toolbar class="md-transparent">
                                       <h2 class="md-title" style="flex: 1">{{field.id}}</h2>
-                                      <md-button v-if="field.id!=1"class="md-icon-button" @click="moveField(field.id, 'up')">
-                                        <md-icon>keyboard_arrow_up</md-icon>
-                                      </md-button>
-                                      <md-button v-if="field.id!=form['fields'].length"class="md-icon-button" @click="moveField(field.id, 'down')">
-                                        <md-icon>keyboard_arrow_down</md-icon>
-                                      </md-button>
                                       <md-button class="md-icon-button" @click="removeField(field.id)">
                                         <md-icon class="md-warn">close</md-icon>
                                       </md-button>
@@ -38,66 +31,46 @@
                                         <md-input v-model="field.subhead" placeholder="field subhead"></md-input>
                                       </md-input-container>
                                     <md-input-container>
-                                        <label>field description</label>
+                                        <label>Field Attachment</label>
+                                        <md-file v-model="field.attach"></md-file>
+                                      </md-input-container>
+                                    <md-input-container>
+                                        <label>Field Description</label>
                                         <md-textarea v-model="field.description"></md-textarea>
                                       </md-input-container>
-                                    <div>
-                                      <md-radio v-model="field.type"
-                                          id="form-field-type-text"
-                                          name="form-field-radio"
-                                          md-value="text">Text
-                                      </md-radio>
-                                      <md-radio v-model="field.type"
-                                          id="form-field-type-longtext"
-                                          name="form-field-radio"
-                                          md-value="longtext">Long Text
-                                      </md-radio>
-                                      <md-radio v-model="field.type"
-                                          id="form-field-type-attachment"
-                                          name="form-field-radio"
-                                          md-value="attach">Attachment
-                                      </md-radio>
-                                    </div>
                                   </div>
-                                  <!-- <md-divider></md-divider> -->
                                 </md-list-item>
                               </md-list>
                         </div>
                       </div>
                     </md-tab>
-                    <md-tab id="form-preview" md-label="Preview" style="padding:0 0 20px 0;">
-                      <div id="form-preview-wrap" >
-                        <md-subheader>Form Fields</md-subheader>
-                        <md-list style="padding:0;">
-                          <md-list-item v-for="field in form.fields" :key="field.id" style="padding:0;margin:0;">
-                            <md-whiteframe md-tag="div" id="form-field-preview-wrap" >
-                              <p><span class="md-subheading">{{ field.subhead }}</span></p>
-                              <p><span class="md-body-1">
-                                <vue-markdown :watches="['source']" :source="field.description"></vue-markdown>
-                              </span></p>
-                              <md-input-container v-if="field.type=='longtext'">
-                                <label>Field Input</label>
-                                <md-textarea></md-textarea>
-                              </md-input-container>
-                              <md-input-container v-if="field.type=='text'">
-                                  <label>FieldInput</label>
-                                  <md-input></md-input>
-                              </md-input-container>
-                              <md-input-container v-if="field.type=='attach'">
-                              <label>Attachment</label>
-                              <md-file ></md-file>
-                            </md-input-container>
-                            </md-whiteframe>
-                          </md-list-item>
-                        </md-list>
+                    <md-tab id="poll-preview" md-label="Preview" style="padding:0 0 20px 0;">
+                      <div id="poll-preview-wrap" >
+                        <md-subheader>Poll Fields</md-subheader>
+                        <md-boards style="background-color:black;color:white;" class="md-transparent"
+                        :md-controls="true">
+                            <md-board :id="slide1" v-for="field in poll.fields">
+                              <p>{{field.subhead}}</p>
+                              <div>{{field.description}}</div>
+                              <div>{{field.attach}}</div>
+                              <div>
+                                    <md-button class="md-icon-button">
+                                        <md-icon>like</md-icon>
+                                    </md-button>
+                                    <md-button class="md-icon-button">
+                                        <md-icon>dislike</md-icon>
+                                    </md-button>
+                              </div>
+                            </md-board>
+                        </md-boards>
                       </div>
                   </md-tab>
                 </md-tabs>
               </div>
             </div>
               <div style="text-align:right;">
-                <md-button @click="uploadForm()"class="md-raised md-primary create-button" >SaveEdits</md-button>
-                <md-button @click="goback"class="md-raised create-button">Removeform</md-button>
+                <md-button @click="uploadpoll()"class="md-raised md-primary create-button" >SaveEdits</md-button>
+                <md-button @click="goback"class="md-raised create-button">Removepoll</md-button>
               </div>
           </div>
   </div>
@@ -107,7 +80,7 @@ import loda from 'lodash'
 import VueMarkdown from 'vue-markdown'
 export default {
 
-  name: 'form-generate',
+  name: 'poll-generate',
 
   components: {
   	VueMarkdown
@@ -116,7 +89,7 @@ export default {
     return {
       initial:true,
       second:false,
-    	form: {
+    	poll: {
     		"title": "",
     		"description": "",
     		"meta-info": {
@@ -137,25 +110,20 @@ export default {
       this.second=false;
     },
   	addNewField () {
-  		var lastid = this.form.fields.length+1
+  		var lastid = this.poll.fields.length+1
   		var tf = {
     		"id": lastid,
     		"subhead": "Field Title",
+        "attach":"",
   			"description": "Field Description: **explain here**",
   			"required": true,
-    		"type": "text",
-    		"value": {
-    			"text": "",
-    			"longtext": "",
-    			"attach": ""
-    		}
     	}
-  		this.form.fields.push(tf)
+  		this.poll.fields.push(tf)
   	},
   	removeField (id) {
 
   		// removes a field
-  		this.form.fields = loda.filter(this.form.fields, (field) => { return JSON.stringify(field.id) != id; })
+  		this.poll.fields = loda.filter(this.poll.fields, (field) => { return JSON.stringify(field.id) != id; })
   		this.fixIndex()
   		this.reorderIndex()
   	},
@@ -163,7 +131,7 @@ export default {
 
   		// reoder the id after changes
   		var index = 1
-  		loda.forEach(this.form.fields, (field) => {
+  		loda.forEach(this.poll.fields, (field) => {
   			field.id = index
   			index += 1
   		})
@@ -171,34 +139,17 @@ export default {
   	reoderIndex () {
 
   		// sort by id
-  		this.form.fields = loda.sortBy(this.form.fields, ["id"])
+  		this.poll.fields = loda.sortBy(this.poll.fields, ["id"])
   	},
-  	moveField (id, direction) {
-					var temp
-				if(direction=='up'){
-					temp=this.form.fields[id-2];
-					this.form.fields[id-2]=this.form.fields[id-1]
-					this.form.fields[id-2].id=id-1
-					this.form.fields[id-1]=temp;
-					this.form.fields[id-1].id=id
-				}
-				else{
-					temp=this.form.fields[id-1];
-					this.form.fields[id-1]=this.form.fields[id]
-					this.form.fields[id-1].id=id
-					this.form.fields[id]=temp;
-					this.form.fields[id].id=id+1
-				}
-  	},
-  	uploadForm () {
-      return this.$store.dispatch('post/formfield',this.form.fields)
+  	uploadpoll () {
+      return this.$store.dispatch('post/pollfield',this.poll.fields)
   	}
   }
 };
 </script>
 <style lang="css" scoped>
 
-#form-wrap {
+#poll-wrap {
 	margin: 0 ;
 	background-color: white;
 	width:100%;
@@ -206,11 +157,11 @@ export default {
 	-moz-box-sizing: border-box;
 }
 
-#form-field-wrap {
+#poll-field-wrap {
 	width: 100%;
 }
 
-#form-field-preview-wrap {
+#poll-field-preview-wrap {
 	width: 100%;
 	padding: 24px;
 }

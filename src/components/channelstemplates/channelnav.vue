@@ -57,7 +57,7 @@
                 <router-view></router-view>
             </div>
         </div>
-        <svgg></svgg>
+        <!--<svgg></svgg>-->
       </div>
 </template>
 
