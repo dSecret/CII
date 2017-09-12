@@ -9,6 +9,8 @@ import GSignInButton from 'vue-google-signin-button'
 import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
 import VueMasonryPlugin from "vue-masonry"
+import { ApolloClient, createBatchingNetworkInterface } from 'apollo-client'
+import VueApollo from 'vue-apollo'
 
 import {store} from './store/store.js'
 
@@ -26,7 +28,12 @@ Vue.component('channelhome',channelhome);
 Vue.component('forms',forms);
 Vue.component('postss',postss);
 
-
+const apolloClient = new ApolloClient({
+  networkInterface: createBatchingNetworkInterface({
+    uri: 'http://localhost:4000/query',
+  }),
+  connectToDevTools: true,
+})
 
 var SocialSharing = require('vue-social-sharing');
 Vue.use(SocialSharing);
@@ -48,13 +55,17 @@ Vue.use(VueMaterial);
 Vue.use(GSignInButton);
 Vue.use(VueResource);
 Vue.use(VueMasonryPlugin);
-
-
+Vue.use(VueApollo);
 
 const router =new VueRouter({
   routes:Routes,
   /*mode:'history'*/
 });
+
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+})
+
 Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).format('hh:mm | MM/DD/YYYY ')
@@ -85,6 +96,7 @@ Vue.material.registerTheme({
 })
 new Vue({
   el: '#app',
+  apolloProvider,
   render: h => h(App),
   router:router,
   store:store
