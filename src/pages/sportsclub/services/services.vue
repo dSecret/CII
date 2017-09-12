@@ -19,7 +19,7 @@ export default {
 .cii-cont{
     width:60%;
     margin-left:20%;
-    margin-top:5vh;
+    margin-top:0vh !important;
     margin-bottom:20vh;
 }
 @media only screen and (max-width:5.5in) {

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapup">
-            <ul style="margin:0%;padding:1%;" >
+            <ul style="margin:0%;padding:1%;"  class="md-body-1">
                 <li>
                     First you need to choose game.
                 </li>

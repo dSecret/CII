@@ -54,7 +54,7 @@ export default {
   border-right:1px solid lightgrey;
 }
 .router-link-active{
-  color:blue!important;
+  color:#2196f3!important;
 }
 .title{
   margin-top:0 !important;
@@ -72,6 +72,9 @@ export default {
   }
   .iconi{
     margin:15px 0 !important;
+  }
+  .wrap{
+    border:none;
   }
 }
 </style>

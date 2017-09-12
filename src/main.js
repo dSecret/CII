@@ -62,7 +62,7 @@ const router =new VueRouter({
 });
 Vue.filter('formatDate', function(value) {
   if (value) {
-    return moment(String(value)).format('hh:mm | MM/DD/YYYY ')
+    return moment(String(value)).startOf('minutes').fromNow();
 }
 });
 Vue.prototype.moment = moment

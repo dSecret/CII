@@ -17,8 +17,8 @@
 
       <md-menu-content>
         <md-menu-item>
-          <span>Edit</span>
-          <md-icon>create</md-icon>
+          <span>Delete</span>
+          <md-icon>delete</md-icon>
         </md-menu-item>
         <md-menu-item>
           <span>Copy Url</span>

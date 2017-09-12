@@ -4,21 +4,39 @@
       <div class="sidebar common">
   <!--This inner-div will be replaced by <sidebar></sidebar>-->
                     <div class="container-select">
-                          <select v-model="selected">
-                            <option disabled value="">All</option>
-                            <option v-for="spo in sports" :value="spo.value"v-on:click="filterCategory(selected)">{{spo.name}}</option>
-                          </select><br><br>
-                          <span>SelectedSport:
-                                <span style="text-transform: capitalize;">{{ selected }}</span>
-                          </span><br>
+                        <div >
+                          <md-input-container style="width:50%;">
+                              <label for="sports">Choose</label>
+                              <md-select name="sports"
+                                          id="sportsitemlist"
+                                          v-model="selected"
+                                          >
+                                  <md-option v-for="spo in sports"
+                                                  :value="spo.value"
+                                                  v-on:selected="filterCategory(selected)"
+                                                  >
+                                                  <span style="padding:0 20px">
+                                                    {{spo.name}}
+                                                  </span>
+                                  </md-option>
+                              </md-select>
+                            </md-input-container>
+                        </div>
                     </div>
-                    <div class="container-equip">
-                          <div class="wrapdiv" v-for="tit in filtered">
-                              <div @click="additem" class="con-equipname">{{tit.equipname}}</div>
+                    <div class="container-equip" >
+                          <div  v-for="tit in filtered" class="wrap-chipedit">
+                              <md-chip md-editable
+                                        v-on:edit="additem(tit.equipname)"
+                                        style="margin:5px 0;"
+                                        >
+                                  {{tit.equipname}}
+                                  <!--{{tit.remain}}/{{tit.total}}-->
+                              </md-chip>
+                              <!--<div @click="additem" class="con-equipname">{{tit.equipname}}</div>
                               <div class="con-equipavail">{{tit.remain}}/{{tit.total}}</div>
+                            -->
                           </div>
                     </div>
-
       </div>
       <div class="showbar common">
             <div class="showbar-msg">
@@ -36,24 +54,30 @@
                     <div v-else key="edit">
                     </div>
                   </transition><br>
-                  <div>Selected Cart</div>
-                  <div class="sel-box" v-for="til in selectedcart">{{til}}
-                      <div :title="removemsg" class="removebut" @click="removeitem(index)">
-                        <i class="material-icons moreicon">cancel</i>
-                      </div>
+                  <div class="md-subheading">Selected items </div>
+                      <md-chip md-deletable
+                                v-for="til in selectedcart"
+                                @delete="removeitem(index)"
+                                style="margin:5px 5px;"
+                              >
+                                {{til}}
+                              <md-tooltip md-direction="bottom">Remove from cart</md-tooltip>
+                      </md-chip>
+                  <div >
+                    <md-input-container>
+                      <label>Textarea</label>
+                      <md-textarea></md-textarea>
+                    </md-input-container>
                   </div>
-                  <div>
-                        <textarea class="addtext"></textarea>
-                  </div>
-                  <div style="text-align:right;width:98%;">
-                        <button class="reqbut">Request</button>
+                  <div style="text-align:right;">
+                        <md-button class="md-primary md-raised"
+                                    style="margin-right:0;"
+                        >
+                                  Request
+                        </md-button>
                   </div>
                 </div>
             </div>
-      </div>
-      <div style="clear:both;padding:10px;">
-        Onclick'Request' content inside showbar_selected will be replaced by
-        your request has been submitted successfully.
       </div>
   </div>
 
@@ -67,6 +91,7 @@ components:{
 },
   data () {
     return {
+      test:true,
       show:false,
       truee:'',
       selected:'',
@@ -96,11 +121,11 @@ components:{
         }
       })
     },
-    additem:function(event){
+    additem:function(name){
       //  this.selectedcart.push(event.target.innerHTML);
         var add=true
         this.selectedcart.forEach(c => {
-          if (c === event.target.innerHTML) {
+          if (c === name) {
              return add=false;
 
           }
@@ -109,7 +134,7 @@ components:{
           this.show=true;
         }
         if(add){
-            this.selectedcart.push(event.target.innerHTML);
+            this.selectedcart.push(name);
             add=true;this.show=false;
         }
       },
@@ -123,19 +148,23 @@ components:{
 
 <style scoped>
 @media only screen and (max-width:7in){
-  .common{
+.common{
     width:97%!important;
     margin-left:1.5%;
   }
+.wrap-chipedit{
+  display:inline-block;
+  margin-right:5px;
+}
 }
 .wrap{
   width:100%;
+  margin-top:-10vh;
   font-family: 'Roboto', sans-serif;
 }
 .container-select{
-   border-bottom:2px solid grey;
    padding-bottom:2%;padding-top:10px;
-   padding-left:2%;
+   padding-left:4%;
 }
 .common{
   display: inline-block;
@@ -143,27 +172,30 @@ components:{
   box-sizing: border-box;
   -moz-box-sizing:border-box;
   font-size:85%;overflow:none;
-
+  border-radius:4px;
 }
 .sidebar{
   width:31%;
-  background-color: #d5dbdb;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
   word-wrap: break-word;overflow: hidden;
-  min-height:20px;margin:2% 1% 1% 1%;
+  margin:2% 1% 1% 1%;
   min-height: 300px;
 }
 .showbar{
   width:66%;min-height:20px;margin:2% 1% 1% 0%;
+  border-radius:4px;
 }
 .showbar-msg{
-  background-color:#d5dbdb;overflow: none;
+  border-radius:4px;
+  background-color:white;overflow: none;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;-moz-box-sizing: border-box;
   padding:2% 0%;min-height:20px;
 }
 .showbar-selected{
-  background-color:#d5dbdb;overflow: none;
+  border-radius:4px;
+  background-color:white;overflow: none;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;-moz-box-sizing: border-box;
   padding:0% 0% 0 0%;min-height:20px;margin-top:1.5%;
@@ -176,18 +208,13 @@ components:{
   padding:2% 3%;
 }
 .container-equip{
-  width:100%;
+  padding-left: 4%;
   overflow: none;
 }
-.wrapdiv{
-  width:100%;
-  overflow:none;
-  background-color: red;
-  display: block;
-}
+
 .con-equipname{
   padding:2% 4% 2% 4%;
-  margin:1% 0 4% 2%;
+  margin:1% 0 4% 0%;
   border-radius:4px;
   background-color: grey;
   box-sizing: border-box;
@@ -210,21 +237,6 @@ components:{
   display: inline-block;
 }
 /*css for inner-divs inside showbar-selected*/
-.sel-box{
-  padding:1.5%;
-  position:relative;
-  background-color: grey;
-  color:white;display:inline-block;margin-right:13px;margin-top: 13px;
-}
-.removebut{
-  position:absolute;top:-12px;right:-12px;color:darkgrey;
-}
-.removebut:hover{
-  color:red;
-}
-.moreicon{
-  margin:0;padding:0;vertical-align: bottom;font-size:24px;
-}
 /*For error msg in showbar*/
 .error-msg-span{
   color:red;font-size:103%;font-weight:bold;padding:0;margin: 0;
@@ -236,42 +248,7 @@ components:{
   opacity: 0;
 }
 /*css of textarea*/
-.addtext{
-  outline:none;
-  border:none;
-  border-bottom:1px dotted black;
-  -webkit-transition: 0.25s;
-  -moz-transition:0.25s;
-  transition:0.25s;
-  border-radius:2px;
-  margin:13px 0 10px 0;
-  box-shadow:0 0 3px 1px lightgrey;
-  padding:2%;
-  width:90%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  resize: vertical;
-  rows:4;
-}
-.addtext:focus{
-  box-shadow:0 0 4px 1px grey;
-  border-bottom:2px solid black;
-}
+
 /**/
-.reqbut{
-  outline:none;
-  border:none;
-  box-shadow:0 1px 3px 1px grey;
-  padding:1% 3%;
-  border-radius:2px;
-  cursor: pointer;
-  margin-left:1.6%;
-  font-weight: bolder;
-  background-color: #1E90FF;
-  color:#212f3d ;
-  transition:0.5s;
-}
-.reqbut:hover{
-  color:white;
-}
+
 </style>

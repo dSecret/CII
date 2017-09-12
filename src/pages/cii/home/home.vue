@@ -15,7 +15,7 @@ methods:{
 <style scoped>
 .router-css{
   padding-top:0;
-  width:60vw;
+  width:46vw;
   margin:0 auto;
 }
 @media only screen and (max-width:6in){

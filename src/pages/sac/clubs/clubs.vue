@@ -17,9 +17,9 @@
           <md-theme md-name="blue">
             <router-link  tag="md-button"
                         :to="club.linki"
-                        class="md-primary md-raised md-icon-button"
-            >
-                <md-icon>directions_bike</md-icon>
+                        class="md-primary  "
+            >   <span style="vertical-align:middle;">Go To</span>
+                <md-icon>near_me</md-icon>
             </router-link>
           </md-theme>
         </md-card-actions>

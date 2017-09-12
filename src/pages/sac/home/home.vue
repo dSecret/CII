@@ -18,7 +18,8 @@ export default {
   width:100vw;
 }
 .homecontainer{
-  width:60vw;margin-left:20vw;
+  width:47vw;
+  margin-left:26.5vw;
   margin-top:20px;
   padding-bottom:18vh;
 }
