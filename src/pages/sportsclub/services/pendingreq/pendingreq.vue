@@ -11,11 +11,14 @@
       </div>
       <div class="querytimeline" style="padding:1%;">
           <div class="title-cart">Requested Equipments</div>
-          <div class="sel-box" v-for="til in selectedcart">{{til}}
-              <div :title="removemsg" class="removebut" @click="removeitem(index)">
-                <i class="material-icons moreicon-nxt">cancel</i>
-              </div>
-          </div>
+          <md-chip md-deletable
+                    v-for="til in selectedcart"
+                    @delete="removeitem(index)"
+                    style="margin:5px 5px;"
+                  >
+                    {{til}}
+                  <md-tooltip md-direction="bottom">Remove from cart</md-tooltip>
+          </md-chip>
           <div style="color:grey;font-size:12px;margin:2% 0 1% 0">*Once you removed an item, you can not add it later to same
                 request.
           </div>

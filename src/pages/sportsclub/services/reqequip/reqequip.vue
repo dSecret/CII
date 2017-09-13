@@ -65,7 +65,7 @@
                       </md-chip>
                   <div >
                     <md-input-container>
-                      <label>Textarea</label>
+                      <label>Request Message</label>
                       <md-textarea></md-textarea>
                     </md-input-container>
                   </div>
@@ -156,11 +156,15 @@ components:{
   display:inline-block;
   margin-right:5px;
 }
+.sidebar{
+  margin:2% 0% 1% 0%;
+}
 }
 .wrap{
   width:100%;
   margin-top:-10vh;
   font-family: 'Roboto', sans-serif;
+  margin-bottom:20vh;
 }
 .container-select{
    padding-bottom:2%;padding-top:10px;

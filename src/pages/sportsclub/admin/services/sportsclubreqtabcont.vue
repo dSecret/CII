@@ -1,18 +1,25 @@
 <template>
-  <div class="allreqcontainer">
-      <div class="pure-g  data-container">
-          <div class="pure-u-1-3 even" >Name</div>
-          <div class="pure-u-1-3 odd">RequestedOn</div>
-          <div class="pure-u-1-3 even">Status</div>
-      </div>
-      <div class="pure-g  data-container">
-          <div class="pure-u-1-3 even" >AnkitKatakwar</div>
-          <div class="pure-u-1-3 odd">12 Jul'17</div>
-          <div class="pure-u-1-3 even clickable"
-            onclick="overlayout('overdiv')"><b style="cursor:pointer;">Process</b>
-          </div>
-      </div>
-      <overlayout></overlayout>
+  <div class="wrap">
+        <md-table v-once>
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Equipment</md-table-head>
+                <md-table-head >RequestedOn</md-table-head>
+                <md-table-head >Status</md-table-head>
+              </md-table-row>
+            </md-table-header>
+            <md-table-body>
+              <md-table-row >
+                <md-table-cell>Ankit Katakwar</md-table-cell>
+                <md-table-cell>12/05/2017</md-table-cell>
+                <md-table-cell
+                                style="color:red"
+                                >
+                                Process
+                </md-table-cell>
+              </md-table-row>
+            </md-table-body>
+        </md-table>
   </div>
 </template>
 
@@ -32,42 +39,9 @@ export default {
 
 <style scoped>
 
-.allreqcontainer{
-  width:100%;padding: 5px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  position: relative;
-  box-shadow:0 0 4px 1px lightgrey;
-}
-.data-container{
-  text-align: center;
-  width:100%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  border-left:2px solid black;
-  margin-top:1px;
-  font-size:16px;
-
-}
-.even{
-  background-color:#e5e8e8;
-  padding:8px 0%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  overflow-x:auto;
-  overflow-y: hidden;
-}
-.odd{
-  background-color: #f2f3f4 ;
-  padding:8px 0%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  overflow-x:auto;
-  overflow-y: hidden;
-}
-.clickable{
-  text-decoration: underline;
+.wrap{
+  margin-top:30px;
+  background-color: white;
 }
 /*CSS for and inside overlay*/
 

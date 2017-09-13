@@ -44,7 +44,13 @@ Vue.use(VueScrollTo, {
      cancelable: true,
      onDone: false,
      onCancel: false
- })
+ });
+Vue.directive('hideme',{
+    inserted:function(el){
+    //    this.el.$remove(el);
+        console.log('hideme is working')
+    }
+})
 
 Vue.use(VueRouter);
 Vue.use(VueCookie);

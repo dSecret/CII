@@ -3,7 +3,7 @@
       <div class="homecontainer">
         <!--<channelhome></channelhome>-->
 
-          <postss></postss>
+          <postss v-hideme></postss>
       </div>
   </div>
 </template>
