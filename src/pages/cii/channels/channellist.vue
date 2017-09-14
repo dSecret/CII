@@ -94,12 +94,12 @@ export default {
           },
 
           {
-            "title": "Cultural Club",
+            "title": "Canteen",
             "id": 3,
             "rank": 1,
             "background_img": "/src/assets/shuttle.jpg",
             "category": "PUBLIC",
-            "homelink":"/sac/culturalclub"
+            "homelink":"/canteen"
           },
           {
             "title": "Department of CS",

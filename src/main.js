@@ -9,7 +9,7 @@ import GSignInButton from 'vue-google-signin-button'
 import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
 import VueMasonryPlugin from "vue-masonry"
-import VueForm from 'vue-form';
+//import VueForm from 'vue-form';
 
 
 import {store} from './store/store.js'
@@ -58,7 +58,7 @@ Vue.use(VueMaterial);
 Vue.use(GSignInButton);
 Vue.use(VueResource);
 Vue.use(VueMasonryPlugin);
-Vue.use(VueForm);
+//Vue.use(VueForm);
 //Vue.use(VueForm, options);
 
 

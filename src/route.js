@@ -30,6 +30,10 @@ import issuedList from './pages/sportsclub/admin/services/IssuedListtab.vue'
 import sportsclubreqtab from './pages/sportsclub/admin/services/sportsclubreqtabcont.vue'
 import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListtabcont.vue'
 
+import canteen from './pages/canteen/canteen.vue'
+import canteenhome from './pages/canteen/home/home.vue'
+import canteenmenu from './pages/canteen/menu/menu.vue'
+
 import admin from './components/channelstemplates/admin/admin.vue'
 import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
 import adminpanel from './components/channelstemplates/admin/adminpanel/adminpanel.vue'
@@ -118,4 +122,11 @@ export default [
       }
     ]
   },
+  {
+    path:'/canteen',component:canteen,
+    children:[
+        {path:'',component:canteenhome},
+        {path:'menu',component:canteenmenu}
+    ]
+  }
 ]
