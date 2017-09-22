@@ -33,6 +33,8 @@ import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListta
 import canteen from './pages/canteen/canteen.vue'
 import canteenhome from './pages/canteen/home/home.vue'
 import canteenmenu from './pages/canteen/menu/menu.vue'
+import updatenoticeboard from './pages/canteen/admin/services/UpdateLiveMenu.vue'
+import updatemenu from './pages/canteen/admin/services/UpdateMenu.vue'
 
 import admin from './components/channelstemplates/admin/admin.vue'
 import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
@@ -47,7 +49,6 @@ import openpost from './components/ciiservices/postcomments/openpost.vue'
 import comments from './components/ciiservices/postcomments/comments.vue'
 import showform from './components/ciiservices/postcomments/showform.vue'
 import showpoll from './components/ciiservices/postcomments/showpoll.vue'
-
 
 export default [
   {path:'/',component:cii,
@@ -126,7 +127,13 @@ export default [
     path:'/canteen',component:canteen,
     children:[
         {path:'',component:canteenhome},
-        {path:'menu',component:canteenmenu}
+        {path:'menu',component:canteenmenu},
+        {path:'admin',component:admin,
+          children:[
+            {path:'updatenoticeboard',component:updatenoticeboard},
+            {path:'updatemenu',component:updatemenu}
+          ]
+        }
     ]
   }
 ]

@@ -31,6 +31,8 @@ export default {
            expand:[
              {title:'NewPost',linki:'/sac/admin/addpost',},
              {title:'Drafts',linki:'/sac/admin/drafts',},
+             {title:'LiveMenu',linki:'/canteen/admin/updatenoticeboard'},
+             {title:'Menu',linki:'/canteen/admin/updatemenu'},
              {title:'AdminPanel',linki:'/sac/admin/adminpanel',},
              {title:'SiteSettings',linki:'/sac/admin/settings',},
            ],
