@@ -3,17 +3,17 @@
           <div v-if="formfill"class="cardcontainer" >
             <md-input-container class="input-container">
                 <label>Title</label>
-                <md-input required v-model="post.title"></md-input>
+                <md-input required v-model="post.content.title"></md-input>
                 <md-icon>create</md-icon>
             </md-input-container>
             <md-input-container class="input-container" >
               <label>Description</label>
-              <md-textarea required v-model="post.body"></md-textarea>
+              <md-textarea required v-model="post.content.description"></md-textarea>
               <md-icon>create</md-icon>
             </md-input-container>
             <md-input-container class="input-container">
                 <label>Post-Banner</label>
-                <md-file  accept="image/*" v-model="post.banner"></md-file>
+                <md-file  accept="image/*" v-model="post.content.banner"></md-file>
             </md-input-container>
             <div class="rec-msg">
               You can attach multiple files like pdfs, poster in attachment/s field.
@@ -70,10 +70,31 @@ export default {
       postmesg:false,
       savedraft:false,
       formfill:true,
-      post:{
-        title:'',body:'',banner:'',attach:'',
-        linked:'',createdon:new Date()
-      }
+      post:{  "content": {
+                  "title": "",
+                  "description": "",
+                  "banner": "",
+                  "widgets": [
+                        // {
+                        //   "name": "",
+                        //   "id": ""
+                        // }
+                  ]
+             },
+            "metainfo": {
+              "created": "",
+              "op": {
+                "userid": "",
+                "flair": ""
+              }
+            },
+            "settings": {
+              "can_comment": true
+            },
+            "subscribed_by": [
+              "5611647ee802cc974efd804960007ad4"
+            ]
+     }
     }
   },
   methods:{
@@ -97,17 +118,9 @@ export default {
     //this.formfill=false;
   //   this.savedraft=false;
     //this.postmesg=true;
-    var channels=[{linked:'/sac/admin/addpost',channel:'SAC'},
-                  {linked:'/sac/sportsclub/admin/addpost ',channel:'sportsClub'},
-                ]
-      channels.forEach(c => {
-        if (c.linked === this.$route.path) {
-          this.post.linked=c.channel
-        }
-      })
-
+    this.post.content.widgets.push(this.$store.state.post.formstate)
+    this.post.metainfo.created=new Date();
     return this.$store.dispatch('post/addnewpost',this.post)
-     console.log('hellos')
    },
   },
   created(){

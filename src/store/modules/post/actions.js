@@ -10,6 +10,10 @@ const actions ={
   },
   openpost:(context,body)=>{
     context.commit('openpost',body)
+  },
+  openform:(context,body)=>{
+    context.commit('openform',body)
   }
+
 }
 export default actions

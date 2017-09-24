@@ -4,16 +4,15 @@ import axios from 'axios'
 const mutations ={
   formfield:(state,body)=>{
 
-      state.post.formfield=body
-      console.log(state.post.formfield)
+      //state.post.content.widgets.push=body
   },
   addnewpost:(state,body)=>{
 
-      state.post.meta=body
+      state.posti=body
       axios({
         method:'post',
-        url:'https://post-fcda4.firebaseio.com/post.json',
-        data:state.post
+        url:'http://localhost:8081/addnewpost',
+        data:state.posti
       })
         .then(function(response) {
               console.log(response)
@@ -23,26 +22,28 @@ const mutations ={
   showpost:(state,body)=>{
     axios({
       method:'get',
-      url:'https://post-fcda4.firebaseio.com/post.json',
+      url:'http://localhost:8081/getallpost',
     }).then(function(response) {
-        var formsarray=[];
-         for(let key in response.data){
-            response.data[key].id=key
-            formsarray.push(response.data[key]);
-         }
-            _.reverse(formsarray)
-            state.showpost=formsarray
-            console.log(state.showpost)
+            state.showpost=response.data
     });
 
   },
   openpost:(state,body)=>{
     axios({
       method:'get',
-      url:'https://post-fcda4.firebaseio.com/post/'+state.routeid+'.json',
+      url:'http://localhost:8081/getapost/'+state.routeid
     }).then(function(response) {
         state.openpost=response.data
-        //console.log(response)
+    });
+
+  },
+ openform:(state,body)=>{
+    axios({
+      method:'get',
+      url:'http://localhost:8081/getaform/'+body
+    }).then(function(response) {
+        state.openform=response.data
+        console.log(response)
     });
 
   }

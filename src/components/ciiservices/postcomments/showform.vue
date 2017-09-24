@@ -1,9 +1,9 @@
 <template>
   <div class="form-cont">
-    <div class="form-wrap" >
+    <!-- <div class="form-wrap" >
       <md-subheader>Form Fields</md-subheader>
       <md-list style="padding:0;margin:0;">
-        <md-list-item v-for="field in form.fields" :key="field.id" style="padding:0;margin:0;">
+        <md-list-item v-for="field in form" :key="field.id" style="padding:0;margin:0;">
           <md-whiteframe md-tag="div" style="width:100%;padding:25px;margin:0;" >
             <p><span class="md-subheading">{{ field.subhead }}</span></p>
             <p><span class="md-body-1">
@@ -27,25 +27,27 @@
     </div>
     <div align="right" style="padding-right:5px;">
         <md-button class="md-raised md-primary">Submit</md-button>
-    </div>
+    </div>  -->
+    {{formi}}
   </div>
 </template>
 
 <script>
 import loda from 'lodash'
-import VueMarkdown from 'vue-markdown'
 export default {
 
   data () {
     return {
-      form: {
-        "title": "",
-        "description": "",
-        "meta-info": {
-          "channel": ""
-        },
-        fields:this.$store.state.post.openpost.formfield,
-      }
+    }
+  },
+  created () {
+    var option=this.$route.params.id
+    return this.$store.dispatch('post/openform',option)
+  },
+  computed:{
+    formi(){
+      const formii =  this.$store.state.post.openform
+      return formii.form
     }
   }
 }

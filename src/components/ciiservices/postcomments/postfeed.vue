@@ -2,7 +2,7 @@
 	<div id="post-feed">
 		<div class="post-feed-posts">
 			<div v-for="p in showpost" id="post-wrap">
-				<post :post-attr="p"></post>
+				<post :post-attr="p"></post> 
 			</div>
 		</div>
 	</div>
@@ -27,30 +27,33 @@ export default {
     	user_uuid: "",
 			newposts:[],
 			posts : [{
-			  "_id": "853688b50f94a17d54f5283502006d9e",
-			  "_rev": "1-22fc2b0b0b17d57fd71368390472534a",
-			  "content": {
-			   "title": "Chess Tournament",
-			   "description": "A chess tournament to be held on 2nd June. Interested Participants register.",
-			   "banner": "",
-			   "widgets": [
-			    {
-			      "type": "form",
-			      "params": {
-
-			      }
-			    },
-			   ]
-			  },
-			  "created": "12 Jul 17 05:34 +0530",
-			  "OP": {
-			   "username": "viggyvig",
-			   "flair": "MODERATOR"
-			  },
-			  "favorites": {
-
-			  }
-			},]
+  "_id": "5611647ee802cc974efd804960008a73",
+  "_rev": "7-801177e52270ba1bb01b99f116611340",
+  "content": {
+    "title": "Chess Tournament",
+    "description": "Chess tournament to be held on 27th August at LT7",
+    "banner": "",
+    "widgets": [
+      {
+        "name": "FORM",
+        "id": "17d672e8-6d8c-498a-b9a7-557689fd7bf5"
+      }
+    ]
+  },
+  "metainfo": {
+    "created": "19 Jul 17 17:37 +0530",
+    "op": {
+      "userid": "5611647ee802cc974efd804960007ad4",
+      "flair": "MODERATOR"
+    }
+  },
+  "settings": {
+    "can_comment": true
+  },
+  "subscribed_by": [
+    "5611647ee802cc974efd804960007ad4"
+  ]
+}]
     };
   },
 

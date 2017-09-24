@@ -1,16 +1,38 @@
 const state ={
-  post:{  meta:{title:'',body:'',banner:'',attach:'',linked:'',createdon:''},
-          formfield:[],
-          poll:[],
-          comments:[{body:'',replies:[]}]
-        },
+  posti:{ },
   showpost:[],
-  openpost:{  meta:{title:'',body:'',banner:'',attach:'',linked:'',createdon:''},
-              formfield:[],
-              poll:[],
-              comments:[{body:'',replies:[]}]
-        },
-  routeid:''
+  // openpost:{  "content": {
+  //                 "title": "",
+  //                 "description": "",
+  //                 "banner": "",
+  //                 "widgets": [
+  //                       {
+  //                         "name": "",
+  //                         "id": ""
+  //                       }
+  //                 ],
+  //                 "channel":"SAS"
+  //            },
+  //           "metainfo": {
+  //             "created": "",
+  //             "op": {
+  //               "userid": "",
+  //               "flair": ""
+  //             }
+  //           },
+  //           "settings": {
+  //             "can_comment": true
+  //           },
+  //           "subscribed_by": [
+  //             "5611647ee802cc974efd804960007ad4"
+  //           ]
+  //    },
+  openpost:{},
+  routeid:'',
+  formstate:{},
+  openform:{},
+
 }
 
 export default state
+

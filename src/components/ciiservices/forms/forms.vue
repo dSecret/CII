@@ -168,7 +168,7 @@ export default {
   			index += 1
   		})
   	},
-  	reoderIndex () {
+  	reorderIndex () {
 
   		// sort by id
   		this.form.fields = loda.sortBy(this.form.fields, ["id"])
@@ -191,10 +191,11 @@ export default {
 				}
   	},
   	uploadForm () {
-      return this.$store.dispatch('post/formfield',this.form.fields)
-  	}
+       this.$store.state.post.formstate=this.form
+       console.log(this.$store.state.post.formstate)
+    },
   }
-};
+}
 </script>
 <style lang="css" scoped>
 

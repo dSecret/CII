@@ -47,7 +47,8 @@ import album from './components/channelstemplates/gallery/album.vue'
 import post from './components/ciiservices/postcomments/postfeed.vue'
 import openpost from './components/ciiservices/postcomments/openpost.vue'
 import comments from './components/ciiservices/postcomments/comments.vue'
-import showform from './components/ciiservices/postcomments/showform.vue'
+import showformattach from './components/ciiservices/postcomments/showformattach.vue'
+    import showform from  './components/ciiservices/postcomments/showform.vue'
 import showpoll from './components/ciiservices/postcomments/showpoll.vue'
 
 export default [
@@ -59,10 +60,11 @@ export default [
           {path:'/post/:id',component:openpost,
             children:[
               {path:'',component:comments},
-              {path:'form',component:showform},
+              {path:'form',component:showformattach},
               {path:'poll',component:showpoll},
             ]
-          }
+          },
+          {path:'/form/:id',component:showform}
         ]
       },
       {path:'/channels',component:ciichannel},
