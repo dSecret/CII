@@ -12,9 +12,20 @@
               <md-icon>create</md-icon>
             </md-input-container>
             <md-input-container class="input-container">
-                <label>Post-Banner</label>
-                <md-file  accept="image/*" v-model="post.content.banner"></md-file>
+                      <label>Post-Banner</label>
+                      <md-file  accept="image/*" 
+                                name="photos"
+                                id="file"
+                      >
+                      </md-file>
             </md-input-container>
+             <!-- <form novalidate 
+                enctype="multipart/form-data"
+             >
+                  <input type="file" name="filetoupload" multiple accept="image/*" id="file"
+                  ><br>
+                  
+             </form> -->
             <div class="rec-msg">
               You can attach multiple files like pdfs, poster in attachment/s field.
               Press ctrl and choose on your files.
@@ -23,6 +34,23 @@
                 <label>Attachment/s</label>
                 <md-file v-model="multiple" multiple></md-file>
             </md-input-container>
+            <div class="attach-container input-container" >
+                <md-list >
+                    <md-list-item v-for="attach in post.content.widgets">
+                      <md-avatar>
+                        <md-icon>description</md-icon>
+                      </md-avatar>
+
+                      <span>{{attach.title}}</span>
+
+                      <md-button class="md-icon-button md-list-action" 
+                                 @click="removeform(attach)"
+                      >
+                        <md-icon class="md-accent" >delete</md-icon>
+                      </md-button>
+                    </md-list-item>
+                </md-list>
+            </div>
             <div class="extratabcont " >
                 <md-tabs md-right class="md-transparent" >
                   <md-tab md-icon="description"><forms></forms>
@@ -56,13 +84,16 @@
                 NewPost
               </md-button>
           </div>
+          
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
+      fileupload:{},
       multiple:'',
       active: 'extratab1',
       showpoll:false,
@@ -70,31 +101,7 @@ export default {
       postmesg:false,
       savedraft:false,
       formfill:true,
-      post:{  "content": {
-                  "title": "",
-                  "description": "",
-                  "banner": "",
-                  "widgets": [
-                        // {
-                        //   "name": "",
-                        //   "id": ""
-                        // }
-                  ]
-             },
-            "metainfo": {
-              "created": "",
-              "op": {
-                "userid": "",
-                "flair": ""
-              }
-            },
-            "settings": {
-              "can_comment": true
-            },
-            "subscribed_by": [
-              "5611647ee802cc974efd804960007ad4"
-            ]
-     }
+      post:this.$store.state.post.posti,
     }
   },
   methods:{
@@ -114,16 +121,75 @@ export default {
      //this.savedraft=true;
      console.log('hello')
    },
+
+   removeform:function(attach){
+
+          return this.$store.dispatch('post/removeform',attach)
+   },
+   addFile(file){
+        console.log(file)
+       axios({
+        method:'post',
+        url:'http://localhost:8081/fileupload',
+        data:file
+      })
+        .then(function(response) {
+              console.log(response)
+
+      });
+   },
+   showfile:function(){
+      console.log("hello")
+      var data = new FormData();
+      var n=document.getElementById('file').files.length
+      var pdf =document.getElementById('file').files;
+
+
+      for (var x = 0; x < n; x++) {
+         data.append("files", pdf[x]);
+      }
+      console.log("this.$store.state.post.attachresp")
+      data.append("id",this.$store.state.post.attachresp.id)
+      data.append("rev",this.$store.state.post.attachresp.rev)
+     axios({
+                method:'post',
+                url:'http://localhost:8081/fileupload',
+                headers: {'Content-Type': 'multipart/form-data'},
+                data:data,
+              })
+               .then((response)=>{
+                  return Promise.resolve(response)
+                })
+                .then(function(response) {
+                      console.log(response)
+
+     });
+   },
    postnow:function(){
     //this.formfill=false;
   //   this.savedraft=false;
     //this.postmesg=true;
-    this.post.content.widgets.push(this.$store.state.post.formstate)
-    this.post.metainfo.created=new Date();
-    return this.$store.dispatch('post/addnewpost',this.post)
+     // var data = new FormData();
+     //  var n=document.getElementById('file').files.length
+     //  var pdf =document.getElementById('file').files;
+
+
+     //  // for (var x = 0; x < n; x++) {
+     //  //    data.append("fileToUpload", pdf[x]);
+     //  // }
+     //  data.append("files",pdf[0])
+     //  data.append("username",this.$store.state.post.attachresp)
+      //for image appending
+
+      var pass='hello'
+     this.post.metainfo.created=new Date();
+    
+      this.$store.dispatch('post/addnewpost',pass)
+      return this.showfile()
    },
-  },
+ },
   created(){
+
   }
 }
 </script>
@@ -166,6 +232,10 @@ export default {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   margin-top:120px;
+}
+.attach-container{
+  width:60%;
+  border:1px solid  lightgrey;
 }
 @media only screen and (max-width:5.5in){
 .wrap-all{

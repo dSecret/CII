@@ -1,5 +1,30 @@
 const state ={
-  posti:{ },
+
+  posti:{  "content": {
+                  "title": "",
+                  "description": "",
+                  "banner": "",
+                  "Attachments":[],
+                  "widgets": [
+                        // {
+                        //   "name": "",
+                        //   "id": ""
+                  ]
+             },
+            "metainfo": {
+              "created": "",
+              "op": {
+                "userid": "",
+                "flair": ""
+              }
+            },
+            "settings": {
+              "can_comment": true
+            },
+            "subscribed_by": [
+              "5611647ee802cc974efd804960007ad4"
+            ]
+  },
   showpost:[],
   // openpost:{  "content": {
   //                 "title": "",
@@ -31,6 +56,8 @@ const state ={
   routeid:'',
   formstate:{},
   openform:{},
+  form_widget:{"id":"","rev":""},
+  attachresp:{id:"",rev:""}
 
 }
 

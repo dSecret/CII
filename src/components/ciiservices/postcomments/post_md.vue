@@ -4,10 +4,10 @@
   <md-card-header >
     <md-card-header-text>
       <div >
-					<span class="md-title">{{postAttr.content.title}} </span>
-					<span class="md-subhead">{{postAttr.content.channel}} </span>
+					<span class="md-title">{{postAttr.post_content.title}} </span>
+					<!-- <span class="md-subhead">{{postAttr.post_content.channel}} </span> -->
 			</div>
-      <div class="md-subhead">{{postAttr.metainfo.created |formatDate}}</div>
+      <div class="md-subhead">{{postAttr.post_metainfo.created |formatDate}}</div>
     </md-card-header-text>
 
     <md-menu md-size="4" md-direction="bottom left">
@@ -32,17 +32,17 @@
     </md-menu>
   </md-card-header>
   <md-card-media>
-		<router-link :to="'/post/'+ postAttr._id">
-    	<img :src="'/src/assets/'+postAttr.content.banner"
-						v-if="postAttr.content.banner!=''"alt="Banner">
+		<router-link :to="'/post/'+ postAttr.postid">
+    	<img :src="'/src/assets/'+postAttr.post_content.banner"
+						v-if="postAttr.post_content.banner!=''"alt="Banner">
 		</router-link>
 
 	</md-card-media>
 
   <md-card-content >
-			{{ postAttr.content.description.slice(1,270) }}
+			{{ postAttr.post_content.description.slice(1,270) }}
 			<span style="flex:1;margin-left:4px;">.....
-					<router-link :to="'/post/'+ postAttr._id">[ContinueReading]</router-link>
+					<router-link :to="'/post/'+ postAttr.postid">[ContinueReading]</router-link>
 			</span>
 	</md-card-content>
 	<md-card-actions >
@@ -51,25 +51,25 @@
 							<md-icon style="color:maroon;" v-if="react" >favorite</md-icon>
 						</md-button>
 						<router-link tag="md-button"
-												:to="'/post/'+postAttr._id+'/form'"
+												:to="'/post/'+postAttr.postid+'/form'"
 												class="md-icon-button">
 												<md-icon>note</md-icon>
 						</router-link>
 						<router-link tag="md-button"
-												:to="'/post/'+postAttr._id+'/poll'"
+												:to="'/post/'+postAttr.postid+'/poll'"
 												class="md-icon-button">
 												<md-icon>poll</md-icon>
 						</router-link>
 						<router-link tag="md-button"
-												:to="'/post/'+postAttr._id"
+												:to="'/post/'+postAttr.postid"
 												class="md-icon-button">
 												<md-icon>comment</md-icon>
 						</router-link>
 	</md-card-actions>
 
 </md-card>
-<!-- </md-ink-ripple> -->
 </div>
+<!-- <p>{{ postAttr }}</p> -->
 </template>
 
 <script>

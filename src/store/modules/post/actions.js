@@ -13,6 +13,12 @@ const actions ={
   },
   openform:(context,body)=>{
     context.commit('openform',body)
+  },
+  addnewform:(context,body)=>{
+    context.commit('addnewform',body)
+  },
+  removeform:(context,body)=>{
+    context.commit('removeform',body)
   }
 
 }

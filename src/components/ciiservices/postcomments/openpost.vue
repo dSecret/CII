@@ -4,10 +4,10 @@
           <md-card-header >
             <md-card-header-text>
               <div >
-                  <span class="md-title">{{post.content.title}} </span>
-                  <span class="md-subhead">{{post.content.channel}} </span>
+                  <span class="md-title">{{post.post_content.title}} </span>
+                  <!-- <span class="md-subhead">{{post.post_content.channel}} </span> -->
               </div>
-              <div class="md-subhead">{{post.metainfo.created |formatDate}}</div>
+              <div class="md-subhead">{{post.post_metainfo.created |formatDate}}</div>
             </md-card-header-text>
 
             <md-menu md-size="4" md-direction="bottom left">
@@ -32,11 +32,11 @@
             </md-menu>
           </md-card-header>
           <md-card-media>
-              <img :src="'/src/assets/'+post.content.banner"  alt="Banner">
+              <img :src="'/src/assets/'+post.post_content.banner"  alt="Banner">
           </md-card-media>
 
           <md-card-content >
-              {{ post.content.description }}
+              {{ post.post_content.description }}
           </md-card-content>
           <md-card-actions >
         						<md-button class="md-icon-button" @click="react=!react">
@@ -44,24 +44,24 @@
         							<md-icon style="color:maroon;" v-if="react" >favorite</md-icon>
         						</md-button>
         						<router-link tag="md-button"
-        												:to="'/post/'+_id+'/form'"
+        												:to="'/post/'+post.postid+'/form'"
                                  v-if="!checkform"
         												class="md-icon-button">
         												<md-icon>note</md-icon>
         						</router-link>
         						<router-link tag="md-button"
-        												:to="'/post/'+_id+'/poll'"
+        												:to="'/post/'+post.postid+'/poll'"
                                 v-if="!checkpoll"
         												class="md-icon-button">
         												<md-icon>poll</md-icon>
         						</router-link>
         						<router-link tag="md-button"
-        												:to="'/post/'+_id"
+        												:to="'/post/'+post.postid"
         												class="md-icon-button">
         												<md-icon>comment</md-icon>
         						</router-link>
-        						<!--	<md-menu md-direction="bottom left" md-size="4">
-        						  <md-button md-menu-trigger
+        						<!-- 	<md-menu md-direction="bottom left" md-size="4">
+        						post_  <md-button md-menu-trigger
         													class="md-icon-button">
         								<md-icon>share</md-icon>
         							</md-button>
@@ -95,17 +95,20 @@
         								</social-sharing>
         							</div>
         						  </md-menu-content>
-        						</md-menu>-->
+        						</md-menu> -->
         	</md-card-actions>
 
           </md-card>
-        <!-- router view of post/id will be shown inside this crad -->
+        router view of post/id will be shown inside this crad
         <md-card style="margin-top:5px;">
             <md-card-content>
               <router-view></router-view>
             </md-card-content>
           </md-card>
+          <p>{{ post.post_content }}</p>
   </div> 
+   <!-- <p>{{ post }}</p> -->
+
 </template>
 
 <script>
@@ -114,7 +117,6 @@ export default {
 
   data () {
     return {
-      id:this.$store.state.post.routeid,
       react:false,
       checkform:false,
       checkpoll:false,
@@ -127,9 +129,7 @@ export default {
           this.post=data;
           console.log(data);
     })*/
-    var option='hello'
-    console.log(this.$route.params.id)
-    this.$store.state.post.routeid=this.$route.params.id
+    var option=this.$route.params.id
     return this.$store.dispatch('post/openpost',option);
   },
   computed:{

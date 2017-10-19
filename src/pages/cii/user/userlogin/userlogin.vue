@@ -1,6 +1,6 @@
 <template>
   <div class="login-wrap">
-    <g-signin-button
+<!--     <g-signin-button
     :params="googleSignInParams"
     @success="onSignInSuccess"
     @error="onSignInError">
@@ -13,12 +13,22 @@
     @open="onOpen"
     @close="onClose"
     ref="authFailDialog">
-  </md-dialog-alert>
+  </md-dialog-alert> -->
 
+    <!-- New Google sign in button -->
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
   </div>
 </template>
 
 <script>
+   function onSignIn(googleUser){
+          var profile = googleUser.getBasicProfile();
+          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    }
 export default {
   data () {
     return {
@@ -28,41 +38,44 @@ export default {
        * As the very least, a valid client_id must present.
        * @type {Object}
        */
-      googleSignInParams: {
-        client_id: '884405431289-ttttktv41c8vm562ubmlr9qo3f4ijp6u.apps.googleusercontent.com'
-      },
-      alert: {
-        content: 'Failed at authenticating user',
-        ok: 'TRY AGAIN'
-      },
+      // googleSignInParams: {
+      //   client_id: '884405431289-ttttktv41c8vm562ubmlr9qo3f4ijp6u.apps.googleusercontent.com'
+      // },
+      // alert: {
+      //   content: 'Failed at authenticating user',
+      //   ok: 'TRY AGAIN'
+      // },
     }
   },
-  methods: {
-    onSignInSuccess (googleUser) {
-      // `googleUser` is the GoogleUser object that represents the just-signed-in user.
-      // See https://developers.google.com/identity/sign-in/web/reference#users
-      const user_id_token = googleUser.getAuthResponse().id_token // etc etc
-      console.log(user_id_token)
+  // methods: {
+  //   onSignInSuccess (googleUser) {
+  //     // `googleUser` is the GoogleUser object that represents the just-signed-in user.
+  //     // See https://developers.google.com/identity/sign-in/web/reference#users
+  //     const user_id_token = googleUser.getAuthResponse().id_token // etc etc
+  //     console.log(user_id_token)
 
-      var form = new FormData()
+  //     var form = new FormData()
 
-      form.append('user_g_id_token', user_id_token)
+  //     form.append('user_g_id_token', user_id_token)
 
-      this.$http.post("http://localhost:8090/newsession", form).then(response => {
-        return response.json()
-      })
+  //     this.$http.post("http://localhost:8090/newsession", form).then(response => {
+  //       return response.json()
+  //     })
 
-    },
-    onSignInError (error) {
-      // `error` contains any error occurred.
-      openDialog("authFailDialog")
-    },
-    openDialog(ref) {
-      this.$refs[ref].open();
-    },
-    closeDialog(ref) {
-      this.$refs[ref].close();
-    }
+  //   },
+  //   onSignInError (error) {
+  //     // `error` contains any error occurred.
+  //     openDialog("authFailDialog")
+  //   },
+  //   openDialog(ref) {
+  //     this.$refs[ref].open();
+  //   },
+  //   closeDialog(ref) {
+  //     this.$refs[ref].close();
+  //   }
+  // }
+  methods:{
+
   }
 }
 </script>

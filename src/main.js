@@ -32,25 +32,7 @@ Vue.component('polls',polls);
 
 
 
-var SocialSharing = require('vue-social-sharing');
-Vue.use(SocialSharing);
 
-var VueScrollTo = require('vue-scrollto');
-Vue.use(VueScrollTo, {
-     container: "#scrolldiv",
-     duration: 500,
-     easing: "ease",
-     offset: 0,
-     cancelable: true,
-     onDone: false,
-     onCancel: false
- });
-Vue.directive('hideme',{
-    inserted:function(el){
-    //    this.el.$remove(el);
-        console.log('hideme is working')
-    }
-})
 
 Vue.use(VueRouter);
 Vue.use(VueCookie);
@@ -66,6 +48,21 @@ const router =new VueRouter({
   routes:Routes,
   /*mode:'history'*/
 });
+router.beforeEach((to, from,next) => {
+  // This fires after each route is entered.
+    var string =to.path
+     var   substring = "admin";
+
+     var check= string.includes(substring)
+      console.log(check)
+  if(check){
+    next('/')
+  }
+  else next()
+})
+
+
+
 Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).startOf('minutes').fromNow();
@@ -94,6 +91,7 @@ Vue.material.registerTheme({
     }
   }
 })
+
 new Vue({
   el: '#app',
   render: h => h(App),
