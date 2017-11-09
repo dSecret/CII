@@ -14,8 +14,8 @@
               </md-button>
               <md-menu-content>
                   <md-menu-item v-on:click="check()">EditProfile</md-menu-item>
-                  <md-menu-item>LastActivities</md-menu-item>
-                  <md-menu-item>LogOut</md-menu-item>
+                  <md-menu-item @click="userinfo">LastActivities</md-menu-item>
+                  <md-menu-item @click="logout">LogOut</md-menu-item>
               </md-menu-content>
             </md-menu>
         </div>
@@ -23,7 +23,7 @@
         <div class="user-details">161210009</div>
         <div class="user-details">BTech. </div>
         <div class="user-details">CSE</div>
-        <div class="user-details">1st year</div>
+        <div class="user-details"></div>
       </div>
       <div style="padding:0;">
         <md-tabs class="md-transparent"md-fixed md-centered style="overflow-x:hidden;">
@@ -70,6 +70,8 @@ import userrespo from './user_respo.vue'
 import userachieve from './user_achieve.vue'
 import userreq from './user_req.vue'
 import userlog from './user_log.vue'
+import axios from 'axios'
+import { logout,getAccessToken } from '../../../../../utils/auth';
 export default {
   components:{
     'respo':userrespo,
@@ -79,7 +81,7 @@ export default {
   },
   data () {
     return {
-        gg:'wha',
+        Auth:this.$store.state.user,
         options:'helllo'
   }},
   created(){
@@ -93,6 +95,24 @@ export default {
     check:function(){
       var options='hello'
       return this.$store.dispatch('user/addpriv',options)
+    },
+    logout(){
+      var options='hello'
+      return this.$store.dispatch('user/logout',options)
+    },
+    userinfo(){
+        var options = {
+              method: 'GET',
+              url: 'https://cii.auth0.com/api/v2/users/user_id',
+              headers: { 
+                  'content-type': 'application/json',
+                   'authorization': 'Bearer' + getAccessToken()
+                 }
+              };
+          console.log(getAccessToken())
+        axios(options,(response)=>{
+          console.log(response.data)
+        })
     }
   },
   computed:{

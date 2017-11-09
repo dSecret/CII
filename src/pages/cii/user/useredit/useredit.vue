@@ -11,6 +11,9 @@
 <script>
 import enterdet from './insideuser.vue'
 import enterdet_other from './outsideuser.vue'
+import { setIdToken, setAccessToken} from '../../../../../utils/auth';
+import auth0 from 'auth0-js'
+
 export default {
   components:{
     'edetail':enterdet,
@@ -20,7 +23,13 @@ export default {
     return {
       show:'false'
     }
-  }
+  },
+    mounted() {
+    this.$nextTick(() => {
+      setAccessToken();
+      setIdToken();
+    });
+  },
 }
 </script>
 
