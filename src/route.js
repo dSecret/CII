@@ -51,6 +51,11 @@ const showformattach =()=>import('./components/ciiservices/postcomments/showform
     const showform =()=>import('./components/ciiservices/postcomments/showform.vue')
 const showpoll =()=>import('./components/ciiservices/postcomments/showpoll.vue')
 
+
+// auth restrcitions
+import { requireAuth } from '../utils/auth';
+
+
 export default [
   {path:'/',component:cii,
     children:[
@@ -68,14 +73,15 @@ export default [
         ]
       },
       {path:'/channels',component:ciichannel},
-      {path:'/user',component:ciiuser,
+      {path:'/callback',component:useredit,beforeEnter: requireAuth},
+      {path:'/user',component:ciiuser,beforeEnter: requireAuth,
         children:[
           {path:'',component:userprofile},
-          {path:'login',component:userlogin},
           {path:'signup',component:usersignup},
-          {path:'editprofile',component:useredit}
+          {path:'editprofile',component:useredit,}
         ]
       },
+      {path:'/login',component:userlogin},
       {path:'notifications',component:ciinotify},
       {path:'search',component:ciisearch},
       {path:'userguide',component:userguide}

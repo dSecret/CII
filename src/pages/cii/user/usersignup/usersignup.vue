@@ -20,7 +20,7 @@
     </div>
     <div class="rec-msg">
       ***Moving to next step will be considered as you have accepted the
-        <a href="#">Terms&Conditions .</a>
+        <a href="#">Terms/Conditions .</a>
     </div>
   </div>
   <div style="text-align:center;font-size:20px;color:white">OR
@@ -32,7 +32,8 @@
 </template>
 
 <script>
-
+import { setIdToken, setAccessToken} from '../../../../../utils/auth';
+import auth0 from 'auth0-js'
 export default {
 
   data () {
@@ -68,6 +69,16 @@ export default {
            this.public=true;
         }
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      setAccessToken();
+      setIdToken();
+      window.location.href = '/';
+    });
+  },
+  created(){
+
   }
 }
 </script>

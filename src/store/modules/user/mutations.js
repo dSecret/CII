@@ -1,5 +1,7 @@
 import loda from 'lodash'
 import axios from 'axios'
+import {login,logout} from '../../../../utils/auth'
+
 
 const mutations = {
   addpriv:(state,option)=>{
@@ -10,6 +12,12 @@ const mutations = {
       .then(function(response) {
             console.log(response)
     });
+  },
+  login:(state,option)=>{
+		login()
+  },
+  logout:(state,option)=>{
+  		logout()
   }
 }
 export default mutations
