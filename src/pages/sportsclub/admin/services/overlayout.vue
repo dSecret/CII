@@ -69,15 +69,15 @@ export default {
     }
   },
     created(){
-      this.$http.get('http://localhost:3000/issued/').then(function(data){
-          console.log(data.body);
-          this.issuedlist=data.body;
-            this.issuedlist.forEach(c => {
-              if (c.status === false) {
-                this.filtered.push(c);
-              }
-              })
-      });
+      // this.$http.get('http://localhost:3000/issued/').then(function(data){
+      //     console.log(data.body);
+      //     this.issuedlist=data.body;
+      //       this.issuedlist.forEach(c => {
+      //         if (c.status === false) {
+      //           this.filtered.push(c);
+      //         }
+      //         })
+      // });
     },
 }
 </script>
