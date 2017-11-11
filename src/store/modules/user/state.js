@@ -1,5 +1,3 @@
-import {isLoggedIn,login,logout} from '../../../../utils/auth'
-
 const state ={
   profile:[
     {name:'SAS Officer',post:'Admin',editmode:false,
@@ -17,7 +15,7 @@ const state ={
       ],
     },
   ],
-  isAuthenticated:isLoggedIn(),
+
 }
 
 export default state
