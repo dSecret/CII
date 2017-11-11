@@ -1,30 +1,25 @@
 import Vue from 'vue'
 import App from './App.vue'
-import svgg from './svg.vue'
-import moment from 'moment'
+const svgg=()=>import('./svg.vue')
+const moment=()=>import('moment')
 import VueRouter from 'vue-router'
 import Routes from './route.js'
-import VueCookie from "vue-cookie"
-import GSignInButton from 'vue-google-signin-button'
+const  VueCookie =()=>import("vue-cookie")
+const GSignInButton=()=>import('vue-google-signin-button')
 import VueMaterial from 'vue-material'
-<<<<<<< HEAD
 import  VueResource from 'vue-resource'
 const VueMasonryPlugin =()=>import("vue-masonry")
-=======
-import VueResource from 'vue-resource'
-import VueMasonryPlugin from "vue-masonry"
->>>>>>> parent of a0bd3c3... Code splitting. resolved upto 4mb
 //import VueForm from 'vue-form';
 
 
 import {store} from './store/store.js'
 
 import channelnav from './components/channelstemplates/channelnav.vue'
-import channelhome from './components/channelstemplates/channelhome.vue'
+const channelhome =()=>import('./components/channelstemplates/channelhome.vue')
 
-import polls from './components/ciiservices/poll/polls.vue'
-import forms from './components/ciiservices/forms/forms.vue'
-import postss from './components/ciiservices/postcomments/postfeed.vue'
+const polls =()=>import('./components/ciiservices/poll/polls.vue')
+const forms =()=>import('./components/ciiservices/forms/forms.vue')
+const postss =()=>import('./components/ciiservices/postcomments/postfeed.vue')
 
 
 
@@ -41,12 +36,37 @@ Vue.component('polls',polls);
 
 Vue.use(VueRouter);
 Vue.use(VueCookie);
-Vue.use(VueMaterial);
+Vue.use(VueMaterial)
 Vue.use(GSignInButton);
 Vue.use(VueResource);
 Vue.use(VueMasonryPlugin);
 //Vue.use(VueForm);
 //Vue.use(VueForm, options);
+
+
+// Importing from vue-material
+// Vue.use(VueMaterial.MdCore) //Required to boot vue material
+// Vue.use(VueMaterial.MdButton)
+// Vue.use(VueMaterial.MdIcon)
+// Vue.use(VueMaterial.MdSidenav)
+// Vue.use(VueMaterial.MdToolbar)
+// Vue.use(VueMaterial.MdCard)
+// Vue.use(VueMaterial.MdChips)
+// Vue.use(VueMaterial.MdDialog)
+// Vue.use(VueMaterial.MdFile)
+// // Vue.use(VueMaterial.MdinkRipple)
+// // Vue.use(VueMaterial.MdInput)
+// Vue.use(VueMaterial.MdList)
+// Vue.use(VueMaterial.MdMenu)
+// Vue.use(VueMaterial.MdOnboarding)
+// Vue.use(VueMaterial.MdRadio)
+// Vue.use(VueMaterial.MdSelect)
+// Vue.use(VueMaterial.MdSpinner)
+// Vue.use(VueMaterial.MdSubheader)
+// Vue.use(VueMaterial.MdTabs)
+// Vue.use(VueMaterial.MdTable)
+// Vue.use(VueMaterial.MdToolbar)
+
 
 
 const router =new VueRouter({
@@ -55,15 +75,14 @@ const router =new VueRouter({
 });
 router.beforeEach((to, from,next) => {
   // This fires after each route is entered.
-    var string =to.path
+     var string =to.path
      var   substring = "admin";
-
      var check= string.includes(substring)
-      console.log(check)
-  if(check){
-    next('/')
-  }
-  else next()
+
+      if(check){
+        next('/')
+      }
+      else next()
 })
 
 

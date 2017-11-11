@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const cii=()=> import('./pages/cii/cii.vue')
 const ciihome =()=> import('./pages/cii/home/home.vue')
 const ciichannel=()=>import('./pages/cii/channels/channels.vue')
@@ -12,60 +11,46 @@ const ciiuser=()=>import('./pages/cii/user/user.vue')
   const useredit=()=>import('./pages/cii/user/useredit/useredit.vue')
   const callback=()=>import('./pages/cii/user/useredit/callback.vue')
   
-=======
-import cii from './pages/cii/cii.vue'
-import ciihome from './pages/cii/home/home.vue'
-import ciichannel from './pages/cii/channels/channels.vue'
-import ciinotify from './pages/cii/notifications/notifications.vue'
-import ciisearch from './pages/cii/searchbox/searchbox.vue'
-import userguide from './pages/cii/guide/userguide.vue'
-import ciiuser from './pages/cii/user/user.vue'
-  import userprofile from './pages/cii/user/userprofile/userprofile.vue'
-  import userlogin from './pages/cii/user/userlogin/userlogin.vue'
-  import usersignup from './pages/cii/user/usersignup/usersignup.vue'
-  import useredit from './pages/cii/user/useredit/useredit.vue'
 
->>>>>>> parent of a0bd3c3... Code splitting. resolved upto 4mb
-
-import sac from './pages/sac/sac.vue'
-import sachome from './pages/sac/home/home.vue'
-import sacclubs from './pages/sac/clubs/clubs.vue'
-import sacabout from './pages/sac/about/about.vue'
+const sac=()=>import('./pages/sac/sac.vue')
+const sachome=()=>import('./pages/sac/home/home.vue')
+const sacclubs=()=>import('./pages/sac/clubs/clubs.vue')
+const sacabout=()=>import('./pages/sac/about/about.vue')
 
 
 
-import sportsclub from './pages/sportsclub/sportsclub.vue'
-import sportsclubhome from './pages/sportsclub/home/home.vue'
-import sportsclubservices from './pages/sportsclub/services/services.vue'
-    import reqequip from './pages/sportsclub/services/reqequip/reqequip.vue'
-    import sportsclubreqpend from './pages/sportsclub/services/pendingreq/pendingreq.vue'
-    import sportsclubdues from './pages/sportsclub/services/yourdues/yourdues.vue'
-    import sportsclubissued from './pages/sportsclub/services/issued/issued.vue'
-import sportsclubgal from './pages/sportsclub/gallery/gal.vue'
-import issuedList from './pages/sportsclub/admin/services/IssuedListtab.vue'
-import sportsclubreqtab from './pages/sportsclub/admin/services/sportsclubreqtabcont.vue'
-import updateequiplist from './pages/sportsclub/admin/services/UpdateEquipListtabcont.vue'
+const  sportsclub =()=>import('./pages/sportsclub/sportsclub.vue')
+const sportsclubhome=()=>import('./pages/sportsclub/home/home.vue')
+const sportsclubservices=()=>import('./pages/sportsclub/services/services.vue')
+    const reqequip=()=>import('./pages/sportsclub/services/reqequip/reqequip.vue')
+    const sportsclubreqpend=()=>import('./pages/sportsclub/services/pendingreq/pendingreq.vue')
+    const sportsclubdues=()=>import('./pages/sportsclub/services/yourdues/yourdues.vue')
+    const sportsclubissued=()=>import('./pages/sportsclub/services/issued/issued.vue')
+const sportsclubgal=()=>import('./pages/sportsclub/gallery/gal.vue')
+const issuedList=()=>import('./pages/sportsclub/admin/services/IssuedListtab.vue')
+const sportsclubreqtab=()=>import('./pages/sportsclub/admin/services/sportsclubreqtabcont.vue')
+const updateequiplist=()=>import('./pages/sportsclub/admin/services/UpdateEquipListtabcont.vue')
 
-import canteen from './pages/canteen/canteen.vue'
-import canteenhome from './pages/canteen/home/home.vue'
-import canteenmenu from './pages/canteen/menu/menu.vue'
-import updatenoticeboard from './pages/canteen/admin/services/UpdateLiveMenu.vue'
-import updatemenu from './pages/canteen/admin/services/UpdateMenu.vue'
+const canteen=()=>import('./pages/canteen/canteen.vue')
+const canteenhome =()=>import('./pages/canteen/home/home.vue')
+const canteenmenu =()=>import('./pages/canteen/menu/menu.vue')
+const updatenoticeboard =()=>import('./pages/canteen/admin/services/UpdateLiveMenu.vue')
+const updatemenu =()=>import('./pages/canteen/admin/services/UpdateMenu.vue')
 
-import admin from './components/channelstemplates/admin/admin.vue'
-import addpost from './components/channelstemplates/admin/addnewpost/addpost.vue'
-import adminpanel from './components/channelstemplates/admin/adminpanel/adminpanel.vue'
+const admin =()=>import('./components/channelstemplates/admin/admin.vue')
+const addpost =()=>import('./components/channelstemplates/admin/addnewpost/addpost.vue')
+const adminpanel =()=>import('./components/channelstemplates/admin/adminpanel/adminpanel.vue')
 
-import gal from './components/channelstemplates/gallery/gal.vue'
-import galhomepage from './components/channelstemplates/gallery/galhomepage.vue'
-import album from './components/channelstemplates/gallery/album.vue'
+const gal =()=>import('./components/channelstemplates/gallery/gal.vue')
+const galhomepage =()=>import('./components/channelstemplates/gallery/galhomepage.vue')
+const album =()=>import('./components/channelstemplates/gallery/album.vue')
 
-import post from './components/ciiservices/postcomments/postfeed.vue'
-import openpost from './components/ciiservices/postcomments/openpost.vue'
-import comments from './components/ciiservices/postcomments/comments.vue'
-import showformattach from './components/ciiservices/postcomments/showformattach.vue'
-    import showform from  './components/ciiservices/postcomments/showform.vue'
-import showpoll from './components/ciiservices/postcomments/showpoll.vue'
+const post =()=>import('./components/ciiservices/postcomments/postfeed.vue')
+const openpost =()=>import('./components/ciiservices/postcomments/openpost.vue')
+const comments =()=>import('./components/ciiservices/postcomments/comments.vue')
+const showformattach =()=>import('./components/ciiservices/postcomments/showformattach.vue')
+    const showform =()=>import('./components/ciiservices/postcomments/showform.vue')
+const showpoll =()=>import('./components/ciiservices/postcomments/showpoll.vue')
 
 
 // auth restrcitions
