@@ -17,10 +17,13 @@
 
     <!-- New Google sign in button -->
           <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <button @click="logIn">login</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import { isLoggedIn, login, logout } from '../../../../../utils/auth';
    function onSignIn(googleUser){
           var profile = googleUser.getBasicProfile();
           console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -75,7 +78,9 @@ export default {
   //   }
   // }
   methods:{
-
+      logIn(){
+          login()
+      }
   }
 }
 </script>
