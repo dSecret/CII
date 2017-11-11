@@ -7,7 +7,7 @@ import Routes from './route.js'
 const  VueCookie =()=>import("vue-cookie")
 const GSignInButton=()=>import('vue-google-signin-button')
 import VueMaterial from 'vue-material'
-import  VueResource from 'vue-resource'
+const VueResource=()=>import('vue-resource')
 const VueMasonryPlugin =()=>import("vue-masonry")
 //import VueForm from 'vue-form';
 
@@ -71,7 +71,7 @@ Vue.use(VueMasonryPlugin);
 
 const router =new VueRouter({
   routes:Routes,
-  mode:'history'
+  /*mode:'history'*/
 });
 router.beforeEach((to, from,next) => {
   // This fires after each route is entered.
