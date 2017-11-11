@@ -9,8 +9,7 @@ const ciiuser=()=>import('./pages/cii/user/user.vue')
   const userlogin=()=>import('./pages/cii/user/userlogin/userlogin.vue')
   const usersignup=()=>import('./pages/cii/user/usersignup/usersignup.vue')
   const useredit=()=>import('./pages/cii/user/useredit/useredit.vue')
-  const callback=()=>import('./pages/cii/user/useredit/callback.vue')
-  
+
 
 const sac=()=>import('./pages/sac/sac.vue')
 const sachome=()=>import('./pages/sac/home/home.vue')
@@ -74,12 +73,12 @@ export default [
         ]
       },
       {path:'/channels',component:ciichannel},
-      {path:'/callback',component:callback},
+      {path:'/callback',component:useredit,beforeEnter: requireAuth},
       {path:'/user',component:ciiuser,beforeEnter: requireAuth,
         children:[
           {path:'',component:userprofile},
           {path:'signup',component:usersignup},
-          {path:'editprofile',component:useredit}
+          {path:'editprofile',component:useredit,}
         ]
       },
       {path:'/login',component:userlogin},
