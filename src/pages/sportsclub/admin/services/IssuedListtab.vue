@@ -37,10 +37,10 @@ export default {
     }
   },
   created(){
-    // this.$http.get('http://localhost:3000/issued/').then(function(data){
-    //     console.log(data.body);
-    //     this.issuedlist=data.body;
-    // });
+    this.$http.get('http://localhost:3000/issued/').then(function(data){
+        console.log(data.body);
+        this.issuedlist=data.body;
+    });
   },
 }
 </script>
