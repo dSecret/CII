@@ -7,13 +7,9 @@ import Routes from './route.js'
 import VueCookie from "vue-cookie"
 import GSignInButton from 'vue-google-signin-button'
 import VueMaterial from 'vue-material'
-<<<<<<< HEAD
 import  VueResource from 'vue-resource'
 const VueMasonryPlugin =()=>import("vue-masonry")
-=======
-import VueResource from 'vue-resource'
-import VueMasonryPlugin from "vue-masonry"
->>>>>>> parent of a0bd3c3... Code splitting. resolved upto 4mb
+
 //import VueForm from 'vue-form';
 
 

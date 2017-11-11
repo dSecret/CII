@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const cii=()=> import('./pages/cii/cii.vue')
 const ciihome =()=> import('./pages/cii/home/home.vue')
 const ciichannel=()=>import('./pages/cii/channels/channels.vue')
@@ -12,20 +11,6 @@ const ciiuser=()=>import('./pages/cii/user/user.vue')
   const useredit=()=>import('./pages/cii/user/useredit/useredit.vue')
   const callback=()=>import('./pages/cii/user/useredit/callback.vue')
   
-=======
-import cii from './pages/cii/cii.vue'
-import ciihome from './pages/cii/home/home.vue'
-import ciichannel from './pages/cii/channels/channels.vue'
-import ciinotify from './pages/cii/notifications/notifications.vue'
-import ciisearch from './pages/cii/searchbox/searchbox.vue'
-import userguide from './pages/cii/guide/userguide.vue'
-import ciiuser from './pages/cii/user/user.vue'
-  import userprofile from './pages/cii/user/userprofile/userprofile.vue'
-  import userlogin from './pages/cii/user/userlogin/userlogin.vue'
-  import usersignup from './pages/cii/user/usersignup/usersignup.vue'
-  import useredit from './pages/cii/user/useredit/useredit.vue'
-
->>>>>>> parent of a0bd3c3... Code splitting. resolved upto 4mb
 
 import sac from './pages/sac/sac.vue'
 import sachome from './pages/sac/home/home.vue'
